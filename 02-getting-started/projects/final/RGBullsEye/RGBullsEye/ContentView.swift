@@ -21,6 +21,7 @@ struct ContentView: View {
                 .fill(Color(rgbStruct: guess))
             Text(guess.intString())
                 .padding()
+            // @State 里面的 red, 并不是一个 @State 的值, 也可以当做是 Subject 来进行 使用了.
             ColorSlider(value: $guess.red, trackColor: .red)
             ColorSlider(value: $guess.green, trackColor: .green)
             ColorSlider(value: $guess.blue, trackColor: .blue)
@@ -47,13 +48,16 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+// 子类化,
 struct ColorSlider: View {
+    // 从目前来看, @Binding 里面, 会存储一个 Subject 的值.
     @Binding var value: Double
     var trackColor: Color
     
     var body: some View {
         HStack {
             Text("0")
+            // $value 会暴露出, 里面存储的 Subject 的值.
             Slider(value: $value)
                 .accentColor(trackColor)
             Text("255")
