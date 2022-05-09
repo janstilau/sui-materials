@@ -3,7 +3,9 @@ import Foundation
 
 struct Game {
     let start = RGB()
+    // 左侧的 View 的颜色值, 右侧的颜色值, 慢慢地进行靠拢. 
     var target = RGB.random()
+    
     var round = 1
     var scoreRound = 0
     var scoreTotal = 0
@@ -17,7 +19,9 @@ struct Game {
         scoreRound = 100 - difference
         if difference == 0 {
             scoreRound += 100
-        } else if difference == 1 { scoreRound += 50 }
+        } else if difference == 1 {
+            scoreRound += 50
+        }
         scoreTotal += scoreRound
     }
     
