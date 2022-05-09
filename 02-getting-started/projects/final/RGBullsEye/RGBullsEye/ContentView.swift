@@ -44,7 +44,7 @@ struct ContentView: View {
             ColorSlider(value: $guess.blue, trackColor: .blue)
             Button("Hit Me!") {
                 showScore = true
-//                staticShowScore = true
+                //                staticShowScore = true
                 game.check(guess: guess)
             }
             .alert(isPresented: $showScore) {
