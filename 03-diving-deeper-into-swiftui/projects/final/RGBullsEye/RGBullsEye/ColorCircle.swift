@@ -15,14 +15,18 @@ struct ColorCircle: View {
     
     var body: some View {
         ZStack {
+            // 给, 下面的 BGView 添加阴影效果. 而不是整个 View
             Circle()
                 .fill(Color.element)
                 .northWestShadow()
+            
+            // 根据, 外界传过来的值, 来设置中间填充颜色的值. 
             Circle()
                 .fill(Color(red: rgb.red, green: rgb.green, blue: rgb.blue))
             // 这个 Padding, 是向内进行压缩的值.
                 .padding(20)
         }
+        // 根据, 外界传过来的值, 来设置 BodyView 的大小.
         .frame(width: size, height: size)
     }
 }
@@ -34,7 +38,7 @@ struct ColorCircle_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.element
-            ColorCircle(rgb: RGB(), size: 300)
+            ColorCircle(rgb: RGB.init(red: 1, green: 0, blue: 0), size: 200)
         }
         .frame(width: 300, height: 300)
         .previewLayout(.sizeThatFits)

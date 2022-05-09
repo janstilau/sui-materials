@@ -5,6 +5,7 @@ struct ContentView: View {
     @State var guess: RGB
     @State var showScore = false
     
+    // 可以在 Struct View 里面, 出现非发射性的属性. 但是, 就是当做常量使用了.
     let circleSize: CGFloat = 0.275
     let labelHeight: CGFloat = 0.06
     let labelWidth: CGFloat = 0.53
@@ -15,7 +16,7 @@ struct ContentView: View {
             // A view that overlays its children, aligning them in both axes.
             ZStack {
                 // 背景图
-                Color.customPurple
+                Color.element
                     .ignoresSafeArea()
                 // 内容视图.
                 VStack {
@@ -43,6 +44,7 @@ struct ContentView: View {
                     ColorSlider(value: $guess.red, trackColor: .red)
                     ColorSlider(value: $guess.green, trackColor: .green)
                     ColorSlider(value: $guess.blue, trackColor: .blue)
+                    
                     Button("Hit Me!") {
                         self.showScore = true
                         self.game.check(guess: guess)
