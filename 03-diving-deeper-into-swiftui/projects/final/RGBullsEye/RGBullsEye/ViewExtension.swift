@@ -1,5 +1,9 @@
 import SwiftUI
 
+/*
+ Swift UI, 本质上还是 Swift 的代码, 所以各种 Swift 的特性, 其实都可以添加到上面. 
+ */
+ 
 extension View {
     /// Simulate shining a light on the northwest edge of a view.
     /// Light shadow on the northwest edge, dark shadow on the southeast edge.
@@ -12,10 +16,7 @@ extension View {
     ) -> some View {
         return self
             .shadow(
-                color: .highlight,
-                radius: radius,
-                x: -offset,
-                y: -offset)
+                color: .highlight, radius: radius, x: -offset, y: -offset)
             .shadow(
                 color: .shadow, radius: radius, x: offset, y: offset)
     }

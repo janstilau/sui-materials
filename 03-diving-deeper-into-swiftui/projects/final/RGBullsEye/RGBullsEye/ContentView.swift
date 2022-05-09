@@ -12,9 +12,12 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader { proxy in
+            // A view that overlays its children, aligning them in both axes.
             ZStack {
-                Color.element
+                // 背景图
+                Color.customPurple
                     .ignoresSafeArea()
+                // 内容视图.
                 VStack {
                     ColorCircle(
                         rgb: game.target,

@@ -27,7 +27,9 @@ struct BevelText_Previews: PreviewProvider {
         ZStack {
             Color.element
             BevelText(
-                text: "R: ??? G: ??? B: ???", width: 200, height: 48)
+                text: "R: ??? G: ??? B: ???",
+                width: 200,
+                height: 48)
         }
         .frame(width: 300, height: 100)
         .previewLayout(.sizeThatFits)
