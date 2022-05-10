@@ -1,12 +1,11 @@
-/*
- See LICENSE folder for this sample’s licensing information.
- 
- Abstract:
- A view that presents a map.
- */
 
 import SwiftUI
 import MapKit
+
+// MapKit 里面, 专门对于 SwiftUI 的适配. 应该在后续教程中, UIKit 适配 SwiftUI 里面会有相关的内容.
+/*
+ When you import SwiftUI and certain other frameworks in the same file, you gain access to SwiftUI-specific functionality provided by that framework.
+ */
 
 struct MapView: View {
     @State private var region = MKCoordinateRegion(
@@ -15,7 +14,16 @@ struct MapView: View {
     )
     
     var body: some View {
-        Map(coordinateRegion: $region)
+        VStack {
+            Spacer.init(minLength: 44)
+            Text(location())
+            Map(coordinateRegion: $region)
+        }
+        
+    }
+    
+    func location() -> String {
+        return "\(region.center.latitude.description)"
     }
 }
 

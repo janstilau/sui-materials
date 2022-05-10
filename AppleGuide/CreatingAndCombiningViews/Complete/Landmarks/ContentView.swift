@@ -19,8 +19,9 @@ struct ContentView: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
-                Text("Turtle Rock")
+                Text("JustinLauKingdom")
                     .font(.title)
+                    .padding(.all)
                 
                 HStack {
                     Text("Joshua Tree National Park")
