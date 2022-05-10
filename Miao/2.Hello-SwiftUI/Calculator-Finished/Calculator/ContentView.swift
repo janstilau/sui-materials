@@ -9,42 +9,30 @@
 import SwiftUI
 import Combine
 
+/*
+ 从 Xcode 这样的预览设计, 可以决定了 Swift UI 里面的代码, 一定是竖长形的.
+ 各种使用了响应式框架的 MVVM 代码, 也都是竖长形的.
+ */
+
 let scale = UIScreen.main.bounds.width / 414
 
 struct ContentView : View {
     
     var body: some View {
         VStack(spacing: 12) {
-            
             Spacer()
-            
             Text("0")
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.trailing, 24 * scale)
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    alignment: .trailing)
-            
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             CalculatorButtonPad()
                 .padding(.bottom)
         }
     }
 }
 
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-            ContentView().previewDevice("iPhone SE")
-            ContentView().previewDevice("iPad Air 2")
-        }
-    }
-}
-
 struct CalculatorButton : View {
-    
     let fontSize: CGFloat = 38
     let title: String
     let size: CGSize
@@ -66,6 +54,7 @@ struct CalculatorButton : View {
 
 struct CalculatorButtonRow : View {
     let row: [CalculatorButtonItem]
+    
     var body: some View {
         HStack {
             ForEach(row, id: \.self) { item in
@@ -100,3 +89,14 @@ struct CalculatorButtonPad: View {
         }
     }
 }
+
+// 如果, 不在 SwiftUI 的 View 文件里面, 编写下面的代码, 右侧是不会出现 Canvas 面板的.
+//struct ContentView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ContentView()
+////            ContentView().previewDevice("iPhone SE")
+////            ContentView().previewDevice("iPad Air 2")
+//        }
+//    }
+//}

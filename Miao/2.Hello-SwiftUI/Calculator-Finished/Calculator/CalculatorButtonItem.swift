@@ -11,7 +11,7 @@ import SwiftUI
 
 // 使用, Enum 当做数据盒子. 
 enum CalculatorButtonItem {
-    
+    // 将, 各种状态, 通过 Enum 进行定义, 会让代码逻辑更加的清晰.
     enum Op: String {
         case plus = "+"
         case minus = "-"
@@ -42,6 +42,8 @@ extension CalculatorButtonItem {
         }
     }
     
+    // 所有 UI 相关的东西, 如果需要自我控制, 那么将这些逻辑封装到逻辑层.
+    // 从这个意义上来看, View 中存储的, 其实会有很多的 ViewState 的值.
     var size: CGSize {
         if case .digit(let value) = self, value == 0 {
             return CGSize(width: 88 * 2 + 8, height: 88)
@@ -49,6 +51,7 @@ extension CalculatorButtonItem {
         return CGSize(width: 88, height: 88)
     }
     
+    // ViewState 相关的属性.
     var backgroundColorName: String {
         switch self {
         case .digit, .dot:
@@ -60,6 +63,7 @@ extension CalculatorButtonItem {
         }
     }
     
+    // ViewState 相关的属性. 
     var foregroundColor: Color {
         switch self {
         case .command:
