@@ -29,6 +29,9 @@ struct LandmarkDetail: View {
                 HStack {
                     Text(landmark.name)
                         .font(.title)
+                    // 使用了 modelData 这个总的 Model, 来去获取了相关的数据.
+                    // 提前抽取出来岂不是更好吗.
+                    // 提前抽取出来, 会不会变为了值语义的???
                     FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
                 }
                 
