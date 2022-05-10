@@ -25,7 +25,7 @@ enum CalculatorButtonItem {
         case percent = "%"
     }
     
-    case digit(Int)
+    case digit(Int) //
     case dot
     case op(Op)
     case command(Command)

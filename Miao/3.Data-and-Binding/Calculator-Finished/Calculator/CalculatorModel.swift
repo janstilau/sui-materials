@@ -17,6 +17,9 @@ class CalculatorModel: ObservableObject {
     var temporaryKept: [CalculatorButtonItem] = []
     
     func apply(_ item: CalculatorButtonItem) {
+        // Brain 记录了当前的输入状态.
+        // 并且, 封装了根据记录状态和输入, 计算出新的状态的能力.
+        // Brain, 是一个 Enum 对象, 一个值语义的对象. 所以每次都是全量的更新. 而这种更新方式, 使得 @Published 生效.
         brain = brain.apply(item: item)
         history.append(item)
         
