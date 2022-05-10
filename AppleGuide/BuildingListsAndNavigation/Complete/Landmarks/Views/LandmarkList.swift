@@ -19,6 +19,7 @@ struct LandmarkList: View {
             }
             .navigationTitle("Landmarks")
         }
+        .background(Color.red)
     }
 }
 
