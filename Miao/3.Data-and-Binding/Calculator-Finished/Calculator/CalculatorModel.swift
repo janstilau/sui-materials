@@ -49,7 +49,7 @@ class CalculatorModel: ObservableObject {
         brain = history.reduce(CalculatorBrain.left("0")) {
             result, item in
             // brain 的状态, 是从头到尾进行了一次计算模拟得到的.
-            // 所以, 这里感觉会有一些性能损失. 
+            // 所以, 这里感觉会有一些性能损失.
             result.apply(item: item)
         }
     }

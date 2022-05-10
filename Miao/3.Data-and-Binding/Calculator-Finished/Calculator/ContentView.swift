@@ -45,16 +45,6 @@ struct ContentView : View {
     }
 }
 
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-            ContentView().previewDevice("iPhone SE")
-            ContentView().previewDevice("iPad Air 2")
-        }
-    }
-}
-
 struct CalculatorButton : View {
     // 各种, 相关的数据, 需要在构造方法中传递过来.
     // 并且, 因为 SwiftUI 里面的都是 Struct 类型的, 所以, 自动的进行了 memberWise 构造方法的声明.
@@ -77,6 +67,25 @@ struct CalculatorButton : View {
     }
 }
 
+struct CalculatorButtonPad: View {
+    let pad: [[CalculatorButtonItem]] = [
+        [.command(.clear), .command(.flip),
+         .command(.percent), .op(.divide)],
+        [.digit(7), .digit(8), .digit(9), .op(.multiply)],
+        [.digit(4), .digit(5), .digit(6), .op(.minus)],
+        [.digit(1), .digit(2), .digit(3), .op(.plus)],
+        [.digit(0), .dot, .op(.equal)]
+    ]
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            ForEach(pad, id: \.self) { row in
+                CalculatorButtonRow(row: row)
+            }
+        }
+    }
+}
+
 struct CalculatorButtonRow : View {
     let row: [CalculatorButtonItem]
     @EnvironmentObject var model: CalculatorModel
@@ -93,25 +102,6 @@ struct CalculatorButtonRow : View {
                     // 因为 UI 里面, 无法进行数据更改, 所以就是触发 ModelAction. Model 改变之后, 再次触发 View 的更改
                     self.model.apply(item)
                 }
-            }
-        }
-    }
-}
-
-struct CalculatorButtonPad: View {
-    let pad: [[CalculatorButtonItem]] = [
-        [.command(.clear), .command(.flip),
-         .command(.percent), .op(.divide)],
-        [.digit(7), .digit(8), .digit(9), .op(.multiply)],
-        [.digit(4), .digit(5), .digit(6), .op(.minus)],
-        [.digit(1), .digit(2), .digit(3), .op(.plus)],
-        [.digit(0), .dot, .op(.equal)]
-    ]
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            ForEach(pad, id: \.self) { row in
-                CalculatorButtonRow(row: row)
             }
         }
     }
@@ -138,5 +128,16 @@ struct HistoryView: View {
                        step: 1)
             }
         }.padding()
+    }
+}
+
+
+struct ContentView_Previews : PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView()
+            ContentView().previewDevice("iPhone SE")
+            ContentView().previewDevice("iPad Air 2")
+        }
     }
 }

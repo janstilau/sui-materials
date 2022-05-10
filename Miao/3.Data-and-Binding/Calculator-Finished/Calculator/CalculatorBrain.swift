@@ -8,23 +8,29 @@
 
 import Foundation
 
-// 这是一个状态类.
-// 这是一个值语义的对象, 所以, 不断的传递, 其实会复制的, 在传递之后的修改, 是不会对于原有的数据有任何的影响的.
+/*
+ CalculatorBrain 这个类, 是主要的计算器逻辑类.
+ 但是, 存储是 ViewModel 中做的.
+ 这是一个工具类.
+ */
+
+// 这是一个Enum 的对象, 所以, 不断的传递, 其实会复制的, 在传递之后的修改, 是不会对于原有的数据有任何的影响的.
 enum CalculatorBrain {
     case left(String)
     case leftOp(left: String, op: CalculatorButtonItem.Op)
-    // 存储了状态, 但是还没有计算. 因为 right 的值, 可能还在不断的拼接新的输入.
-    // 只有到了应该触发的时候, 比如输入了 =, 或者 下一个操作符的时候, 才会将 leftOpRight 的值进行计算, 然后将状态变为 leftOp.
     case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String)
     case error
     
     /*
      这个类, 最最重要的方法. 根据用户的输入, 更新当前状态机的内容.
      整个更新的逻辑, 是放到了这个类里面, 在 ViewModel 里面, 并不用关心计算器的逻辑.
-     ViewModel 本质上来说, 是 Controller 层的东西. 使用工具类, 或者说, Model 内部将相关的逻辑进行封装, 能够大大简化 Controller 层的逻辑. 这在 MVVM 这种架构里面, 也是同样的思路.
+     
+     ViewModel 本质上来说, 是 Controller 层的东西. 而 MVC 的问题, 就是 Controller 里面的逻辑太过于繁琐和复杂.
+     使用业务逻辑类, 或者说, Model 类将相关的逻辑进行封装, 能够大大简化 Controller 层的逻辑. 这在 MVVM 这种架构里面, 也是同样的思路.
      */
     @discardableResult
     func apply(item: CalculatorButtonItem) -> CalculatorBrain {
+        // 各种 Apply 操作的逻辑, 除了和用户点击的按钮相关, 更和当前的 Briain 的状态相关.
         switch item {
         case .digit(let num):
             return apply(num: num)
@@ -59,16 +65,16 @@ extension CalculatorBrain {
     private func apply(num: Int) -> CalculatorBrain {
         switch self {
         case .left(let left):
-            // 在 DisPatch 之后, 数据如何进行更新, 还是交给了 String, Operation.
-            // 这是得益于 Swift 方便的 Extension 的机制.
-            // 使得各个函数防止到了类型相关的代码里面, 而不是业务逻辑类中. Private 的限制, 也是的这种扩展, 不会污染到外界的环境.
+            // 左操作数输入状态, 碰到了数字, 归到左操作数中.
             return .left(left.apply(num: num))
         case .leftOp(let left, let op):
+            // 操作符输入结束, 碰到了数字, 归到右操作数中.
             return .leftOpRight(left: left, op: op, right: "0".apply(num: num))
         case .leftOpRight(let left, let op, let right):
+            // 右操作数输入状态, 碰到了数字, 归到右操作数中.
             return .leftOpRight(left: left, op: op, right: right.apply(num: num))
         case .error:
-            // 如果当前的状态是错误状态, 那么新的输入, 会自动的开启下一个计算流程.
+            // 当前错误状态, 碰到了数字, 认为开启新的计算流程, 归到左操作数中.
             return .left("0".apply(num: num))
         }
     }
@@ -76,12 +82,16 @@ extension CalculatorBrain {
     private func applyDot() -> CalculatorBrain {
         switch self {
         case .left(let left):
+            // 做操作数输入状态, 碰到小数点, 将小数点, 合并到左操作数中.
             return .left(left.applyDot())
         case .leftOp(let left, let op):
+            // 操作符输入完毕状态, 碰到了小数点, 将小数点, 归到右操作数中.
             return .leftOpRight(left: left, op: op, right: "0".applyDot())
         case .leftOpRight(let left, let op, let right):
+            // 右操作数输入状态, 碰到了小数点, 将小数点, 归到右操作数中.
             return .leftOpRight(left: left, op: op, right: right.applyDot())
         case .error:
+            // 当前错误状态, 碰到了小数点, 将小数点, 归到左操作数中.
             return .left("0".applyDot())
         }
     }
@@ -90,17 +100,20 @@ extension CalculatorBrain {
         switch self {
         case .left(let left):
             switch op {
+                // 左操作数输入状态, 碰到了操作符, 进入到操作符输入完毕状态.
             case .plus, .minus, .multiply, .divide:
                 return .leftOp(left: left, op: op)
+                // 左操作数输入状态, 碰到了==操作符, 还是在左操作符输入状态.
             case .equal:
                 return self
             }
         case .leftOp(let left, let currentOp):
             switch op {
             case .plus, .minus, .multiply, .divide:
+                // 操作符输入完毕状态, 碰到了操作符, 其实是修改输入的操作符.
                 return .leftOp(left: left, op: op)
             case .equal:
-                // 如果, 是 1+=这种情形, 那么默认是将 1+1=2 的计算, 也就是第一个操作数, 进行了重用处理.
+                // 这可能是一个通用逻辑, 就是前操作符赋值成为后操作数, 来做运算. 等号的方便用法????
                 if let result = currentOp.calculate(l: left, r: left) {
                     return .leftOp(left: result, op: currentOp)
                 } else {
@@ -187,6 +200,8 @@ extension String {
     
     // 数字和小数点的拼接工作.
     func applyDot() -> String {
+        // 如果, 已经是包含了小数点, 那么就不做处理了.
+        // 这是一个正确的操作. 相比较于报错, 认为这是用户的无意间的错误行为, 是更加友好的设计思路.
         return containsDot ? self : "\(self)."
     }
     
@@ -206,6 +221,7 @@ extension String {
 }
 
 extension CalculatorButtonItem.Op {
+    // 将四则运算的相关逻辑, 放到了 Operation 类里面了.
     func calculate(l: String, r: String) -> String? {
         guard let left = Double(l),
               let right = Double(r) else {

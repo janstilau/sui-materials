@@ -67,6 +67,7 @@ extension CalculatorButtonItem {
     }
     
     // ViewState 相关的属性.
+    // 在 UI 中被用到了, 应该如何显示按钮的文字颜色.
     var foregroundColor: Color {
         switch self {
         case .command:
