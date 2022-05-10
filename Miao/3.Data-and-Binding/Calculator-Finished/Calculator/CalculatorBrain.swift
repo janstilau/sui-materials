@@ -18,8 +18,9 @@ enum CalculatorBrain {
     case error
     
     /*
-     CalculatorButtonItem 是计算器视图的每个 View 的 Model 类型.
-     使用 Enum 的方式, 使得状态管理更加的清晰, Model 中不会有非法状态的存在.
+     这个类, 最最重要的方法. 根据用户的输入, 更新当前状态机的内容.
+     整个更新的逻辑, 是放到了这个类里面, 在 ViewModel 里面, 并不用关心计算器的逻辑.
+     ViewModel 本质上来说, 是 Controller 层的东西. 使用工具类, 或者说, Model 内部将相关的逻辑进行封装, 能够大大简化 Controller 层的逻辑. 这在 MVVM 这种架构里面, 也是同样的思路.
      */
     @discardableResult
     func apply(item: CalculatorButtonItem) -> CalculatorBrain {
@@ -56,6 +57,9 @@ extension CalculatorBrain {
     private func apply(num: Int) -> CalculatorBrain {
         switch self {
         case .left(let left):
+            // 在 DisPatch 之后, 数据如何进行更新, 还是交给了 String, Operation.
+            // 这是得益于 Swift 方便的 Extension 的机制.
+            // 使得各个函数防止到了类型相关的代码里面, 而不是业务逻辑类中. Private 的限制, 也是的这种扩展, 不会污染到外界的环境.
             return .left(left.apply(num: num))
         case .leftOp(let left, let op):
             return .leftOpRight(left: left, op: op, right: "0".apply(num: num))
@@ -103,6 +107,7 @@ extension CalculatorBrain {
             }
         case .leftOpRight(let left, let currentOp, let right):
             switch op {
+                // 在这种场景下, 再次点击 Operation 的按钮, 就需要将上一个阶段的数据进行计算融合了.
             case .plus, .minus, .multiply, .divide:
                 if let result = currentOp.calculate(l: left, r: right) {
                     return .leftOp(left: result, op: op)

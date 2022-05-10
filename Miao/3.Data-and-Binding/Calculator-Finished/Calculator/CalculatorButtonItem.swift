@@ -9,6 +9,9 @@
 import Foundation
 import SwiftUI
 
+// 这个 Model 中的状态, 一定是合法的.
+// 是在 View 层, 手工输入进去的. 使用 Enum 的方式, 本身数据类型的限制, 就使得在逻辑上, 应该是没有非法状态的.
+// 而配表的数据, 其实应该当做代码来看, 一定要经过 Debug 的过程, 可以说是程序员人工应该确保数据的正确. 
 enum CalculatorButtonItem {
     
     enum Op: String {
