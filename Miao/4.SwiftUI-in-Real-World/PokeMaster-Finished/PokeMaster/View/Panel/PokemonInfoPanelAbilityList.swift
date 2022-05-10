@@ -10,10 +10,10 @@ import SwiftUI
 
 extension PokemonInfoPanel {
     struct AbilityList: View {
-
+        
         let model: PokemonViewModel
         let abilityModels: [AbilityViewModel]?
-
+        
         var body: some View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("技能")
@@ -28,7 +28,7 @@ extension PokemonInfoPanel {
                             .font(.footnote)
                             .foregroundColor(Color(hex: 0xAAAAAA))
                             .fixedSize(horizontal: false, vertical: true)
-
+                        
                     }
                 }
             }

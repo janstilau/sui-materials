@@ -26,7 +26,7 @@ extension Ability {
     static func sample(url: URL) -> Ability {
         sample(id: url.extractedID!)
     }
-
+    
     static func sample(id: Int) -> Ability {
         return FileHelper.loadBundledJSON(file: "ability-\(id)")
     }
@@ -40,13 +40,13 @@ extension PokemonViewModel {
             return PokemonViewModel(pokemon: pokemon, species: species)
         }
     }()
-
+    
     static let samples: [PokemonViewModel] = [
         sample(id: 1),
         sample(id: 2),
         sample(id: 3),
     ]
-
+    
     static func sample(id: Int) -> PokemonViewModel {
         let pokemon = Pokemon.sample(id: id)
         let species = PokemonSpecies.sample(url: pokemon.species.url)

@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct AbilityViewModel: Identifiable, Codable {
-
+    
     let ability: Ability
-
+    
     init(ability: Ability) {
         self.ability = ability
     }
-
+    
     var id: Int { ability.id }
     var name: String { ability.names.CN }
     var nameEN: String { ability.names.EN }

@@ -10,26 +10,26 @@ import SwiftUI
 
 extension PokemonInfoPanel {
     struct Header: View {
-
+        
         let model: PokemonViewModel
         var body: some View {
             HStack(spacing: 18) {
                 pokemonIcon
                 nameSpecies
-                 verticalDivider
-                 VStack(spacing: 12) {
-                     bodyStatus
-                     typeInfo
-                 }
+                verticalDivider
+                VStack(spacing: 12) {
+                    bodyStatus
+                    typeInfo
+                }
             }
         }
-
+        
         var pokemonIcon: some View {
             Image("Pokemon-\(model.id)")
                 .resizable()
                 .frame(width: 68, height: 68)
         }
-
+        
         var nameSpecies: some View {
             VStack(spacing: 10) {
                 VStack {
@@ -48,13 +48,13 @@ extension PokemonInfoPanel {
                     .foregroundColor(.gray)
             }
         }
-
+        
         var verticalDivider: some View {
             RoundedRectangle(cornerRadius: 1)
                 .frame(width: 1, height: 44)
                 .opacity(0.1)
         }
-
+        
         var bodyStatus: some View {
             VStack(alignment: .leading) {
                 HStack {
@@ -75,7 +75,7 @@ extension PokemonInfoPanel {
                 }
             }
         }
-
+        
         var typeInfo: some View {
             HStack {
                 ForEach(self.model.types) { t in

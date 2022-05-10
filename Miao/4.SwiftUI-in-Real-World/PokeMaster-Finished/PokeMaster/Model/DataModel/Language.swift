@@ -11,7 +11,7 @@ import Foundation
 struct Language: Codable {
     let name: String
     let url: URL
-
+    
     var isCN: Bool { name == "zh-Hans" }
     var isEN: Bool { name == "en" }
 }

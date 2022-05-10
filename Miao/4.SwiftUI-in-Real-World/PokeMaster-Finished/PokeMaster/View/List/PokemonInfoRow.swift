@@ -11,7 +11,7 @@ import SwiftUI
 struct PokemonInfoRow: View {
     let model: PokemonViewModel
     let expanded: Bool
-
+    
     var body: some View {
         VStack {
             HStack {
