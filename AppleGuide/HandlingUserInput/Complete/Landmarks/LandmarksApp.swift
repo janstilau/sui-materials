@@ -15,6 +15,7 @@ struct LandmarksApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(modelData)
+            // environmentObject 的参数有着一个要求, 就是要ObservableObject
         }
     }
 }

@@ -19,6 +19,7 @@ struct LandmarkRow: View {
             
             Spacer()
             
+            // 如果, Model 中能够显示, 这是一个收藏项, 才显示对应的 View.
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)

@@ -28,7 +28,9 @@ struct Landmark: Hashable, Codable, Identifiable {
             latitude: coordinates.latitude,
             longitude: coordinates.longitude)
     }
-    
+}
+
+extension Landmark {
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    // modelData 是根据 @EnvironmentObject 传递过来的. 
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
     
@@ -20,10 +21,12 @@ struct LandmarkList: View {
     var body: some View {
         NavigationView {
             List {
+                // List 第一项, 是一个特殊的 View
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
                 
+                // 然后是根据 Model 数组, 来生成了各种各样的 View.
                 ForEach(filteredLandmarks) { landmark in
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
