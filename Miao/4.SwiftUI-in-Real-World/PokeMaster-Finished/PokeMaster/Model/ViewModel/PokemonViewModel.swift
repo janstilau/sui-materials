@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+/*
+ 纯展示的 ViewModel, 里面没有 ModelAction 的逻辑.
+ */
 struct PokemonViewModel: Identifiable, Codable {
 
     var id: Int { pokemon.id }

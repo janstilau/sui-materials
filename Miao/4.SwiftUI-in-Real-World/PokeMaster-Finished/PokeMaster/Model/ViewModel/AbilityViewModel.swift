@@ -8,14 +8,17 @@
 
 import SwiftUI
 
+/*
+ 纯展示的 ViewModel, 里面没有 ModelAction 的逻辑.
+ */
 struct AbilityViewModel: Identifiable, Codable {
-
+    
     let ability: Ability
-
+    
     init(ability: Ability) {
         self.ability = ability
     }
-
+    
     var id: Int { ability.id }
     var name: String { ability.names.CN }
     var nameEN: String { ability.names.EN }

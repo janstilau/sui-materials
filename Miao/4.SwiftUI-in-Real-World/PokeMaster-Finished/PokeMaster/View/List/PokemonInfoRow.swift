@@ -11,7 +11,7 @@ import SwiftUI
 struct PokemonInfoRow: View {
     let model: PokemonViewModel
     let expanded: Bool
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -32,7 +32,9 @@ struct PokemonInfoRow: View {
                 }
             }
             .padding(.top, 12)
+            
             Spacer()
+            
             HStack(spacing: expanded ? 20 : -30) {
                 Spacer()
                 Button(action: {}) {
@@ -49,6 +51,7 @@ struct PokemonInfoRow: View {
                 }
             }
             .padding(.bottom, 12)
+            // 根据 expanded 的值, 控制了高度和可见度.
             .opacity(expanded ? 1.0 : 0.0)
             .frame(maxHeight: expanded ? .infinity : 0)
         }
@@ -59,6 +62,7 @@ struct PokemonInfoRow: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(model.color, style: StrokeStyle(lineWidth: 4))
+                
                 RoundedRectangle(cornerRadius: 20)
                     .fill(
                         LinearGradient(

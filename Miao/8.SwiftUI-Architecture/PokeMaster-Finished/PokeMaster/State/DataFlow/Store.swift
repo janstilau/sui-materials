@@ -11,25 +11,25 @@ import Combine
 
 class Store: ObservableObject {
     @Published var appState = AppState()
-
+    
     func dispatch(_ action: AppAction) {
-        #if DEBUG
+#if DEBUG
         print("[ACTION]: \(action)")
-        #endif
+#endif
         let result = Store.reduce(state: appState, action: action)
         appState = result.0
         if let command = result.1 {
-            #if DEBUG
+#if DEBUG
             print("[COMMAND]: \(command)")
-            #endif
+#endif
             command.execute(in: self)
         }
     }
-
+    
     static func reduce(state: AppState, action: AppAction) -> (AppState, AppCommand?) {
         var appState = state
         var appCommand: AppCommand?
-
+        
         switch action {
         case .login(let email, let password):
             guard !appState.settings.loginRequesting else { break }
@@ -44,7 +44,7 @@ class Store: ObservableObject {
                 appState.settings.loginError = error
             }
         }
-
+        
         return (appState, appCommand)
     }
 }
