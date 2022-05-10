@@ -13,7 +13,7 @@ enum CalculatorBrain {
     case leftOp(left: String, op: CalculatorButtonItem.Op)
     case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String)
     case error
-
+    
     @discardableResult
     func apply(item: CalculatorButtonItem) -> CalculatorBrain {
         switch item {
@@ -27,7 +27,7 @@ enum CalculatorBrain {
             return apply(command: command)
         }
     }
-
+    
     var output: String {
         let result: String
         switch self {
@@ -41,7 +41,9 @@ enum CalculatorBrain {
         }
         return formatter.string(from: value as NSNumber)!
     }
+}
 
+extension CalculatorBrain {
     private func apply(num: Int) -> CalculatorBrain {
         switch self {
         case .left(let left):
@@ -54,7 +56,7 @@ enum CalculatorBrain {
             return .left("0".apply(num: num))
         }
     }
-
+    
     private func applyDot() -> CalculatorBrain {
         switch self {
         case .left(let left):
@@ -67,7 +69,7 @@ enum CalculatorBrain {
             return .left("0".applyDot())
         }
     }
-
+    
     private func apply(op: CalculatorButtonItem.Op) -> CalculatorBrain {
         switch self {
         case .left(let left):
@@ -107,7 +109,7 @@ enum CalculatorBrain {
             return self
         }
     }
-
+    
     private func apply(command: CalculatorButtonItem.Command) -> CalculatorBrain {
         switch command {
         case .clear:
@@ -138,6 +140,7 @@ enum CalculatorBrain {
     }
 }
 
+// 这是一个全局量
 var formatter: NumberFormatter = {
     let f = NumberFormatter()
     f.minimumFractionDigits = 0
@@ -150,19 +153,19 @@ extension String {
     var containsDot: Bool {
         return contains(".")
     }
-
+    
     var startWithNegative: Bool {
         return starts(with: "-")
     }
-
+    
     func apply(num: Int) -> String {
         return self == "0" ? "\(num)" : "\(self)\(num)"
     }
-
+    
     func applyDot() -> String {
         return containsDot ? self : "\(self)."
     }
-
+    
     func flipped() -> String {
         if startWithNegative {
             var s = self
@@ -172,7 +175,7 @@ extension String {
             return "-\(self)"
         }
     }
-
+    
     func percentaged() -> String {
         return String(Double(self)! / 100)
     }
@@ -180,11 +183,12 @@ extension String {
 
 extension CalculatorButtonItem.Op {
     func calculate(l: String, r: String) -> String? {
-
-        guard let left = Double(l), let right = Double(r) else {
+        
+        guard let left = Double(l),
+                let right = Double(r) else {
             return nil
         }
-
+        
         let result: Double?
         switch self {
         case .plus: result = left + right

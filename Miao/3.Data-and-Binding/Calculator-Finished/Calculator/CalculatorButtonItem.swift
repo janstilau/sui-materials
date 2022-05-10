@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 enum CalculatorButtonItem {
-
+    
     enum Op: String {
         case plus = "+"
         case minus = "-"
@@ -18,13 +18,13 @@ enum CalculatorButtonItem {
         case multiply = "×"
         case equal = "="
     }
-
+    
     enum Command: String {
         case clear = "AC"
         case flip = "+/-"
         case percent = "%"
     }
-
+    
     case digit(Int)
     case dot
     case op(Op)
@@ -40,14 +40,14 @@ extension CalculatorButtonItem {
         case .command(let command): return command.rawValue
         }
     }
-
+    
     var size: CGSize {
         if case .digit(let value) = self, value == 0 {
             return CGSize(width: 88 * 2 + 8, height: 88)
         }
         return CGSize(width: 88, height: 88)
     }
-
+    
     var backgroundColorName: String {
         switch self {
         case .digit, .dot:
@@ -58,7 +58,7 @@ extension CalculatorButtonItem {
             return "commandBackground"
         }
     }
-
+    
     var foregroundColor: Color {
         switch self {
         case .command:

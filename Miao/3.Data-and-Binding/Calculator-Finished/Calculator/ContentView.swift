@@ -12,11 +12,11 @@ import Combine
 let scale = UIScreen.main.bounds.width / 414
 
 struct ContentView : View {
-
+    
     @EnvironmentObject var model: CalculatorModel
-
+    
     @State private var editingHistory = false
-
+    
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
@@ -25,7 +25,7 @@ struct ContentView : View {
             }.sheet(isPresented: self.$editingHistory) {
                 HistoryView(model: self.model)
             }
-
+            
             Text(model.brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
@@ -52,14 +52,14 @@ struct ContentView_Previews : PreviewProvider {
 }
 
 struct CalculatorButton : View {
-
+    
     let fontSize: CGFloat = 38
     let title: String
     let size: CGSize
     let backgroundColorName: String
     let foregroundColor: Color
     let action: () -> Void
-
+    
     var body: some View {
         Button(action: action) {
             Text(title)
@@ -100,7 +100,7 @@ struct CalculatorButtonPad: View {
         [.digit(1), .digit(2), .digit(3), .op(.plus)],
         [.digit(0), .dot, .op(.equal)]
     ]
-
+    
     var body: some View {
         VStack(spacing: 8) {
             ForEach(pad, id: \.self) { row in
