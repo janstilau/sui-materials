@@ -9,24 +9,22 @@
 import Foundation
 
 struct Ability: Codable {
-    let id: Int
-    
-    let names: [Name]
-    let flavorTextEntries: [FlavorTextEntry]
-}
-
-extension Ability {
     struct Name: Codable, LanguageTextEntry {
         let language: Language
         let name: String
-        
+
         var text: String { name }
     }
-    
+
     struct FlavorTextEntry: Codable, LanguageTextEntry {
         let language: Language
         let flavorText: String
-        
+
         var text: String { flavorText }
     }
+
+    let id: Int
+
+    let names: [Name]
+    let flavorTextEntries: [FlavorTextEntry]
 }

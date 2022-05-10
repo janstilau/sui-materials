@@ -9,20 +9,20 @@
 import SwiftUI
 
 class Settings: ObservableObject {
-    
+
     enum AccountBehavior: CaseIterable {
         case register, login
     }
-    
+
     enum Sorting: CaseIterable {
         case id, name, color, favorite
     }
-    
+
     @Published var accountBehavior = AccountBehavior.login
     @Published var email = ""
     @Published var password = ""
     @Published var verifyPassword = ""
-    
+
     @Published var showEnglishName = true
     @Published var sorting = Sorting.id
     @Published var showFavoriteOnly = false
@@ -37,7 +37,7 @@ struct SettingView: View {
             actionSection
         }
     }
-    
+
     var accountSection: some View {
         Section(header: Text("账户")) {
             Picker(selection: $settings.accountBehavior, label: Text("")) {
@@ -56,7 +56,7 @@ struct SettingView: View {
             }
         }
     }
-    
+
     var optionSection: some View {
         Section(header: Text("选项")) {
             Toggle(isOn: $settings.showEnglishName) {
@@ -72,7 +72,7 @@ struct SettingView: View {
             }
         }
     }
-    
+
     var actionSection: some View {
         Section {
             Button(action: {

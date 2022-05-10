@@ -45,6 +45,7 @@ struct CalculatorButton : View {
             Text(title)
                 .font(.system(size: fontSize * scale))
                 .foregroundColor(foregroundColor)
+            // Size 的信息, 是用到了 FrameModifier 中.
                 .frame(width: size.width * scale, height: size.height * scale)
                 .background(Color(backgroundColorName))
                 .cornerRadius(size.width * scale / 2)

@@ -11,6 +11,13 @@ import SwiftUI
 
 // 使用, Enum 当做数据盒子. 
 enum CalculatorButtonItem {
+    case digit(Int)
+    case dot
+    case op(Op)
+    case command(Command)
+}
+
+extension CalculatorButtonItem {
     // 将, 各种状态, 通过 Enum 进行定义, 会让代码逻辑更加的清晰.
     enum Op: String {
         case plus = "+"
@@ -25,14 +32,10 @@ enum CalculatorButtonItem {
         case flip = "+/-"
         case percent = "%"
     }
-    
-    case digit(Int)
-    case dot
-    case op(Op)
-    case command(Command)
 }
 
 extension CalculatorButtonItem {
+    // 该属性, 在 SwiftUI 的中用作了展示.
     var title: String {
         switch self {
         case .digit(let value): return String(value)
@@ -63,7 +66,7 @@ extension CalculatorButtonItem {
         }
     }
     
-    // ViewState 相关的属性. 
+    // ViewState 相关的属性.
     var foregroundColor: Color {
         switch self {
         case .command:
