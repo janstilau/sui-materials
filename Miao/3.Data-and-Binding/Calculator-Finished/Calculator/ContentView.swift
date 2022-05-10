@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+// 这就是一个 Swift 文件, 可以定义各种需要使用的常量.
 let scale = UIScreen.main.bounds.width / 414
 
 struct ContentView : View {
@@ -20,12 +21,14 @@ struct ContentView : View {
     var body: some View {
         VStack(spacing: 12) {
             Spacer()
+            
             Button("操作履历: \(model.history.count)") {
                 self.editingHistory = true
             }.sheet(isPresented: self.$editingHistory) {
                 HistoryView(model: self.model)
             }
             
+            // 直接是使用了 ViewModel 的属性的计算方法来获取 UI 展示.
             Text(model.brain.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
@@ -35,6 +38,7 @@ struct ContentView : View {
                     minWidth: 0,
                     maxWidth: .infinity,
                     alignment: .trailing)
+            // 使用, @EnvironmentObject 这种方式, 不用传输值了.
             CalculatorButtonPad()
                 .padding(.bottom)
         }
@@ -52,7 +56,8 @@ struct ContentView_Previews : PreviewProvider {
 }
 
 struct CalculatorButton : View {
-    
+    // 各种, 相关的数据, 需要在构造方法中传递过来.
+    // 并且, 因为 SwiftUI 里面的都是 Struct 类型的, 所以, 自动的进行了 memberWise 构造方法的声明.
     let fontSize: CGFloat = 38
     let title: String
     let size: CGSize
@@ -84,6 +89,8 @@ struct CalculatorButtonRow : View {
                     backgroundColorName: item.backgroundColorName,
                     foregroundColor: item.foregroundColor)
                 {
+                    // 在 UI 文件里面, 将 ViewAction 确定.
+                    // 因为 UI 里面, 无法进行数据更改, 所以就是触发 ModelAction. Model 改变之后, 再次触发 View 的更改
                     self.model.apply(item)
                 }
             }
@@ -110,6 +117,7 @@ struct CalculatorButtonPad: View {
     }
 }
 
+// 非常简单的一些声明式的语句, 就能够显示整个 View 了
 struct HistoryView: View {
     @ObservedObject var model: CalculatorModel
     var body: some View {
@@ -125,7 +133,9 @@ struct HistoryView: View {
                     Text("显示").font(.headline)
                     Text("\(model.brain.output)")
                 }
-                Slider(value: $model.slidingIndex, in: 0...Float(model.totalCount), step: 1)
+                Slider(value: $model.slidingIndex,
+                       in: 0...Float(model.totalCount),
+                       step: 1)
             }
         }.padding()
     }

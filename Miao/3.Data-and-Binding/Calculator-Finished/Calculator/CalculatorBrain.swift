@@ -9,6 +9,7 @@
 import Foundation
 
 // 这是一个状态类.
+// 这是一个值语义的对象, 所以, 不断的传递, 其实会复制的, 在传递之后的修改, 是不会对于原有的数据有任何的影响的.
 enum CalculatorBrain {
     case left(String)
     case leftOp(left: String, op: CalculatorButtonItem.Op)
@@ -38,6 +39,7 @@ enum CalculatorBrain {
     
     // ViewState 相关的计算属性. 是这个类存在的根本.
     // 数据修改了之后, 需要暴露给外界, 这个类才有意义. 在 SwiftUI 中, 就是给 View 提供显示数据.
+    // 根据当前自己所处的状态, 抽取出应该展示的内容.
     var output: String {
         let result: String
         switch self {

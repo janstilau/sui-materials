@@ -9,6 +9,9 @@
 import SwiftUI
 import Combine
 
+/*
+ ObservableObject 中, 如果有 @Published
+ */
 class CalculatorModel: ObservableObject {
     
     @Published var brain: CalculatorBrain = .left("0")
@@ -23,11 +26,14 @@ class CalculatorModel: ObservableObject {
         brain = brain.apply(item: item)
         history.append(item)
         
+        // 有了新的操作, 历史记录中后续还没有表现出来的操作, 也就废弃了.
+        // 然后, 让 Index 到达最后一步.
         temporaryKept.removeAll()
         slidingIndex = Float(totalCount)
     }
     
     var historyDetail: String {
+        //把所有的操作符, 进行拼接的过程.
         history.map { $0.description }.joined()
     }
     
@@ -36,15 +42,19 @@ class CalculatorModel: ObservableObject {
         
         let total = history + temporaryKept
         
+        // 通过 Slider 的值, 对
         history = Array(total[..<index])
         temporaryKept = Array(total[index...])
         
         brain = history.reduce(CalculatorBrain.left("0")) {
             result, item in
+            // brain 的状态, 是从头到尾进行了一次计算模拟得到的.
+            // 所以, 这里感觉会有一些性能损失. 
             result.apply(item: item)
         }
     }
     
+    // Total Count 是所有的值. 显示的, 和存储的.
     var totalCount: Int {
         history.count + temporaryKept.count
     }

@@ -22,6 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            // 在 ContentView 的构造的时候, 要将依赖的 environmentObject 进行注入的工作.
+            // 是否是, environmentObject 值能是通过注入, 就算是在顶层的 View 中, 也不能够生成.
+            // 但是这里没有指定属性名啊, 他怎么之后, 传入的参数, 要绑定到 @EnvironmentObject var model: CalculatorModel 这个属性上呢.
             window.rootViewController = UIHostingController(rootView: ContentView()
                                                                 .environmentObject(CalculatorModel()))
             
