@@ -32,11 +32,11 @@ struct ExploreView: View {
                 
                 topicsSection
                 
-            Text("Popular".uppercased())
-                .sectionTitleModifier()
-            
-            handbooksSection
-                .padding(.bottom, 50)
+                Text("Popular".uppercased())
+                    .sectionTitleModifier()
+                
+                handbooksSection
+                    .padding(.bottom, 50)
             }
             .offset(y: -50)
         }
