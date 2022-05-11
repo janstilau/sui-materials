@@ -2,17 +2,54 @@
 //  MemoryGame.swift
 //  Memorize
 //
-//  Created by CS193p Instructor on 4/5/21.
+//  Created by Sergey Maslennikov on 24.11.2020.
 //
 
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
+    private(set) var cards: Array<Card>
+    private(set) var counterOfMatches: Int
     
-    // add your implementation of your MemoryGame here
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get { cards.indices.filter { cards[$0].isFaceUp }.only }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+            }
+        }
+    }
+    
+    mutating func choose(card: Card) {
+//        print("card chosen: \(card)")
+        if let chosenIndex: Int = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
+            if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                    counterOfMatches += 1
+                    print(counterOfMatches)
+                }
+                self.cards[chosenIndex].isFaceUp = true
+            } else {
+                indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+            }
+        }
+    }
+    
+    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
+        cards = Array<Card>()
+        for pairIndex in 0..<numberOfPairsOfCards {
+            let content = cardContentFactory(pairIndex)
+            cards.append(Card(content: content, id: pairIndex*2))
+            cards.append(Card(content: content, id: pairIndex*2+1))
+        }
+        cards.shuffle()
+        counterOfMatches = 0
+    }
     
     struct Card: Identifiable {
-        var isFaceUp = false {
+        var isFaceUp: Bool = false {
             didSet {
                 if isFaceUp {
                     startUsingBonusTime()
@@ -21,13 +58,13 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 }
             }
         }
-        var isMatched = false {
+        var isMatched: Bool = false {
             didSet {
                 stopUsingBonusTime()
             }
         }
-        let content: CardContent
-        let id: Int
+        var content: CardContent
+        var id: Int
         
         // MARK: - Bonus Time
         
@@ -36,7 +73,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         // before a certain amount of time passes during which the card is face up
         
         // can be zero which means "no bonus available" for this card
-        var bonusTimeLimit: TimeInterval = 6
+        var bonusTimeLimit: TimeInterval = 10
         
         // how long this card has ever been face up
         private var faceUpTime: TimeInterval {
@@ -48,8 +85,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
         // the last time this card was turned face up (and is still face up)
         var lastFaceUpDate: Date?
-        // the accumulated time this card has been face up in the past
-        // (i.e. not including the current time it's been face up if it is currently so)
+        // the accumulated  time yhis card has been face up in the past
+        // (i.e. not including the current time it`s been face up if it is currently so)
         var pastFaceUpTime: TimeInterval = 0
         
         // how much time left before the bonus opportunity runs out
