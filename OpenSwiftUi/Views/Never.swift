@@ -7,5 +7,4 @@ extension Never {
     }
 }
 
-extension Never: View {
-}
+extension Never: View { }

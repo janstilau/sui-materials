@@ -1,5 +1,13 @@
 import Foundation
 
+/*
+ A 2D shape that you can use when drawing a view.
+ 
+ protocol Shape : Animatable, View
+ 
+ Shapes without an explicit fill or stroke get a default fill based on the foreground color.
+ You can define shapes in relation to an implicit frame of reference, such as the natural size of the view that contains it. Alternatively, you can define shapes in terms of absolute coordinates.
+ */
 public protocol Shape: Animatable, View {
     func path(in rect: CGRect) -> Path
 }

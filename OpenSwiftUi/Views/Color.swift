@@ -1,7 +1,6 @@
 import Foundation
 
-public class AnyColorBox {
-}
+public class AnyColorBox { }
 
 extension AnyColorBox: Hashable {
     public func hash(into hasher: inout Hasher) {
@@ -14,6 +13,14 @@ extension AnyColorBox: Equatable {
         return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
 }
+
+/*
+ SystemColorType
+ DisplayP3
+ _Resolved
+ 
+ 都是 AnyColorBox 的子类. 在真正的 Color 里面, 是存储的 AnyColorBox 这个父类的指针.
+ */
 
 public class SystemColorType: AnyColorBox {
     public enum SystemColor: String {
@@ -85,6 +92,7 @@ public class _Resolved: AnyColorBox {
 public struct Color: View, Hashable, CustomStringConvertible {
     public typealias Body = Never
     
+    // 成员变量, 存储的是一个引用数据类型, 是一个父类的指针.
     public let provider: AnyColorBox
     
     public enum RGBColorSpace: Equatable {
@@ -133,6 +141,7 @@ public struct Color: View, Hashable, CustomStringConvertible {
     }
 }
 
+// 在 Color 的扩展里面, 定义了大量的 static 对象, 是使用 enum 这种方式定义的.
 extension Color {
     public static let clear: Color = Color(.clear)
     public static let black: Color = Color(.black)
@@ -151,6 +160,11 @@ extension Color {
 }
 
 extension View {
+    /*
+     The foreground color to use when displaying this view.
+     Pass nil to remove any custom foreground color and to allow the system or the container to provide its own foreground color.
+     If a container-specific override doesn’t exist, the system uses the primary color.
+     */
     public func foregroundColor(_ color: Color?) -> some View {
         return environment(\.foregroundColor, color)
     }

@@ -1,3 +1,6 @@
+/*
+ 这就是一个合成类, View 类型, 以及 Modifier 类型. 
+ */
 public struct ModifiedContent<Content, Modifier> {
     public var content: Content
     public var modifier: Modifier

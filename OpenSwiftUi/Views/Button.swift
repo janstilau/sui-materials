@@ -24,8 +24,8 @@ extension Button where Label == Text {
 
 public protocol ButtonStyle {
     associatedtype Body: View
-    func makeBody(configuration: Self.Configuration) -> Self.Body
     typealias Configuration = ButtonStyleConfiguration
+    func makeBody(configuration: Self.Configuration) -> Self.Body
 }
 
 public struct ButtonStyleConfiguration {

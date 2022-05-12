@@ -1,5 +1,6 @@
 import Foundation
 
+// 就是, 将 String 从值语义, 变为引用语义
 public class AnyTextStorage<Storage: StringProtocol> {
     public var storage: Storage
     
@@ -9,13 +10,13 @@ public class AnyTextStorage<Storage: StringProtocol> {
 }
 
 public class AnyTextModifier {
-    init() {
-    }
+    init() { }
 }
 
 public struct Text: View, Equatable {
     public typealias Body = Never
     public var _storage: Storage
+    // 里面, 存储的是 Enum 这种数据类型. 数组里面的 Item 的大小, 是固定的. 是 Enum 中最大数据类型宽度. 
     public var _modifiers: [Text.Modifier] = [Modifier]()
     
     public enum Storage: Equatable {
@@ -61,6 +62,8 @@ public struct Text: View, Equatable {
         self._storage = .verbatim(content)
     }
     
+    // 其实, 大部分情况下, 变为引用语义值进行存储, 是一个简便的处理方案.
+    // 为了一点效率, 让代码复杂, 这样不好.
     public init<S>(_ content: S) where S: StringProtocol {
         self._storage = .anyTextStorage(AnyTextStorage<String>(storage: String(content)))
     }
@@ -89,6 +92,8 @@ extension Text {
     }
     
     private func textWithModifier(_ modifier: Modifier) -> Text {
+        // 所有的 Modifier, 都进行了存储.
+        // 虽然产生了一个新的 Text, 但是由于 Text 的数据都是引用数据类型, 所以实际上, 和 Self 进行修改, 没有任何的区别.
         let modifiers = _modifiers + [modifier]
         switch _storage {
         case .verbatim(let content):

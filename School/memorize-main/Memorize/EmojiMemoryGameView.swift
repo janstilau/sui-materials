@@ -59,34 +59,47 @@ import SwiftUI
  */
 
 struct EmojiMemoryGameView: View {
+    // Size is 16
     @ObservedObject var viewModel: EmojiMemoryGame
     
     /*
      实际上, Body 返回的是这样一个类型.
      VStack<TupleView<(ModifiedContent<HStack<TupleView<(Button<Text>, Text)>>, _PaddingLayout>, ModifiedContent<ModifiedContent<Grid<Card, ModifiedContent<ModifiedContent<CardView, AddGestureModifier<_EndedGesture<TapGesture>>>, _PaddingLayout>>, _PaddingLayout>, _EnvironmentKeyWritingModifier<Optional<Color>>>)>>
+     
+     这是一个计算属性, 它并不占据 EmojiMemoryGameView 的存储空间的.
      */
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    withAnimation(.easeInOut) {
-                        self.viewModel.resetGame()
-                    }
-                }, label: { Text("New Game").size()}).size()
-                Text("Flips: 0").size()
-            }.size().padding(.top).size()
-            Grid(viewModel.cards) { card in
-                CardView(card: card).onTapGesture {
-                    withAnimation(.linear(duration: 0.5)) {
-                        self.viewModel.choose(card: card)
-                    }
-                }.size()
-                .padding(5).size()
-            }.size()
-            .padding().size()
-            .foregroundColor(Color.red).size()
-        }
-        .size()
+//        VStack {
+//            HStack {
+//                Button(action: {
+//                    withAnimation(.easeInOut) {
+//                        self.viewModel.resetGame()
+//                    }
+//                }, label: { Text("New Game").size()}).size()
+//                Text("Flips: 0").size()
+//            }.size().padding(.top).size()
+//            Grid(viewModel.cards) { card in
+//                CardView(card: card).onTapGesture {
+//                    withAnimation(.linear(duration: 0.5)) {
+//                        self.viewModel.choose(card: card)
+//                    }
+//                }.size()
+//                .padding(5).size()
+//            }.size()
+//            .padding().size()
+//            .foregroundColor(Color.red).size()
+//        }
+//        .size()
+        
+        // Size is 32
+//        Text("12345").size()
+        MyView().size()
+    }
+}
+
+struct MyView: View {
+    var body: some View {
+        Text("12").size()
     }
 }
 

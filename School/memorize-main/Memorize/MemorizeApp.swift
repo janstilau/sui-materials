@@ -86,7 +86,7 @@ struct MemorizeApp: App {
             /*
              EmojiMemoryGameView
              */
-            EmojiMemoryGameView(viewModel: EmojiMemoryGame()).debug()
+            EmojiMemoryGameView(viewModel: EmojiMemoryGame()).size()
         }
     }
 }
