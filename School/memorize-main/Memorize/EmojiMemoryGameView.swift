@@ -10,6 +10,10 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
+    /*
+     实际上, Body 返回的是这样一个类型.
+     VStack<TupleView<(ModifiedContent<HStack<TupleView<(Button<Text>, Text)>>, _PaddingLayout>, ModifiedContent<ModifiedContent<Grid<Card, ModifiedContent<ModifiedContent<CardView, AddGestureModifier<_EndedGesture<TapGesture>>>, _PaddingLayout>>, _PaddingLayout>, _EnvironmentKeyWritingModifier<Optional<Color>>>)>>
+     */
     var body: some View {
         VStack {
             HStack {
@@ -31,6 +35,7 @@ struct EmojiMemoryGameView: View {
             .padding()
             .foregroundColor(Color.red)
         }
+        .debug()
     }
 }
 

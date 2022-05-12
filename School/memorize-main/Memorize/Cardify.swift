@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+extension View {
+    func debug() -> Self {
+        print(Mirror(reflecting: self).subjectType)
+        return self
+    }
+}
+
 struct Cardify: AnimatableModifier {
     var rotation: Double
     
@@ -30,7 +37,7 @@ struct Cardify: AnimatableModifier {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
                 content
             }
-                .opacity(isFaceUp ? 1 : 0)
+            .opacity(isFaceUp ? 1 : 0)
             RoundedRectangle(cornerRadius: cornerRadius).fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
