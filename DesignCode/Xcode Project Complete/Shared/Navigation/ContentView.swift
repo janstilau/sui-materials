@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+extension View {
+    func debug() -> Self {
+        print(Mirror(reflecting: self).subjectType)
+        return self
+    }
+    
+    func size() -> Self {
+        let _ = debug()
+        print("Size is \(MemoryLayout<Self>.size)")
+        return self
+    }
+}
+
 struct ContentView: View {
     @EnvironmentObject var model: Model
     @AppStorage("selectedTab") var selectedTab: Tab = .home
@@ -44,7 +57,7 @@ struct ContentView: View {
         .dynamicTypeSize(.large ... .xxLarge)
         .sheet(isPresented: $showAccount) {
             AccountView()
-        }
+        }.size()
     }
 }
 

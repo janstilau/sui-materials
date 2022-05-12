@@ -1,8 +1,6 @@
 public struct Divider: View {
     public init() {
-        
     }
-    
     public typealias Body = Never
 }
 

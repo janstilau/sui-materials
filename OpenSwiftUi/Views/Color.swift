@@ -90,6 +90,7 @@ public class _Resolved: AnyColorBox {
 }
 
 public struct Color: View, Hashable, CustomStringConvertible {
+    // Color 是一个可以自己 Draw 的对象. 
     public typealias Body = Never
     
     // 成员变量, 存储的是一个引用数据类型, 是一个父类的指针.

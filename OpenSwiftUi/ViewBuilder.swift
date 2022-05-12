@@ -20,6 +20,9 @@ public struct ViewBuilder {
     }
 }
 
+/*
+ HStack, VStack 里面, 接受了大量的数据. 都被整合成为了 Tuple View.
+ */
 extension ViewBuilder {
     public static func buildBlock<C0, C1>(_ c0: C0, _ c1: C1) -> TupleView<(C0, C1)> where C0: View, C1: View {
         return .init((c0, c1))

@@ -1,10 +1,62 @@
-internal class AnyLocationBase { }
+/*
+ State
+ A property wrapper type that can read and write a value managed by SwiftUI.
+ 
+ Declaration
+ @frozen @propertyWrapper struct State<Value>
+ Overview
+ SwiftUI manages the storage of a property that you declare as state. When the value changes, SwiftUI updates the parts of the view hierarchy that depend on the value. Use state as the single source of truth for a given value stored in a view hierarchy.
+ 
+ A State instance isn’t the value itself; it’s a means of reading and writing the value. To access a state’s underlying value, refer to it by its property name, which returns the wrappedValue property value. For example, you can read and update the isPlaying state property in a PlayButton view by referring to the property directly:
+ 
+ struct PlayButton: View {
+ @State private var isPlaying: Bool = false
+ 
+ var body: some View {
+ Button(isPlaying ? "Pause" : "Play") {
+ isPlaying.toggle()
+ }
+ }
+ }
+ If you pass a state property to a child view, SwiftUI updates the child any time the value changes in the parent, but the child can’t modify the value. To enable the child view to modify the stored value, pass a Binding instead. You can get a binding to a state value by accessing the state’s projectedValue, which you get by prefixing the property name with a dollar sign ($).
+ 
+ For example, you can remove the isPlaying state from the play button in the example above, and instead make the button take a binding to the state:
+ 
+ struct PlayButton: View {
+ @Binding var isPlaying: Bool
+ 
+ var body: some View {
+ Button(isPlaying ? "Pause" : "Play") {
+ isPlaying.toggle()
+ }
+ }
+ }
+ Then you can define a player view that declares the state and creates a binding to the state using the dollar sign prefix:
+ 
+ struct PlayerView: View {
+ var episode: Episode
+ @State private var isPlaying: Bool = false
+ 
+ var body: some View {
+ VStack {
+ Text(episode.title)
+ .foregroundStyle(isPlaying ? .primary : .secondary)
+ PlayButton(isPlaying: $isPlaying) // Pass a binding.
+ }
+ }
+ }
+ Don’t initialize a state property of a view at the point in the view hierarchy where you instantiate the view, because this can conflict with the storage management that SwiftUI provides. To avoid this, always declare state as private, and place it in the highest view in the view hierarchy that needs access to the value. Then share the state with any child views that also need access, either directly for read-only access, or as a binding for read-write access.
+ 
+ You can safely mutate state properties from any thread.
+ */
 
+internal class AnyLocationBase { }
 /*
  如果, 传递进来的是一个 Struct 值, 那么这里就是复制的操作.
  如果, Struct 里面含有一个指针, 或者 Value 就是一个引用类型, 那么 Swift 语言, 自动进行引用技术的管理.
  */
 internal class AnyLocation<Value>: AnyLocationBase {
+    
     internal let _value = UnsafeMutablePointer<Value>.allocate(capacity: 1)
     init(value: Value) {
         self._value.pointee = value

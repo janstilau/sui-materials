@@ -11,6 +11,11 @@ internal struct FixedRoundedRect: Equatable {
     var style: RoundedCornerStyle
 }
 
+public enum RoundedCornerStyle {
+    case circular
+    case continuous
+}
+
 @frozen public struct StrokeStyle: Equatable {
     public var lineWidth: CGFloat
     public var lineCap: CGLineCap
@@ -29,15 +34,9 @@ internal struct FixedRoundedRect: Equatable {
     }
 }
 
-public enum RoundedCornerStyle {
-    case circular
-    case continuous
-}
-
 extension RoundedCornerStyle: Hashable {}
 
-internal struct TrimmedPath: Equatable {
-}
+internal struct TrimmedPath: Equatable { }
 
 internal struct StrokedPath: Equatable {
     let path: Path
@@ -109,8 +108,6 @@ public struct Path: Equatable {
     
     public init?(_ string: String) {
         fatalError()
-        // let pathBox = PathBox(cgPath: cgPath)
-        // self.storage = Storage.path(pathBox)
     }
     
     public var description: String {

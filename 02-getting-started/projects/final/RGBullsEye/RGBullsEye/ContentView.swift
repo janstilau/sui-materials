@@ -24,6 +24,9 @@ struct ContentView: View {
     var staticShowScore = false
     
     var body: some View {
+        
+        Text("123")
+        
         VStack {
             Circle()
                 .fill(Color(rgbStruct: game.target))
@@ -34,6 +37,7 @@ struct ContentView: View {
                 Text(game.target.intString())
                     .padding()
             }
+            ModifiedContent.init(content: Text("123"), modifier: EmptyModifier())
             Circle()
                 .fill(Color(rgbStruct: guess))
             Text(guess.intString())

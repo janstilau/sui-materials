@@ -4,7 +4,10 @@ public enum _VariadicView {
     public typealias Children = _VariadicView_Children
     public typealias UnaryViewRoot = _VariadicView_UnaryViewRoot
     public typealias MultiViewRoot = _VariadicView_MultiViewRoot
+    
+    // 这还是一个值语义的对象, 最主要的就是存值. 
     public struct Tree<Root, Content> where Root: _VariadicView_Root {
+        // Root 应该改为 ContentConfig.
         public var root: Root
         public var content: Content
         internal init(root: Root, content: Content) {

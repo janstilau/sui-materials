@@ -6,6 +6,8 @@ public struct PaddingModifier: ViewModifier {
     public typealias Body = Never
     public typealias Content = View
     
+    // 最终还是这个值.
+    // 其他的初始化方式, 最终都转化成为了 EdgeInsets 的数据.
     public var value: EdgeInsets
     
     init(_ insets: EdgeInsets) {

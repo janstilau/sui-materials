@@ -12,6 +12,7 @@ public struct ModifiedContent<Content, Modifier> {
 
 extension ModifiedContent: View where Content: View, Modifier: ViewModifier {
     public typealias Body = Never
+    // 为什么是 Never 呢, 不应该是 self.modifier.body(self.content) 吗
     public var body: ModifiedContent<Content, Modifier>.Body {
         fatalError()
     }

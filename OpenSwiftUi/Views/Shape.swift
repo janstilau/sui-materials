@@ -9,6 +9,9 @@ import Foundation
  You can define shapes in relation to an implicit frame of reference, such as the natural size of the view that contains it. Alternatively, you can define shapes in terms of absolute coordinates.
  */
 public protocol Shape: Animatable, View {
+    /*
+     Shape 就是可以在一个矩形里面, 划出 Path 出来. 
+     */
     func path(in rect: CGRect) -> Path
 }
 

@@ -177,8 +177,8 @@
 			children = (
 				064782CA282CB2BE0058A84E /* _VariadicView */,
 				064782D1282CB2BF0058A84E /* _ViewTraitKey.swift */,
-				0647829A282CB2BE0058A84E /* Animatable.swift */,
 				06478290282CB27C0058A84E /* Assets.xcassets */,
+				0647829A282CB2BE0058A84E /* Animatable.swift */,
 				064782C6282CB2BE0058A84E /* Transaction.swift */,
 				064782C8282CB2BE0058A84E /* PropertyList.swift */,
 				064782DC282CB2BF0058A84E /* State.swift */,

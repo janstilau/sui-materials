@@ -1,11 +1,14 @@
 import Foundation
 
+/*
+ ShapeView 是用来进行信息的存储的. 
+ */
 public struct _ShapeView<Content, Style>: View where Content: Shape, Style: ShapeStyle {
     public var body: Never {
         fatalError()
     }
     
-    public var shape: Content
+    public var shape: Content // 存储
     public var style: Style
     public var fillStyle: FillStyle
     
