@@ -100,6 +100,7 @@ struct MyView: View {
 }
 
 struct CardView: View {
+    // 数据 Model.
     var card: MemoryGame<String>.Card
     
     var body: some View {
@@ -117,6 +118,7 @@ struct CardView: View {
         }
     }
     
+    // allowing those closures to provide multiple child views 允许闭包中提供多个子视图
     @ViewBuilder
     private func body(for size: CGSize) -> some View {
         if card.isFaceUp || !card.isMatched {

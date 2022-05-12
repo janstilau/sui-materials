@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+/*
+ 一个纯逻辑类.
+ */
 struct GridLayout {
     private(set) var size: CGSize
     private(set) var rowCount: Int = 0
@@ -17,13 +20,13 @@ struct GridLayout {
          nearAspectRatio desiredAspectRatio: Double = 1,
          in size: CGSize) {
         self.size = size
-        // if our size is zero width or height or the itemCount is not > 0
-        // then we have no work to do (because our rowCount & columnCount will be zero)
         guard size.width != 0, size.height != 0, itemCount > 0 else { return }
+        
         // find the bestLayout
         // i.e., one which results in cells whose aspectRatio
         // has the smallestVariance from desiredAspectRatio
         // not necessarily most optimal code to do this, but easy to follow (hopefully)
+        // 没有必要深究这里面的实现. 就是说算出 row, column 的值而已. 
         var bestLayout: (rowCount: Int, columnCount: Int) = (1, itemCount)
         var smallestVariance: Double?
         let sizeAspectRatio = abs(Double(size.width/size.height))
@@ -42,6 +45,7 @@ struct GridLayout {
         columnCount = bestLayout.columnCount
     }
     
+    // 计算属性. 根据 size, rowCount, columnCount 的值, 算出每个 Item 的占据尺寸.
     var itemSize: CGSize {
         if rowCount == 0 || columnCount == 0 {
             return CGSize.zero
@@ -53,6 +57,7 @@ struct GridLayout {
         }
     }
     
+    // 计算属性. 根据 size, rowCount, columnCount 的值, 算出每个 Item 的占据位置.
     func location(ofItemAt index: Int) -> CGPoint {
         if rowCount == 0 || columnCount == 0 {
             return CGPoint.zero

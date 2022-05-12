@@ -18,6 +18,7 @@ struct Grid<Item, ItemView>: View where Item: Identifiable,
     }
     
     var body: some View {
+        // 根据, Layout 的值, 以及存储的 viewForItem 的值, 来算出到底应该如何进行展示. 
         GeometryReader { geometry in
             self.body(for: GridLayout(itemCount: self.items.count, in: geometry.size))
         }
