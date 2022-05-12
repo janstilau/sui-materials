@@ -1,3 +1,4 @@
+// 根据条件的不同, 生成的对象其实是不同的. 
 public struct _ConditionalContent<TrueContent, FalseContent>: View where TrueContent: View, FalseContent: View {
     public enum Storage {
         case trueContent(TrueContent)
