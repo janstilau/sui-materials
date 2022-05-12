@@ -75,9 +75,10 @@ struct EmojiMemoryGameView: View {
                     withAnimation(.easeInOut) {
                         self.viewModel.resetGame()
                     }
-                }, label: { Text("New Game").size()}).size()
-                Text("Flips: 0").size()
-            }.size().padding(.top).size()
+                }, label: { Text("New Game").size()})
+                Text("Flips: 0")
+            }.size().padding(.top)
+            
             Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
                     withAnimation(.linear(duration: 0.5)) {
@@ -85,11 +86,10 @@ struct EmojiMemoryGameView: View {
                     }
                 }.size()
                 .padding(5).size()
-            }.size()
-            .padding().size()
-            .foregroundColor(Color.red).size()
+            }
+            .padding()
+            .foregroundColor(Color.red)
         }
-        .size()
     }
 }
 

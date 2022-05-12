@@ -32,14 +32,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(card: Card) {
-        if let chosenIndex: Int = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
+        if let chosenIndex: Int = cards.firstIndex(matching: card),
+            !cards[chosenIndex].isFaceUp,
+            !cards[chosenIndex].isMatched {
             if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                     counterOfMatches += 1
-                    print(counterOfMatches)
                 }
+                // 并没有设计结束的标志. 当最后一组匹配之后, 没有弹出对应的提示.
                 self.cards[chosenIndex].isFaceUp = true
             } else {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex

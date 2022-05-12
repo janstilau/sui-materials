@@ -13,7 +13,9 @@ struct GridLayout {
     private(set) var rowCount: Int = 0
     private(set) var columnCount: Int = 0
     
-    init(itemCount: Int, nearAspectRatio desiredAspectRatio: Double = 1, in size: CGSize) {
+    init(itemCount: Int,
+         nearAspectRatio desiredAspectRatio: Double = 1,
+         in size: CGSize) {
         self.size = size
         // if our size is zero width or height or the itemCount is not > 0
         // then we have no work to do (because our rowCount & columnCount will be zero)
