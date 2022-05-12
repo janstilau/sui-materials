@@ -12,6 +12,12 @@ extension View {
         print(Mirror(reflecting: self).subjectType)
         return self
     }
+    
+    func size() -> Self {
+        let _ = debug()
+        print("Size is \(MemoryLayout<Self>.size)")
+        return self
+    }
 }
 
 struct Cardify: AnimatableModifier {

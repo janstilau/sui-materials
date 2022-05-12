@@ -1,4 +1,4 @@
-@_functionBuilder
+@resultBuilder
 public struct ViewBuilder {
     public static func buildBlock() -> EmptyView {
         return EmptyView()

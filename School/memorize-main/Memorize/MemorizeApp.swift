@@ -79,13 +79,14 @@ import SwiftUI
 struct MemorizeApp: App {
     var body: some Scene {
         WindowGroup {
+            // Text
+            // Text("hehehe").debug()
+            // some Shape
+            
             /*
              EmojiMemoryGameView
              */
             EmojiMemoryGameView(viewModel: EmojiMemoryGame()).debug()
-            
-            // Text
-            // Text("hehehe").debug()
         }
     }
 }

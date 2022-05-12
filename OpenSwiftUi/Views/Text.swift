@@ -30,6 +30,7 @@ public struct Text: View, Equatable {
             }
         }
         
+        // 一字不差地，逐字地
         case verbatim(String)
         case anyTextStorage(AnyTextStorage<String>)
     }
