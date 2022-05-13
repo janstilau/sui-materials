@@ -73,13 +73,13 @@
 				34B3EAA4256C4E000020C347 /* Assets.xcassets */,
 				34B3EAA2256C4DF80020C347 /* EmojiMemoryGameView.swift */,
 				3455116D256D42BB00E7107B /* EmojiMemoryGame.swift */,
+				3455116A256D407A00E7107B /* MemoryGame.swift */,
 				34D7E809256E9702001B388F /* Cardify.swift */,
 				34D7E806256E8E65001B388F /* Pie.swift */,
 				345EC08E256E5BF6009979D2 /* Grid.swift */,
 				345EC091256E6426009979D2 /* GridLayout.swift */,
 				34B3EAA9256C4E000020C347 /* Info.plist */,
 				34B3EAA0256C4DF80020C347 /* MemorizeApp.swift */,
-				3455116A256D407A00E7107B /* MemoryGame.swift */,
 				34B3EAA6256C4E000020C347 /* Preview Content */,
 			);
 			path = Memorize;
