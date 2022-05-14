@@ -1,16 +1,16 @@
 import Foundation
+import UIKit
 
-/*
- HStack 里面的都不是 ViewBuilder. 
- */
 public struct HStack<Content>: View where Content: View {
     public typealias Body = Never
     public var _tree: _VariadicView.Tree<_HStackLayout, Content>
-    public init(alignment: VerticalAlignment = .center, spacing:
-                CGFloat? = nil,
+    public init(alignment: VerticalAlignment = .center,
+                spacing: CGFloat? = nil,
                 @ViewBuilder content: () -> Content) {
-        _tree = .init(root: _HStackLayout(alignment: alignment, spacing: spacing),
-                    content: content())
+        _tree = .init(
+            root: _HStackLayout(alignment: alignment, spacing: spacing),
+            content: content()
+        )
     }
 }
 

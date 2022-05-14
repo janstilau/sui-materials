@@ -75,6 +75,10 @@ struct EmojiArtDocumentView: View {
         return found
     }
     
+    private func getShape() -> Shape {
+        return Rectangle()
+    }
+    
     // MARK: - Positioning/Sizing Emoji
     
     private func position(for emoji: EmojiArtModel.Emoji, in geometry: GeometryProxy) -> CGPoint {

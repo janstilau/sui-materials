@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 /*
  A 2D shape that you can use when drawing a view.

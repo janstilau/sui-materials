@@ -15,6 +15,7 @@ public class AnyTextModifier {
 
 public struct Text: View, Equatable {
     public typealias Body = Never
+    
     public var _storage: Storage
     // 里面, 存储的是 Enum 这种数据类型. 数组里面的 Item 的大小, 是固定的. 是 Enum 中最大数据类型宽度. 
     public var _modifiers: [Text.Modifier] = [Modifier]()

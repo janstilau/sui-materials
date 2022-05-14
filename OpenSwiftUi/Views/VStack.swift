@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 public struct VStack<Content>: View where Content: View {
     public typealias Body = Never
