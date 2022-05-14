@@ -6,6 +6,37 @@
 //
 
 import Foundation
+import SwiftUI
+
+@resultBuilder
+struct TestBuilder {
+    static func buildBlock(_ items: String...) -> [String] {
+        items
+    }
+}
+
+struct MyContentView: View {
+    @State private var text = "ccc"
+
+    var body: some View {
+        VStack {
+            Button("test") {
+                self.test {
+                    "a"
+                    "b"
+                    "c"
+                    "d"
+                }
+            }
+        }
+    }
+
+    func test(@TestBuilder _ content: () -> [String]) -> Void {
+        print("@TestBuilder Begin")
+        print(content())
+    }
+ }
+
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
@@ -32,6 +63,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(card: Card) {
+        let view =  MyContentView().test {
+            "a"
+            "b"
+            "c"
+            "d"
+        }
+        print(view)
+        print("----")
+        return ()
         if let chosenIndex: Int = cards.firstIndex(matching: card),
            !cards[chosenIndex].isFaceUp,
            !cards[chosenIndex].isMatched {
