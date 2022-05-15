@@ -17,6 +17,7 @@ public protocol PixelFont {
 }
 
 extension PixelFont {
+    // 通过 Font 来计算, 对应的 text 数据最终的 size 值.
     public func sizeForText(_ text: String, in size: (width: Int, height: Int)) -> (width: Int, height: Int) {
         var advance = 0
         var maxWidth = 0

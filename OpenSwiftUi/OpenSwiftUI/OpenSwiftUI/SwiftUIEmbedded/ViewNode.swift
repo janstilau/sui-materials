@@ -224,7 +224,7 @@ extension ViewNode {
                         remainingChildren -= 1
                         child.processor = "* VStack"
                         child.calculateSize(givenWidth: wantedWidth, givenHeight: wantedHeight)
-
+                        
                     }
                 }
             }

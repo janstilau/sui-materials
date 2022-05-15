@@ -4,11 +4,11 @@ import OpenSwiftUI
 public struct TextDrawable: Drawable {
     public var origin: Point = Point.zero
     public var size: Size = Size.zero
-        
+    
     // 把 Text 相关的所有东西, 都收集到了这里.
     public let text: String
     public let modifiers: [Text.Modifier]
-
+    
     public var resolvedFont: Font {
         var result: Font?
         for modifier in modifiers {
@@ -20,6 +20,7 @@ public struct TextDrawable: Drawable {
             }
         }
         
+        // 这里其实有点问题, 应该是如果自己的 Modifier 没有相关的数据, 找寻父节点的数据. 
         return result ?? Font.body
     }
     
