@@ -50,6 +50,9 @@ public class HostingController<Content: View> {
         
         let parentPadding = (node.parent?.value as? ModifiedContentDrawable<PaddingModifier>)?.modifier.value ?? EdgeInsets()
         
+        /*
+         许多属性, 之所以会有继承的概念, 是在 NodeTree 中, 可以不断的进行向上寻找.
+         */
         var foregroundColor: Color?
         for ancestor in node.ancestors {
             if let color = (ancestor.value as? ModifiedContentDrawable<_EnvironmentKeyWritingModifier<Color?>>)?.modifier.value {
@@ -188,7 +191,9 @@ public class HostingController<Content: View> {
         self.tree = ViewNode(value: RootDrawable())
         
         /*
-         buildDebugTree 是一个 Inout 的值, 所以, 会在里面, 进行 Tree 的实际值的修改.
+         rootView.body 返回的是一个 ViewTree. buildDebugTree 所要做的, 就是将 ViewTree 变为 NodeTree.
+         而 NodeTree 中会计算出各个节点数据的真正位置, 进行 Layout 处理.
+         在 drawNodesRecursively 里面, 会根据各个 View, 在对应的位置, 进行真正的 Draw 的动作.
          */
         (rootView.body as? ViewBuildable)?.buildDebugTree(tree: &tree, parent: tree)
         

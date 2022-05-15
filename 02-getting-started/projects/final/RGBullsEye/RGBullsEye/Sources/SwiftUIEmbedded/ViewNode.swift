@@ -39,6 +39,7 @@ extension ViewNode {
         return numberOfSpacings * Self.defaultSpacing
     }
     
+    // 最最重要的方法. Layout 相关的计算.
     public func calculateSize(givenWidth: Int, givenHeight: Int) {
         guard isBranch else { return }
         
@@ -54,18 +55,31 @@ extension ViewNode {
         }
     }
     
+    /*
+     目前只有 DividerDrawable, TextDrawable, DeviderDrawable 是自己掌握了 wantedSize, 其他的都是返回父 View 提供的值.
+     
+     wantedWidthForProposal
+     wantedHeightForProposal
+     */
     func calculateNodeWithZStackedNodes(givenWidth: Int, givenHeight: Int) {
         for (_, child) in children.enumerated() {
             child.processor = "* ZStack"
             child.calculateSize(givenWidth: givenWidth, givenHeight: givenHeight)
-            if !child.value.passthrough {
-                let wantedWidth = child.value.wantedWidthForProposal(givenWidth, otherLength: givenHeight)
-                let wantedHeight = child.value.wantedHeightForProposal(givenHeight, otherLength: givenWidth)
-                child.value.size.width = wantedWidth
-                child.value.size.height = wantedHeight
-            }
+//            if !child.value.passthrough {
+//                let wantedWidth = child.value.wantedWidthForProposal(givenWidth, otherLength: givenHeight)
+//                let wantedHeight = child.value.wantedHeightForProposal(givenHeight, otherLength: givenWidth)
+//                child.value.size.width = wantedWidth
+//                child.value.size.height = wantedHeight
+//            }
+            
+            // Child 的尺寸, 是在这里才进行的确定.
+            let wantedWidth = child.value.wantedWidthForProposal(givenWidth, otherLength: givenHeight)
+            let wantedHeight = child.value.wantedHeightForProposal(givenHeight, otherLength: givenWidth)
+            child.value.size.width = wantedWidth
+            child.value.size.height = wantedHeight
         }
         
+        // 作为一个容器, 它的宽度, 是子 View 的宽度的和.
         value.size.width = children.reduce(0, { $0 + $1.value.size.width }) + internalSpacingRequirements
         value.size.height = children.reduce(0, { $0 + $1.value.size.height }) + internalSpacingRequirements
         
