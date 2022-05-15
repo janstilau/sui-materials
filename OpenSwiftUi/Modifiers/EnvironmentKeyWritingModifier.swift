@@ -27,9 +27,7 @@ public struct EnvironmentValues: CustomStringConvertible {
     }
 }
 
-protocol DynamicProperty {
-    
-}
+protocol DynamicProperty { }
 
 @propertyWrapper
 public struct Environment<Value>: DynamicProperty {

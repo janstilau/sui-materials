@@ -1,5 +1,8 @@
 
 
+/*
+ Drawable 的各种定义, 更多的是位置计算相关的工作. 
+ */
 public protocol Drawable: CustomDebugStringConvertible {
     var origin: Point { get set }
     var size: Size { get set }

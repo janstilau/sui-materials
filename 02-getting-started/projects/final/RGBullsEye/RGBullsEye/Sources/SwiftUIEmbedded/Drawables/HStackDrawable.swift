@@ -10,6 +10,7 @@ struct HStackDrawable: Drawable {
         self.alignment = alignment
     }
     
+    // HStack 使用父空间的大小. 
     public func wantedWidthForProposal(_ proposedWidth: Int, otherLength: Int? = nil) -> Int {
         return proposedWidth
     }

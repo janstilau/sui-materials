@@ -19,6 +19,7 @@ public struct TextDrawable: Drawable {
             }
         }
         
+        
         return result ?? Font.body
     }
     
@@ -27,7 +28,7 @@ public struct TextDrawable: Drawable {
         self.modifiers = modifiers
     }
     
-    // 对于 Text 来说, 
+    // 对于 Text 来说, 它所占据的位置, 是根据绘制系统算出来的了. 
     public func wantedWidthForProposal(_ proposedWidth: Int, otherLength: Int? = nil) -> Int {
         let height = size.height > 0 ? size.height : otherLength ?? Int.max
         return resolvedFont.font.sizeForText(text, in: (width: proposedWidth, height: height)).width

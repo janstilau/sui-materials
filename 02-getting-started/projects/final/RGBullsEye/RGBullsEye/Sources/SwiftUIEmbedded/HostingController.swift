@@ -15,6 +15,7 @@ public class HostingController<Content: View> {
     public typealias ColorDepthProtocol = FixedWidthInteger & UnsignedInteger
     
     public var tree: ViewNode
+    
     public var interactiveAreas = [Interaction]()
     
     private var canvas: Pixels<ColorDepth>
@@ -38,6 +39,11 @@ public class HostingController<Content: View> {
     
     /*
      递归绘制, 树上所有的节点.
+     Drawable 没有把所有的绘制相关的责任, 划分到自己的内部.
+     而是在 Draw 方法里面, 进行了类型判断.
+     */
+    /*
+     这是一个通用的模式, 将渲染树的内容, 绘制出来.
      */
     private func drawNodesRecursively(node: ViewNode) {
         guard node.value.size.width > 0 else { return }
@@ -63,8 +69,12 @@ public class HostingController<Content: View> {
         let width = node.value.size.width
         let height = node.value.size.height
         
-        let x = node.ancestors.reduce(0, { $0 + $1.value.origin.x }) + node.value.origin.x + Int(parentPadding.leading)
-        let y = node.ancestors.reduce(0, { $0 + $1.value.origin.y }) + node.value.origin.y + Int(parentPadding.top)
+        let x = node.ancestors.reduce(0, { $0 + $1.value.origin.x }) +
+        node.value.origin.x +
+        Int(parentPadding.leading)
+        let y = node.ancestors.reduce(0, { $0 + $1.value.origin.y }) +
+        node.value.origin.y +
+        Int(parentPadding.top)
         
         if let colorNode = node.value as? ColorDrawable {
             let color = canvas.unsignedIntegerFromColor(colorNode.color)
