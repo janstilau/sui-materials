@@ -1,5 +1,8 @@
+// 必须, 是一个引用类型的.
 public protocol Node: class, Equatable {
     associatedtype Value
+    
+    // Value 代表着, 这个树节点的真正可绘制的部分.
     var value: Value { get set }
     var parent: Self? { get set }
     
@@ -70,6 +73,7 @@ extension Node {
     }
     
     /// Returns all nodes with no children.
+    // 自己管理的所有叶子及诶单.
     public var leaves: [Self] {
         return children.filter { $0.isLeaf }
     }
@@ -94,6 +98,7 @@ extension Node {
     // MARK: - Siblings
     
     /// Returns all other nodes with the same parent.
+    // 父节点的所有子节点, 剔除自己.
     public var siblings: [Self] {
         return siblingsIncludingSelf.filter { $0 != self }
     }

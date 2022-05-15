@@ -6,7 +6,6 @@ extension TupleView: ViewBuildable {
             if let viewBuildable = child.value as? ViewBuildable {
                 viewBuildable.buildDebugTree(tree: &tree, parent: parent)
             } else {
-                // child as View
                 print("Can't render custom views, yet.")
             }
         }

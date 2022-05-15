@@ -1,5 +1,3 @@
-
-
 struct TupleViewDrawable: Drawable {
     public var origin: Point = Point.zero
     public var size: Size = Size.zero

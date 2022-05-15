@@ -1,8 +1,8 @@
-
-
 import Foundation
 
+// 真正实现了 Node, 就只有 ViewNode 这一个节点.
 public final class ViewNode: Node {
+    // 将, Node 的 Value 限制成为了 
     public typealias Value = Drawable
     public var value: Value
     public weak var parent: ViewNode?
