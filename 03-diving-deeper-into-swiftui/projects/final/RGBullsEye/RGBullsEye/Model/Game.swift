@@ -1,5 +1,8 @@
 import Foundation
 
+/*
+ Controller 层的逻辑基本没变.
+ */
 struct Game {
     let start = RGB()
     var target = RGB.random()

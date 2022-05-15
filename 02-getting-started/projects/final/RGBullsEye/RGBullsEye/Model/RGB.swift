@@ -3,7 +3,7 @@ import Foundation
 /*
  这个程序的核心类. 一个 Model 类.
  就是 RGB 的数据封装.
- 提供了 Model 层的 diff 逻辑. 
+ 提供了 Model 层的 diff 逻辑.
  */
 struct RGB {
     var red = 0.5

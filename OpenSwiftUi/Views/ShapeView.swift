@@ -1,7 +1,8 @@
 import Foundation
 
 /*
- ShapeView 是用来进行信息的存储的. 
+ Shape 最终, 创建出 ShapeView 来实现 View.
+ 这个 View, 最终也就是存储信息了.
  */
 public struct _ShapeView<Content, Style>: View where Content: Shape, Style: ShapeStyle {
     public var body: Never {
