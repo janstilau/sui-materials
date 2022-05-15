@@ -20,6 +20,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 // 内容视图.
                 VStack {
+                    // ColorCircle 中, 已经有了 Frame 的设置. 然后 VStack 自动居中.
                     ColorCircle(
                         rgb: game.target,
                         size: proxy.size.height * circleSize)

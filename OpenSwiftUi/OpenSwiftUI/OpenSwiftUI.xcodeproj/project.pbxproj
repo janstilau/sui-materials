@@ -73,47 +73,6 @@
 		06478319282CB2BF0058A84E /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DB282CB2BF0058A84E /* Graph.swift */; };
 		0647831A282CB2BF0058A84E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DC282CB2BF0058A84E /* State.swift */; };
 		0647831B282CB2BF0058A84E /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DD282CB2BF0058A84E /* ViewBuilder.swift */; };
-		067049C52830BFA500FDFFAB /* ViewExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049952830BFA500FDFFAB /* ViewExtractor.swift */; };
-		067049C62830BFA500FDFFAB /* SpacerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049972830BFA500FDFFAB /* SpacerDrawable.swift */; };
-		067049C72830BFA500FDFFAB /* VStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049982830BFA500FDFFAB /* VStackDrawable.swift */; };
-		067049C82830BFA500FDFFAB /* DividerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049992830BFA500FDFFAB /* DividerDrawable.swift */; };
-		067049C92830BFA500FDFFAB /* TupleViewDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */; };
-		067049CA2830BFA500FDFFAB /* TextDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499B2830BFA500FDFFAB /* TextDrawable.swift */; };
-		067049CB2830BFA500FDFFAB /* RectangleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */; };
-		067049CC2830BFA500FDFFAB /* CircleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499E2830BFA500FDFFAB /* CircleDrawable.swift */; };
-		067049CD2830BFA500FDFFAB /* HStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499F2830BFA500FDFFAB /* HStackDrawable.swift */; };
-		067049CE2830BFA500FDFFAB /* ModifiedContentDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */; };
-		067049CF2830BFA500FDFFAB /* RootDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A12830BFA500FDFFAB /* RootDrawable.swift */; };
-		067049D02830BFA500FDFFAB /* ZStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A22830BFA500FDFFAB /* ZStackDrawable.swift */; };
-		067049D12830BFA500FDFFAB /* ButtonDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A32830BFA500FDFFAB /* ButtonDrawable.swift */; };
-		067049D22830BFA500FDFFAB /* ImageDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A42830BFA500FDFFAB /* ImageDrawable.swift */; };
-		067049D32830BFA500FDFFAB /* ColorDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A52830BFA500FDFFAB /* ColorDrawable.swift */; };
-		067049D42830BFA500FDFFAB /* StepperDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A62830BFA500FDFFAB /* StepperDrawable.swift */; };
-		067049D52830BFA500FDFFAB /* PixelColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */; };
-		067049D62830BFA500FDFFAB /* ViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A92830BFA500FDFFAB /* ViewNode.swift */; };
-		067049D72830BFA500FDFFAB /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AB2830BFA500FDFFAB /* Picker.swift */; };
-		067049D82830BFA500FDFFAB /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AC2830BFA500FDFFAB /* Spacer.swift */; };
-		067049D92830BFA500FDFFAB /* TupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AD2830BFA500FDFFAB /* TupleView.swift */; };
-		067049DA2830BFA500FDFFAB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AE2830BFA500FDFFAB /* Image.swift */; };
-		067049DB2830BFA500FDFFAB /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B02830BFA500FDFFAB /* Circle.swift */; };
-		067049DC2830BFA500FDFFAB /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B12830BFA500FDFFAB /* Rectangle.swift */; };
-		067049DD2830BFA500FDFFAB /* ZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B22830BFA500FDFFAB /* ZStack.swift */; };
-		067049DE2830BFA500FDFFAB /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B32830BFA500FDFFAB /* AnyView.swift */; };
-		067049DF2830BFA500FDFFAB /* ConditionalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B42830BFA500FDFFAB /* ConditionalContent.swift */; };
-		067049E02830BFA500FDFFAB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B52830BFA500FDFFAB /* Group.swift */; };
-		067049E12830BFA500FDFFAB /* ModifiedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B62830BFA500FDFFAB /* ModifiedContent.swift */; };
-		067049E22830BFA500FDFFAB /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B72830BFA500FDFFAB /* Divider.swift */; };
-		067049E32830BFA500FDFFAB /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B82830BFA500FDFFAB /* HStack.swift */; };
-		067049E42830BFA500FDFFAB /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B92830BFA500FDFFAB /* Stepper.swift */; };
-		067049E52830BFA500FDFFAB /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BA2830BFA500FDFFAB /* VStack.swift */; };
-		067049E62830BFA500FDFFAB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BB2830BFA500FDFFAB /* Text.swift */; };
-		067049E72830BFA500FDFFAB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BC2830BFA500FDFFAB /* Button.swift */; };
-		067049E82830BFA500FDFFAB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BD2830BFA500FDFFAB /* Color.swift */; };
-		067049E92830BFA500FDFFAB /* ForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BE2830BFA500FDFFAB /* ForEach.swift */; };
-		067049EA2830BFA500FDFFAB /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BF2830BFA500FDFFAB /* HostingController.swift */; };
-		067049EB2830BFA500FDFFAB /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C12830BFA500FDFFAB /* Drawable.swift */; };
-		067049EC2830BFA500FDFFAB /* ViewBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C22830BFA500FDFFAB /* ViewBuildable.swift */; };
-		067049ED2830BFA500FDFFAB /* DumpingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */; };
 		06704A0C2830C52C00FDFFAB /* PixelsImageOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049EF2830C52C00FDFFAB /* PixelsImageOutput.swift */; };
 		06704A0D2830C52C00FDFFAB /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F12830C52C00FDFFAB /* Lines.swift */; };
 		06704A0E2830C52C00FDFFAB /* Boxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F22830C52C00FDFFAB /* Boxes.swift */; };
@@ -142,6 +101,47 @@
 		06704A252830C52C00FDFFAB /* Bitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A0A2830C52C00FDFFAB /* Bitmap.swift */; };
 		06704A262830C52C00FDFFAB /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A0B2830C52C00FDFFAB /* Corners.swift */; };
 		06704A292830C53600FDFFAB /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A282830C53600FDFFAB /* Nodes.swift */; };
+		06704A5B28311C1300FDFFAB /* ViewExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A2B28311C1300FDFFAB /* ViewExtractor.swift */; };
+		06704A5C28311C1300FDFFAB /* SpacerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A2D28311C1300FDFFAB /* SpacerDrawable.swift */; };
+		06704A5D28311C1300FDFFAB /* VStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A2E28311C1300FDFFAB /* VStackDrawable.swift */; };
+		06704A5E28311C1300FDFFAB /* DividerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A2F28311C1300FDFFAB /* DividerDrawable.swift */; };
+		06704A5F28311C1300FDFFAB /* TupleViewDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3028311C1300FDFFAB /* TupleViewDrawable.swift */; };
+		06704A6028311C1300FDFFAB /* TextDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3128311C1300FDFFAB /* TextDrawable.swift */; };
+		06704A6128311C1300FDFFAB /* RectangleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3328311C1300FDFFAB /* RectangleDrawable.swift */; };
+		06704A6228311C1300FDFFAB /* CircleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3428311C1300FDFFAB /* CircleDrawable.swift */; };
+		06704A6328311C1300FDFFAB /* HStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3528311C1300FDFFAB /* HStackDrawable.swift */; };
+		06704A6428311C1300FDFFAB /* ModifiedContentDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3628311C1300FDFFAB /* ModifiedContentDrawable.swift */; };
+		06704A6528311C1300FDFFAB /* RootDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3728311C1300FDFFAB /* RootDrawable.swift */; };
+		06704A6628311C1300FDFFAB /* ZStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3828311C1300FDFFAB /* ZStackDrawable.swift */; };
+		06704A6728311C1300FDFFAB /* ButtonDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3928311C1300FDFFAB /* ButtonDrawable.swift */; };
+		06704A6828311C1300FDFFAB /* ImageDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3A28311C1300FDFFAB /* ImageDrawable.swift */; };
+		06704A6928311C1300FDFFAB /* ColorDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3B28311C1300FDFFAB /* ColorDrawable.swift */; };
+		06704A6A28311C1300FDFFAB /* StepperDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3C28311C1300FDFFAB /* StepperDrawable.swift */; };
+		06704A6B28311C1300FDFFAB /* PixelColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3E28311C1300FDFFAB /* PixelColorExtensions.swift */; };
+		06704A6C28311C1300FDFFAB /* ViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A3F28311C1300FDFFAB /* ViewNode.swift */; };
+		06704A6D28311C1300FDFFAB /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4128311C1300FDFFAB /* Picker.swift */; };
+		06704A6E28311C1300FDFFAB /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4228311C1300FDFFAB /* Spacer.swift */; };
+		06704A6F28311C1300FDFFAB /* TupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4328311C1300FDFFAB /* TupleView.swift */; };
+		06704A7028311C1300FDFFAB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4428311C1300FDFFAB /* Image.swift */; };
+		06704A7128311C1300FDFFAB /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4628311C1300FDFFAB /* Circle.swift */; };
+		06704A7228311C1300FDFFAB /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4728311C1300FDFFAB /* Rectangle.swift */; };
+		06704A7328311C1300FDFFAB /* ZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4828311C1300FDFFAB /* ZStack.swift */; };
+		06704A7428311C1300FDFFAB /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4928311C1300FDFFAB /* AnyView.swift */; };
+		06704A7528311C1300FDFFAB /* ConditionalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4A28311C1300FDFFAB /* ConditionalContent.swift */; };
+		06704A7628311C1300FDFFAB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4B28311C1300FDFFAB /* Group.swift */; };
+		06704A7728311C1300FDFFAB /* ModifiedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4C28311C1300FDFFAB /* ModifiedContent.swift */; };
+		06704A7828311C1300FDFFAB /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4D28311C1300FDFFAB /* Divider.swift */; };
+		06704A7928311C1300FDFFAB /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4E28311C1300FDFFAB /* HStack.swift */; };
+		06704A7A28311C1300FDFFAB /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A4F28311C1300FDFFAB /* Stepper.swift */; };
+		06704A7B28311C1300FDFFAB /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5028311C1300FDFFAB /* VStack.swift */; };
+		06704A7C28311C1300FDFFAB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5128311C1300FDFFAB /* Text.swift */; };
+		06704A7D28311C1300FDFFAB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5228311C1300FDFFAB /* Button.swift */; };
+		06704A7E28311C1300FDFFAB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5328311C1300FDFFAB /* Color.swift */; };
+		06704A7F28311C1300FDFFAB /* ForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5428311C1300FDFFAB /* ForEach.swift */; };
+		06704A8028311C1300FDFFAB /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5528311C1300FDFFAB /* HostingController.swift */; };
+		06704A8128311C1300FDFFAB /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5728311C1300FDFFAB /* Drawable.swift */; };
+		06704A8228311C1300FDFFAB /* ViewBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5828311C1300FDFFAB /* ViewBuildable.swift */; };
+		06704A8328311C1300FDFFAB /* DumpingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A5A28311C1300FDFFAB /* DumpingEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,47 +212,6 @@
 		064782DB282CB2BF0058A84E /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		064782DC282CB2BF0058A84E /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = State.swift; path = ../../State.swift; sourceTree = "<group>"; };
 		064782DD282CB2BF0058A84E /* ViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewBuilder.swift; path = ../../ViewBuilder.swift; sourceTree = "<group>"; };
-		067049952830BFA500FDFFAB /* ViewExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtractor.swift; sourceTree = "<group>"; };
-		067049972830BFA500FDFFAB /* SpacerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacerDrawable.swift; sourceTree = "<group>"; };
-		067049982830BFA500FDFFAB /* VStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackDrawable.swift; sourceTree = "<group>"; };
-		067049992830BFA500FDFFAB /* DividerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerDrawable.swift; sourceTree = "<group>"; };
-		0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleViewDrawable.swift; sourceTree = "<group>"; };
-		0670499B2830BFA500FDFFAB /* TextDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawable.swift; sourceTree = "<group>"; };
-		0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleDrawable.swift; sourceTree = "<group>"; };
-		0670499E2830BFA500FDFFAB /* CircleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDrawable.swift; sourceTree = "<group>"; };
-		0670499F2830BFA500FDFFAB /* HStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStackDrawable.swift; sourceTree = "<group>"; };
-		067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContentDrawable.swift; sourceTree = "<group>"; };
-		067049A12830BFA500FDFFAB /* RootDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDrawable.swift; sourceTree = "<group>"; };
-		067049A22830BFA500FDFFAB /* ZStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackDrawable.swift; sourceTree = "<group>"; };
-		067049A32830BFA500FDFFAB /* ButtonDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDrawable.swift; sourceTree = "<group>"; };
-		067049A42830BFA500FDFFAB /* ImageDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDrawable.swift; sourceTree = "<group>"; };
-		067049A52830BFA500FDFFAB /* ColorDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDrawable.swift; sourceTree = "<group>"; };
-		067049A62830BFA500FDFFAB /* StepperDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperDrawable.swift; sourceTree = "<group>"; };
-		067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelColorExtensions.swift; sourceTree = "<group>"; };
-		067049A92830BFA500FDFFAB /* ViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNode.swift; sourceTree = "<group>"; };
-		067049AB2830BFA500FDFFAB /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
-		067049AC2830BFA500FDFFAB /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
-		067049AD2830BFA500FDFFAB /* TupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleView.swift; sourceTree = "<group>"; };
-		067049AE2830BFA500FDFFAB /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		067049B02830BFA500FDFFAB /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
-		067049B12830BFA500FDFFAB /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
-		067049B22830BFA500FDFFAB /* ZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStack.swift; sourceTree = "<group>"; };
-		067049B32830BFA500FDFFAB /* AnyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
-		067049B42830BFA500FDFFAB /* ConditionalContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalContent.swift; sourceTree = "<group>"; };
-		067049B52830BFA500FDFFAB /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		067049B62830BFA500FDFFAB /* ModifiedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContent.swift; sourceTree = "<group>"; };
-		067049B72830BFA500FDFFAB /* Divider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
-		067049B82830BFA500FDFFAB /* HStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
-		067049B92830BFA500FDFFAB /* Stepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
-		067049BA2830BFA500FDFFAB /* VStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
-		067049BB2830BFA500FDFFAB /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		067049BC2830BFA500FDFFAB /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		067049BD2830BFA500FDFFAB /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		067049BE2830BFA500FDFFAB /* ForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForEach.swift; sourceTree = "<group>"; };
-		067049BF2830BFA500FDFFAB /* HostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
-		067049C12830BFA500FDFFAB /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
-		067049C22830BFA500FDFFAB /* ViewBuildable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBuildable.swift; sourceTree = "<group>"; };
-		067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpingEnvironment.swift; sourceTree = "<group>"; };
 		067049EF2830C52C00FDFFAB /* PixelsImageOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelsImageOutput.swift; sourceTree = "<group>"; };
 		067049F12830C52C00FDFFAB /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
 		067049F22830C52C00FDFFAB /* Boxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boxes.swift; sourceTree = "<group>"; };
@@ -281,6 +240,47 @@
 		06704A0A2830C52C00FDFFAB /* Bitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmap.swift; sourceTree = "<group>"; };
 		06704A0B2830C52C00FDFFAB /* Corners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
 		06704A282830C53600FDFFAB /* Nodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nodes.swift; sourceTree = "<group>"; };
+		06704A2B28311C1300FDFFAB /* ViewExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtractor.swift; sourceTree = "<group>"; };
+		06704A2D28311C1300FDFFAB /* SpacerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacerDrawable.swift; sourceTree = "<group>"; };
+		06704A2E28311C1300FDFFAB /* VStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackDrawable.swift; sourceTree = "<group>"; };
+		06704A2F28311C1300FDFFAB /* DividerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerDrawable.swift; sourceTree = "<group>"; };
+		06704A3028311C1300FDFFAB /* TupleViewDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleViewDrawable.swift; sourceTree = "<group>"; };
+		06704A3128311C1300FDFFAB /* TextDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawable.swift; sourceTree = "<group>"; };
+		06704A3328311C1300FDFFAB /* RectangleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleDrawable.swift; sourceTree = "<group>"; };
+		06704A3428311C1300FDFFAB /* CircleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDrawable.swift; sourceTree = "<group>"; };
+		06704A3528311C1300FDFFAB /* HStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStackDrawable.swift; sourceTree = "<group>"; };
+		06704A3628311C1300FDFFAB /* ModifiedContentDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContentDrawable.swift; sourceTree = "<group>"; };
+		06704A3728311C1300FDFFAB /* RootDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDrawable.swift; sourceTree = "<group>"; };
+		06704A3828311C1300FDFFAB /* ZStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackDrawable.swift; sourceTree = "<group>"; };
+		06704A3928311C1300FDFFAB /* ButtonDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDrawable.swift; sourceTree = "<group>"; };
+		06704A3A28311C1300FDFFAB /* ImageDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDrawable.swift; sourceTree = "<group>"; };
+		06704A3B28311C1300FDFFAB /* ColorDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDrawable.swift; sourceTree = "<group>"; };
+		06704A3C28311C1300FDFFAB /* StepperDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperDrawable.swift; sourceTree = "<group>"; };
+		06704A3E28311C1300FDFFAB /* PixelColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelColorExtensions.swift; sourceTree = "<group>"; };
+		06704A3F28311C1300FDFFAB /* ViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNode.swift; sourceTree = "<group>"; };
+		06704A4128311C1300FDFFAB /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		06704A4228311C1300FDFFAB /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		06704A4328311C1300FDFFAB /* TupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleView.swift; sourceTree = "<group>"; };
+		06704A4428311C1300FDFFAB /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		06704A4628311C1300FDFFAB /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		06704A4728311C1300FDFFAB /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		06704A4828311C1300FDFFAB /* ZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStack.swift; sourceTree = "<group>"; };
+		06704A4928311C1300FDFFAB /* AnyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
+		06704A4A28311C1300FDFFAB /* ConditionalContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalContent.swift; sourceTree = "<group>"; };
+		06704A4B28311C1300FDFFAB /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		06704A4C28311C1300FDFFAB /* ModifiedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContent.swift; sourceTree = "<group>"; };
+		06704A4D28311C1300FDFFAB /* Divider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		06704A4E28311C1300FDFFAB /* HStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
+		06704A4F28311C1300FDFFAB /* Stepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
+		06704A5028311C1300FDFFAB /* VStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
+		06704A5128311C1300FDFFAB /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		06704A5228311C1300FDFFAB /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		06704A5328311C1300FDFFAB /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		06704A5428311C1300FDFFAB /* ForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForEach.swift; sourceTree = "<group>"; };
+		06704A5528311C1300FDFFAB /* HostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		06704A5728311C1300FDFFAB /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		06704A5828311C1300FDFFAB /* ViewBuildable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBuildable.swift; sourceTree = "<group>"; };
+		06704A5A28311C1300FDFFAB /* DumpingEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpingEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,9 +313,9 @@
 		0647828B282CB27A0058A84E /* OpenSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				06704A2A28311C1300FDFFAB /* SwiftUIEmbedded */,
 				06704A272830C53600FDFFAB /* Nodes */,
 				067049EE2830C52C00FDFFAB /* Pixels */,
-				067049942830BFA500FDFFAB /* SwiftUIEmbedded */,
 				064782CA282CB2BE0058A84E /* _VariadicView */,
 				064782D1282CB2BF0058A84E /* _ViewTraitKey.swift */,
 				06478290282CB27C0058A84E /* Assets.xcassets */,
@@ -447,111 +447,6 @@
 			path = ../../Graph;
 			sourceTree = "<group>";
 		};
-		067049942830BFA500FDFFAB /* SwiftUIEmbedded */ = {
-			isa = PBXGroup;
-			children = (
-				067049952830BFA500FDFFAB /* ViewExtractor.swift */,
-				067049962830BFA500FDFFAB /* Drawables */,
-				067049A72830BFA500FDFFAB /* PixelExtensions */,
-				067049A92830BFA500FDFFAB /* ViewNode.swift */,
-				067049AA2830BFA500FDFFAB /* ViewExtensions */,
-				067049BF2830BFA500FDFFAB /* HostingController.swift */,
-				067049C02830BFA500FDFFAB /* Protocols */,
-				067049C32830BFA500FDFFAB /* Debug */,
-			);
-			name = SwiftUIEmbedded;
-			path = "../../../02-getting-started/projects/final/RGBullsEye/RGBullsEye/Sources/SwiftUIEmbedded";
-			sourceTree = "<group>";
-		};
-		067049962830BFA500FDFFAB /* Drawables */ = {
-			isa = PBXGroup;
-			children = (
-				067049972830BFA500FDFFAB /* SpacerDrawable.swift */,
-				067049982830BFA500FDFFAB /* VStackDrawable.swift */,
-				067049992830BFA500FDFFAB /* DividerDrawable.swift */,
-				0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */,
-				0670499B2830BFA500FDFFAB /* TextDrawable.swift */,
-				0670499C2830BFA500FDFFAB /* Shapes */,
-				0670499F2830BFA500FDFFAB /* HStackDrawable.swift */,
-				067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */,
-				067049A12830BFA500FDFFAB /* RootDrawable.swift */,
-				067049A22830BFA500FDFFAB /* ZStackDrawable.swift */,
-				067049A32830BFA500FDFFAB /* ButtonDrawable.swift */,
-				067049A42830BFA500FDFFAB /* ImageDrawable.swift */,
-				067049A52830BFA500FDFFAB /* ColorDrawable.swift */,
-				067049A62830BFA500FDFFAB /* StepperDrawable.swift */,
-			);
-			path = Drawables;
-			sourceTree = "<group>";
-		};
-		0670499C2830BFA500FDFFAB /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */,
-				0670499E2830BFA500FDFFAB /* CircleDrawable.swift */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
-		067049A72830BFA500FDFFAB /* PixelExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */,
-			);
-			path = PixelExtensions;
-			sourceTree = "<group>";
-		};
-		067049AA2830BFA500FDFFAB /* ViewExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				067049AB2830BFA500FDFFAB /* Picker.swift */,
-				067049AC2830BFA500FDFFAB /* Spacer.swift */,
-				067049AD2830BFA500FDFFAB /* TupleView.swift */,
-				067049AE2830BFA500FDFFAB /* Image.swift */,
-				067049AF2830BFA500FDFFAB /* Shapes */,
-				067049B22830BFA500FDFFAB /* ZStack.swift */,
-				067049B32830BFA500FDFFAB /* AnyView.swift */,
-				067049B42830BFA500FDFFAB /* ConditionalContent.swift */,
-				067049B52830BFA500FDFFAB /* Group.swift */,
-				067049B62830BFA500FDFFAB /* ModifiedContent.swift */,
-				067049B72830BFA500FDFFAB /* Divider.swift */,
-				067049B82830BFA500FDFFAB /* HStack.swift */,
-				067049B92830BFA500FDFFAB /* Stepper.swift */,
-				067049BA2830BFA500FDFFAB /* VStack.swift */,
-				067049BB2830BFA500FDFFAB /* Text.swift */,
-				067049BC2830BFA500FDFFAB /* Button.swift */,
-				067049BD2830BFA500FDFFAB /* Color.swift */,
-				067049BE2830BFA500FDFFAB /* ForEach.swift */,
-			);
-			path = ViewExtensions;
-			sourceTree = "<group>";
-		};
-		067049AF2830BFA500FDFFAB /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				067049B02830BFA500FDFFAB /* Circle.swift */,
-				067049B12830BFA500FDFFAB /* Rectangle.swift */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
-		067049C02830BFA500FDFFAB /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				067049C12830BFA500FDFFAB /* Drawable.swift */,
-				067049C22830BFA500FDFFAB /* ViewBuildable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		067049C32830BFA500FDFFAB /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */,
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
 		067049EE2830C52C00FDFFAB /* Pixels */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +503,110 @@
 				06704A282830C53600FDFFAB /* Nodes.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		06704A2A28311C1300FDFFAB /* SwiftUIEmbedded */ = {
+			isa = PBXGroup;
+			children = (
+				06704A2B28311C1300FDFFAB /* ViewExtractor.swift */,
+				06704A2C28311C1300FDFFAB /* Drawables */,
+				06704A3D28311C1300FDFFAB /* PixelExtensions */,
+				06704A3F28311C1300FDFFAB /* ViewNode.swift */,
+				06704A4028311C1300FDFFAB /* ViewExtensions */,
+				06704A5528311C1300FDFFAB /* HostingController.swift */,
+				06704A5628311C1300FDFFAB /* Protocols */,
+				06704A5928311C1300FDFFAB /* Debug */,
+			);
+			path = SwiftUIEmbedded;
+			sourceTree = "<group>";
+		};
+		06704A2C28311C1300FDFFAB /* Drawables */ = {
+			isa = PBXGroup;
+			children = (
+				06704A2D28311C1300FDFFAB /* SpacerDrawable.swift */,
+				06704A2E28311C1300FDFFAB /* VStackDrawable.swift */,
+				06704A2F28311C1300FDFFAB /* DividerDrawable.swift */,
+				06704A3028311C1300FDFFAB /* TupleViewDrawable.swift */,
+				06704A3128311C1300FDFFAB /* TextDrawable.swift */,
+				06704A3228311C1300FDFFAB /* Shapes */,
+				06704A3528311C1300FDFFAB /* HStackDrawable.swift */,
+				06704A3628311C1300FDFFAB /* ModifiedContentDrawable.swift */,
+				06704A3728311C1300FDFFAB /* RootDrawable.swift */,
+				06704A3828311C1300FDFFAB /* ZStackDrawable.swift */,
+				06704A3928311C1300FDFFAB /* ButtonDrawable.swift */,
+				06704A3A28311C1300FDFFAB /* ImageDrawable.swift */,
+				06704A3B28311C1300FDFFAB /* ColorDrawable.swift */,
+				06704A3C28311C1300FDFFAB /* StepperDrawable.swift */,
+			);
+			path = Drawables;
+			sourceTree = "<group>";
+		};
+		06704A3228311C1300FDFFAB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				06704A3328311C1300FDFFAB /* RectangleDrawable.swift */,
+				06704A3428311C1300FDFFAB /* CircleDrawable.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		06704A3D28311C1300FDFFAB /* PixelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				06704A3E28311C1300FDFFAB /* PixelColorExtensions.swift */,
+			);
+			path = PixelExtensions;
+			sourceTree = "<group>";
+		};
+		06704A4028311C1300FDFFAB /* ViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				06704A4128311C1300FDFFAB /* Picker.swift */,
+				06704A4228311C1300FDFFAB /* Spacer.swift */,
+				06704A4328311C1300FDFFAB /* TupleView.swift */,
+				06704A4428311C1300FDFFAB /* Image.swift */,
+				06704A4528311C1300FDFFAB /* Shapes */,
+				06704A4828311C1300FDFFAB /* ZStack.swift */,
+				06704A4928311C1300FDFFAB /* AnyView.swift */,
+				06704A4A28311C1300FDFFAB /* ConditionalContent.swift */,
+				06704A4B28311C1300FDFFAB /* Group.swift */,
+				06704A4C28311C1300FDFFAB /* ModifiedContent.swift */,
+				06704A4D28311C1300FDFFAB /* Divider.swift */,
+				06704A4E28311C1300FDFFAB /* HStack.swift */,
+				06704A4F28311C1300FDFFAB /* Stepper.swift */,
+				06704A5028311C1300FDFFAB /* VStack.swift */,
+				06704A5128311C1300FDFFAB /* Text.swift */,
+				06704A5228311C1300FDFFAB /* Button.swift */,
+				06704A5328311C1300FDFFAB /* Color.swift */,
+				06704A5428311C1300FDFFAB /* ForEach.swift */,
+			);
+			path = ViewExtensions;
+			sourceTree = "<group>";
+		};
+		06704A4528311C1300FDFFAB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				06704A4628311C1300FDFFAB /* Circle.swift */,
+				06704A4728311C1300FDFFAB /* Rectangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		06704A5628311C1300FDFFAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				06704A5728311C1300FDFFAB /* Drawable.swift */,
+				06704A5828311C1300FDFFAB /* ViewBuildable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		06704A5928311C1300FDFFAB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				06704A5A28311C1300FDFFAB /* DumpingEnvironment.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,137 +679,137 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				067049CF2830BFA500FDFFAB /* RootDrawable.swift in Sources */,
+				06704A7928311C1300FDFFAB /* HStack.swift in Sources */,
 				0647828F282CB27A0058A84E /* ContentView.swift in Sources */,
 				064782ED282CB2BF0058A84E /* VStackLayout.swift in Sources */,
 				06478315282CB2BF0058A84E /* Axis.swift in Sources */,
+				06704A7628311C1300FDFFAB /* Group.swift in Sources */,
 				06478316282CB2BF0058A84E /* EdgeInsets.swift in Sources */,
 				06478313282CB2BF0058A84E /* Edge.swift in Sources */,
 				06704A1A2830C52C00FDFFAB /* FontSFCompactText15.swift in Sources */,
 				0647831A282CB2BF0058A84E /* State.swift in Sources */,
+				06704A8128311C1300FDFFAB /* Drawable.swift in Sources */,
 				064782E4282CB2BF0058A84E /* EmptyView.swift in Sources */,
-				067049D62830BFA500FDFFAB /* ViewNode.swift in Sources */,
 				06478319282CB2BF0058A84E /* Graph.swift in Sources */,
-				067049D02830BFA500FDFFAB /* ZStackDrawable.swift in Sources */,
+				06704A6628311C1300FDFFAB /* ZStackDrawable.swift in Sources */,
 				064782F6282CB2BF0058A84E /* Divider.swift in Sources */,
 				06478308282CB2BF0058A84E /* Binding.swift in Sources */,
-				067049C92830BFA500FDFFAB /* TupleViewDrawable.swift in Sources */,
-				067049CC2830BFA500FDFFAB /* CircleDrawable.swift in Sources */,
-				067049D52830BFA500FDFFAB /* PixelColorExtensions.swift in Sources */,
-				067049DD2830BFA500FDFFAB /* ZStack.swift in Sources */,
-				067049DF2830BFA500FDFFAB /* ConditionalContent.swift in Sources */,
 				064782F4282CB2BF0058A84E /* Group.swift in Sources */,
-				067049E02830BFA500FDFFAB /* Group.swift in Sources */,
-				067049DB2830BFA500FDFFAB /* Circle.swift in Sources */,
-				067049D92830BFA500FDFFAB /* TupleView.swift in Sources */,
+				06704A7D28311C1300FDFFAB /* Button.swift in Sources */,
+				06704A7028311C1300FDFFAB /* Image.swift in Sources */,
 				064782DE282CB2BF0058A84E /* Animatable.swift in Sources */,
 				064782E7282CB2BF0058A84E /* TupleView.swift in Sources */,
-				067049C82830BFA500FDFFAB /* DividerDrawable.swift in Sources */,
 				064782E2282CB2BF0058A84E /* Picker.swift in Sources */,
+				06704A7528311C1300FDFFAB /* ConditionalContent.swift in Sources */,
+				06704A6728311C1300FDFFAB /* ButtonDrawable.swift in Sources */,
 				0647831B282CB2BF0058A84E /* ViewBuilder.swift in Sources */,
 				06704A132830C52C00FDFFAB /* FontSFCompactText23.swift in Sources */,
+				06704A7A28311C1300FDFFAB /* Stepper.swift in Sources */,
+				06704A7128311C1300FDFFAB /* Circle.swift in Sources */,
+				06704A6528311C1300FDFFAB /* RootDrawable.swift in Sources */,
 				06478314282CB2BF0058A84E /* Alignment.swift in Sources */,
-				067049D42830BFA500FDFFAB /* StepperDrawable.swift in Sources */,
-				067049CB2830BFA500FDFFAB /* RectangleDrawable.swift in Sources */,
 				06704A292830C53600FDFFAB /* Nodes.swift in Sources */,
 				06704A1F2830C52C00FDFFAB /* FontSFCompactText32.swift in Sources */,
 				06478300282CB2BF0058A84E /* EmptyModifier.swift in Sources */,
 				06704A182830C52C00FDFFAB /* FontSFCompactText24.swift in Sources */,
-				067049CD2830BFA500FDFFAB /* HStackDrawable.swift in Sources */,
+				06704A6828311C1300FDFFAB /* ImageDrawable.swift in Sources */,
 				06478309282CB2BF0058A84E /* PropertyList.swift in Sources */,
 				064782E1282CB2BF0058A84E /* View.swift in Sources */,
+				06704A7328311C1300FDFFAB /* ZStack.swift in Sources */,
 				06478317282CB2BF0058A84E /* Size.swift in Sources */,
-				067049E22830BFA500FDFFAB /* Divider.swift in Sources */,
+				06704A5E28311C1300FDFFAB /* DividerDrawable.swift in Sources */,
 				0647830B282CB2BF0058A84E /* VariadicView_UnaryViewRoot.swift in Sources */,
 				064782EF282CB2BF0058A84E /* ZStackLayout.swift in Sources */,
-				067049DE2830BFA500FDFFAB /* AnyView.swift in Sources */,
 				06478304282CB2BF0058A84E /* ViewModifier.swift in Sources */,
 				06704A232830C52C00FDFFAB /* FontSFCompactText10.swift in Sources */,
 				064782FB282CB2BF0058A84E /* Text.swift in Sources */,
 				06704A1C2830C52C00FDFFAB /* FontSFCompactText13.swift in Sources */,
 				064782E8282CB2BF0058A84E /* Image.swift in Sources */,
+				06704A6E28311C1300FDFFAB /* Spacer.swift in Sources */,
 				06478306282CB2BF0058A84E /* EnvironmentKeyWritingModifier.swift in Sources */,
-				067049E72830BFA500FDFFAB /* Button.swift in Sources */,
-				067049E42830BFA500FDFFAB /* Stepper.swift in Sources */,
-				067049ED2830BFA500FDFFAB /* DumpingEnvironment.swift in Sources */,
 				064782FF282CB2BF0058A84E /* ForEach.swift in Sources */,
 				06704A0C2830C52C00FDFFAB /* PixelsImageOutput.swift in Sources */,
-				067049D82830BFA500FDFFAB /* Spacer.swift in Sources */,
-				067049E92830BFA500FDFFAB /* ForEach.swift in Sources */,
 				064782F1282CB2BF0058A84E /* Toggle.swift in Sources */,
 				06704A122830C52C00FDFFAB /* FontSFCompactText21.swift in Sources */,
 				064782E6282CB2BF0058A84E /* Spacer.swift in Sources */,
-				067049CE2830BFA500FDFFAB /* ModifiedContentDrawable.swift in Sources */,
 				064782F0282CB2BF0058A84E /* Shape.swift in Sources */,
 				06478303282CB2BF0058A84E /* ViewModifier_Content.swift in Sources */,
 				06478311282CB2BF0058A84E /* _ViewTraitKey.swift in Sources */,
 				06704A162830C52C00FDFFAB /* FontSFCompactText20.swift in Sources */,
+				06704A5B28311C1300FDFFAB /* ViewExtractor.swift in Sources */,
 				06704A252830C52C00FDFFAB /* Bitmap.swift in Sources */,
-				067049EA2830BFA500FDFFAB /* HostingController.swift in Sources */,
+				06704A6B28311C1300FDFFAB /* PixelColorExtensions.swift in Sources */,
+				06704A7B28311C1300FDFFAB /* VStack.swift in Sources */,
+				06704A7F28311C1300FDFFAB /* ForEach.swift in Sources */,
 				06704A112830C52C00FDFFAB /* Circles.swift in Sources */,
 				064782EE282CB2BF0058A84E /* ZStack.swift in Sources */,
-				067049E32830BFA500FDFFAB /* HStack.swift in Sources */,
-				067049DC2830BFA500FDFFAB /* Rectangle.swift in Sources */,
+				06704A7228311C1300FDFFAB /* Rectangle.swift in Sources */,
 				06704A1D2830C52C00FDFFAB /* FontSFCompactText9.swift in Sources */,
 				064782DF282CB2BF0058A84E /* UnaryViewAdaptor.swift in Sources */,
 				06478307282CB2BF0058A84E /* Transaction.swift in Sources */,
+				06704A5F28311C1300FDFFAB /* TupleViewDrawable.swift in Sources */,
+				06704A6C28311C1300FDFFAB /* ViewNode.swift in Sources */,
 				06704A222830C52C00FDFFAB /* FontSFCompactText8.swift in Sources */,
+				06704A8028311C1300FDFFAB /* HostingController.swift in Sources */,
+				06704A5D28311C1300FDFFAB /* VStackDrawable.swift in Sources */,
+				06704A8328311C1300FDFFAB /* DumpingEnvironment.swift in Sources */,
 				0647830D282CB2BF0058A84E /* VariadicView_MultiViewRoot.swift in Sources */,
 				0647830A282CB2BF0058A84E /* LocalizedStringKey.swift in Sources */,
 				064782F2282CB2BF0058A84E /* AnyView.swift in Sources */,
 				06478310282CB2BF0058A84E /* VariadicView_Children.swift in Sources */,
+				06704A6F28311C1300FDFFAB /* TupleView.swift in Sources */,
 				064782F7282CB2BF0058A84E /* HStack.swift in Sources */,
 				064782F5282CB2BF0058A84E /* ModifiedContent.swift in Sources */,
 				06704A212830C52C00FDFFAB /* FontSFCompactText12.swift in Sources */,
 				06704A242830C52C00FDFFAB /* Pixels.swift in Sources */,
+				06704A7828311C1300FDFFAB /* Divider.swift in Sources */,
 				06704A152830C52C00FDFFAB /* FontSFCompactText22.swift in Sources */,
 				064782EB282CB2BF0058A84E /* Circle.swift in Sources */,
 				064782EC282CB2BF0058A84E /* Rectangle.swift in Sources */,
+				06704A6428311C1300FDFFAB /* ModifiedContentDrawable.swift in Sources */,
 				06704A1B2830C52C00FDFFAB /* FontSFCompactText11.swift in Sources */,
 				064782E9282CB2BF0058A84E /* Angle.swift in Sources */,
 				06704A1E2830C52C00FDFFAB /* FontSFCompactText14.swift in Sources */,
 				064782FE282CB2BF0058A84E /* Color.swift in Sources */,
-				067049C62830BFA500FDFFAB /* SpacerDrawable.swift in Sources */,
+				06704A6A28311C1300FDFFAB /* StepperDrawable.swift in Sources */,
+				06704A5C28311C1300FDFFAB /* SpacerDrawable.swift in Sources */,
 				064782FC282CB2BF0058A84E /* Optional.swift in Sources */,
-				067049D22830BFA500FDFFAB /* ImageDrawable.swift in Sources */,
-				067049EB2830BFA500FDFFAB /* Drawable.swift in Sources */,
+				06704A6128311C1300FDFFAB /* RectangleDrawable.swift in Sources */,
 				06478312282CB2BF0058A84E /* ViewDimensions.swift in Sources */,
 				064782F3282CB2BF0058A84E /* ConditionalContent.swift in Sources */,
 				06704A0D2830C52C00FDFFAB /* Lines.swift in Sources */,
+				06704A7C28311C1300FDFFAB /* Text.swift in Sources */,
 				06704A0E2830C52C00FDFFAB /* Boxes.swift in Sources */,
+				06704A7428311C1300FDFFAB /* AnyView.swift in Sources */,
 				0647830E282CB2BF0058A84E /* VariadicView.swift in Sources */,
 				064782F9282CB2BF0058A84E /* VStack.swift in Sources */,
-				067049E52830BFA500FDFFAB /* VStack.swift in Sources */,
-				067049DA2830BFA500FDFFAB /* Image.swift in Sources */,
-				067049D72830BFA500FDFFAB /* Picker.swift in Sources */,
 				064782FA282CB2BF0058A84E /* Font.swift in Sources */,
+				06704A7E28311C1300FDFFAB /* Color.swift in Sources */,
 				06704A102830C52C00FDFFAB /* Text.swift in Sources */,
 				0647830C282CB2BF0058A84E /* VariadicView_Root.swift in Sources */,
-				067049C72830BFA500FDFFAB /* VStackDrawable.swift in Sources */,
 				0647828D282CB27A0058A84E /* OpenSwiftUIApp.swift in Sources */,
 				06704A142830C52C00FDFFAB /* FontSFCompactText18.swift in Sources */,
-				067049EC2830BFA500FDFFAB /* ViewBuildable.swift in Sources */,
 				064782E3282CB2BF0058A84E /* ShapeView.swift in Sources */,
-				067049D32830BFA500FDFFAB /* ColorDrawable.swift in Sources */,
+				06704A6228311C1300FDFFAB /* CircleDrawable.swift in Sources */,
 				064782E0282CB2BF0058A84E /* Never.swift in Sources */,
 				06704A262830C52C00FDFFAB /* Corners.swift in Sources */,
-				067049D12830BFA500FDFFAB /* ButtonDrawable.swift in Sources */,
 				064782EA282CB2BF0058A84E /* Path.swift in Sources */,
-				067049C52830BFA500FDFFAB /* ViewExtractor.swift in Sources */,
 				064782F8282CB2BF0058A84E /* Stepper.swift in Sources */,
+				06704A6928311C1300FDFFAB /* ColorDrawable.swift in Sources */,
 				0647830F282CB2BF0058A84E /* VariadicView_ViewRoot.swift in Sources */,
+				06704A6328311C1300FDFFAB /* HStackDrawable.swift in Sources */,
 				06704A0F2830C52C00FDFFAB /* PixelFont.swift in Sources */,
+				06704A6D28311C1300FDFFAB /* Picker.swift in Sources */,
 				064782E5282CB2BF0058A84E /* HStackLayout.swift in Sources */,
-				067049CA2830BFA500FDFFAB /* TextDrawable.swift in Sources */,
+				06704A8228311C1300FDFFAB /* ViewBuildable.swift in Sources */,
 				06704A192830C52C00FDFFAB /* FontSFCompactText17.swift in Sources */,
 				06478301282CB2BF0058A84E /* PaddingModifier.swift in Sources */,
-				067049E82830BFA500FDFFAB /* Color.swift in Sources */,
 				06478318282CB2BF0058A84E /* Point.swift in Sources */,
+				06704A6028311C1300FDFFAB /* TextDrawable.swift in Sources */,
 				06478305282CB2BF0058A84E /* EnvironmentalModifier.swift in Sources */,
-				067049E62830BFA500FDFFAB /* Text.swift in Sources */,
+				06704A7728311C1300FDFFAB /* ModifiedContent.swift in Sources */,
 				06704A202830C52C00FDFFAB /* FontSFCompactText16.swift in Sources */,
 				06478302282CB2BF0058A84E /* BackgroundModifier.swift in Sources */,
-				067049E12830BFA500FDFFAB /* ModifiedContent.swift in Sources */,
 				06704A172830C52C00FDFFAB /* FontSFCompactText19.swift in Sources */,
 				064782FD282CB2BF0058A84E /* Button.swift in Sources */,
 			);

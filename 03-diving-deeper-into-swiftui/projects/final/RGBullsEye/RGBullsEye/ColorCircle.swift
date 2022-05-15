@@ -16,6 +16,7 @@ struct ColorCircle: View {
     var body: some View {
         ZStack {
             // 给, 下面的 BGView 添加阴影效果. 而不是整个 View
+            // 下面的背景是固定的颜色值.
             Circle()
                 .fill(Color.element)
                 .northWestShadow()
@@ -25,6 +26,7 @@ struct ColorCircle: View {
                 .fill(Color(red: rgb.red, green: rgb.green, blue: rgb.blue))
             // 这个 Padding, 是向内进行压缩的值.
                 .padding(20)
+                
         }
         // 根据, 外界传过来的值, 来设置 BodyView 的大小.
         .frame(width: size, height: size)
