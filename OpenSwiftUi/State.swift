@@ -104,6 +104,13 @@ public struct State<Value>: DynamicProperty {
         nonmutating set { _location?._value.pointee = newValue }
     }
     
+    /*
+     传递出去的, 是一个特殊的对象. 里面存储了 SetGet 方法.
+     State 里面, 是应一个引用值, 来存储真正的数据.
+     
+     Binding 值, 存储的是对于这个引用值的修改.
+     这样, 就能保证, 其实操作的是同样的一个值. 
+     */
     public var projectedValue: Binding<Value> {
         return Binding(get: { return self.wrappedValue },
                        set: { newValue in self.wrappedValue = newValue })

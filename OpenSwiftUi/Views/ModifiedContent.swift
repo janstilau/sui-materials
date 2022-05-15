@@ -1,5 +1,5 @@
 /*
- 这就是一个合成类, View 类型, 以及 Modifier 类型. 
+ 这就是一个合成类, View 类型, 以及 Modifier 类型.
  */
 public struct ModifiedContent<Content, Modifier> {
     public var content: Content
@@ -10,6 +10,7 @@ public struct ModifiedContent<Content, Modifier> {
     }
 }
 
+// ModifiedContent 的 Body 都是 Never.
 extension ModifiedContent: View where Content: View, Modifier: ViewModifier {
     public typealias Body = Never
     // 为什么是 Never 呢, 不应该是 self.modifier.body(self.content) 吗

@@ -16,6 +16,13 @@ public enum RoundedCornerStyle {
     case continuous
 }
 
+/*
+ public enum CGLineCap : Int32 {
+     case butt = 0
+     case round = 1
+     case square = 2
+ }
+ */
 @frozen public struct StrokeStyle: Equatable {
     public var lineWidth: CGFloat
     public var lineCap: CGLineCap
@@ -38,6 +45,7 @@ extension RoundedCornerStyle: Hashable {}
 
 internal struct TrimmedPath: Equatable { }
 
+// Path 里面
 internal struct StrokedPath: Equatable {
     let path: Path
     let style: StrokeStyle
@@ -49,6 +57,8 @@ internal struct StrokedPath: Equatable {
 }
 
 public struct Path: Equatable {
+    // 真正的存储, 是 CGPath.
+    // 使用一个 Box, 进行引用语义的转化.
     final internal class PathBox: Equatable {
         var cgPath: CGPath
         
@@ -229,7 +239,6 @@ extension Path {
     public func offsetBy(dx: CGFloat, dy: CGFloat) -> Path {
         fatalError()
     }
-    
 }
 
 extension Path: Shape {

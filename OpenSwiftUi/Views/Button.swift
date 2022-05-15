@@ -14,6 +14,7 @@ public struct Button<Label>: View where Label: View {
     }
 }
 
+// 如果, 初始化方法传入的是 text, 那么 显示内容就是一个 Text 对象. 
 extension Button where Label == Text {
     public init<S: StringProtocol>(_ title: S, action: @escaping () -> Void) {
         self._action = action

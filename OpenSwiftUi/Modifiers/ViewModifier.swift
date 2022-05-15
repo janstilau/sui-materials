@@ -1,7 +1,9 @@
 /*
  A modifier that you apply to a view or another view modifier, producing a different version of the original value.
  
- Adopt the ViewModifier protocol when you want to create a reusable modifier that you can apply to any view. The example below combines several modifiers to create a new modifier that you can use to create blue caption text surrounded by a rounded rectangle:
+ Adopt the ViewModifier protocol when you want to create a reusable modifier that you can apply to any view.
+ The example below combines several modifiers to create a new modifier that you can use to create blue caption text surrounded by a rounded rectangle:
+ 
  struct BorderedCaption: ViewModifier {
  func body(content: Content) -> some View {
  content
@@ -14,6 +16,7 @@
  .foregroundColor(Color.blue)
  }
  }
+ 
  You can apply modifier(_:) directly to a view, but a more common and idiomatic approach uses modifier(_:) to define an extension to View itself that incorporates the view modifier:
  extension View {
  func borderedCaption() -> some View {
@@ -29,6 +32,7 @@
  */
 public protocol ViewModifier {
     associatedtype Body: View
+    // Body 的方法传入的参数, 并不是一个 View, 而是一个特殊的内部类型. 
     typealias Content = _ViewModifier_Content<Self>
     func body(content: Self.Content) -> Self.Body
 }

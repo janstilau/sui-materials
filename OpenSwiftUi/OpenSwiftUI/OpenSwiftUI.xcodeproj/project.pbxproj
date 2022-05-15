@@ -73,6 +73,75 @@
 		06478319282CB2BF0058A84E /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DB282CB2BF0058A84E /* Graph.swift */; };
 		0647831A282CB2BF0058A84E /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DC282CB2BF0058A84E /* State.swift */; };
 		0647831B282CB2BF0058A84E /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064782DD282CB2BF0058A84E /* ViewBuilder.swift */; };
+		067049C52830BFA500FDFFAB /* ViewExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049952830BFA500FDFFAB /* ViewExtractor.swift */; };
+		067049C62830BFA500FDFFAB /* SpacerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049972830BFA500FDFFAB /* SpacerDrawable.swift */; };
+		067049C72830BFA500FDFFAB /* VStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049982830BFA500FDFFAB /* VStackDrawable.swift */; };
+		067049C82830BFA500FDFFAB /* DividerDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049992830BFA500FDFFAB /* DividerDrawable.swift */; };
+		067049C92830BFA500FDFFAB /* TupleViewDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */; };
+		067049CA2830BFA500FDFFAB /* TextDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499B2830BFA500FDFFAB /* TextDrawable.swift */; };
+		067049CB2830BFA500FDFFAB /* RectangleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */; };
+		067049CC2830BFA500FDFFAB /* CircleDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499E2830BFA500FDFFAB /* CircleDrawable.swift */; };
+		067049CD2830BFA500FDFFAB /* HStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0670499F2830BFA500FDFFAB /* HStackDrawable.swift */; };
+		067049CE2830BFA500FDFFAB /* ModifiedContentDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */; };
+		067049CF2830BFA500FDFFAB /* RootDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A12830BFA500FDFFAB /* RootDrawable.swift */; };
+		067049D02830BFA500FDFFAB /* ZStackDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A22830BFA500FDFFAB /* ZStackDrawable.swift */; };
+		067049D12830BFA500FDFFAB /* ButtonDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A32830BFA500FDFFAB /* ButtonDrawable.swift */; };
+		067049D22830BFA500FDFFAB /* ImageDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A42830BFA500FDFFAB /* ImageDrawable.swift */; };
+		067049D32830BFA500FDFFAB /* ColorDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A52830BFA500FDFFAB /* ColorDrawable.swift */; };
+		067049D42830BFA500FDFFAB /* StepperDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A62830BFA500FDFFAB /* StepperDrawable.swift */; };
+		067049D52830BFA500FDFFAB /* PixelColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */; };
+		067049D62830BFA500FDFFAB /* ViewNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049A92830BFA500FDFFAB /* ViewNode.swift */; };
+		067049D72830BFA500FDFFAB /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AB2830BFA500FDFFAB /* Picker.swift */; };
+		067049D82830BFA500FDFFAB /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AC2830BFA500FDFFAB /* Spacer.swift */; };
+		067049D92830BFA500FDFFAB /* TupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AD2830BFA500FDFFAB /* TupleView.swift */; };
+		067049DA2830BFA500FDFFAB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049AE2830BFA500FDFFAB /* Image.swift */; };
+		067049DB2830BFA500FDFFAB /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B02830BFA500FDFFAB /* Circle.swift */; };
+		067049DC2830BFA500FDFFAB /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B12830BFA500FDFFAB /* Rectangle.swift */; };
+		067049DD2830BFA500FDFFAB /* ZStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B22830BFA500FDFFAB /* ZStack.swift */; };
+		067049DE2830BFA500FDFFAB /* AnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B32830BFA500FDFFAB /* AnyView.swift */; };
+		067049DF2830BFA500FDFFAB /* ConditionalContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B42830BFA500FDFFAB /* ConditionalContent.swift */; };
+		067049E02830BFA500FDFFAB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B52830BFA500FDFFAB /* Group.swift */; };
+		067049E12830BFA500FDFFAB /* ModifiedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B62830BFA500FDFFAB /* ModifiedContent.swift */; };
+		067049E22830BFA500FDFFAB /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B72830BFA500FDFFAB /* Divider.swift */; };
+		067049E32830BFA500FDFFAB /* HStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B82830BFA500FDFFAB /* HStack.swift */; };
+		067049E42830BFA500FDFFAB /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049B92830BFA500FDFFAB /* Stepper.swift */; };
+		067049E52830BFA500FDFFAB /* VStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BA2830BFA500FDFFAB /* VStack.swift */; };
+		067049E62830BFA500FDFFAB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BB2830BFA500FDFFAB /* Text.swift */; };
+		067049E72830BFA500FDFFAB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BC2830BFA500FDFFAB /* Button.swift */; };
+		067049E82830BFA500FDFFAB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BD2830BFA500FDFFAB /* Color.swift */; };
+		067049E92830BFA500FDFFAB /* ForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BE2830BFA500FDFFAB /* ForEach.swift */; };
+		067049EA2830BFA500FDFFAB /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049BF2830BFA500FDFFAB /* HostingController.swift */; };
+		067049EB2830BFA500FDFFAB /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C12830BFA500FDFFAB /* Drawable.swift */; };
+		067049EC2830BFA500FDFFAB /* ViewBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C22830BFA500FDFFAB /* ViewBuildable.swift */; };
+		067049ED2830BFA500FDFFAB /* DumpingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */; };
+		06704A0C2830C52C00FDFFAB /* PixelsImageOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049EF2830C52C00FDFFAB /* PixelsImageOutput.swift */; };
+		06704A0D2830C52C00FDFFAB /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F12830C52C00FDFFAB /* Lines.swift */; };
+		06704A0E2830C52C00FDFFAB /* Boxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F22830C52C00FDFFAB /* Boxes.swift */; };
+		06704A0F2830C52C00FDFFAB /* PixelFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F32830C52C00FDFFAB /* PixelFont.swift */; };
+		06704A102830C52C00FDFFAB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F42830C52C00FDFFAB /* Text.swift */; };
+		06704A112830C52C00FDFFAB /* Circles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F52830C52C00FDFFAB /* Circles.swift */; };
+		06704A122830C52C00FDFFAB /* FontSFCompactText21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F72830C52C00FDFFAB /* FontSFCompactText21.swift */; };
+		06704A132830C52C00FDFFAB /* FontSFCompactText23.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F82830C52C00FDFFAB /* FontSFCompactText23.swift */; };
+		06704A142830C52C00FDFFAB /* FontSFCompactText18.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049F92830C52C00FDFFAB /* FontSFCompactText18.swift */; };
+		06704A152830C52C00FDFFAB /* FontSFCompactText22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FA2830C52C00FDFFAB /* FontSFCompactText22.swift */; };
+		06704A162830C52C00FDFFAB /* FontSFCompactText20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FB2830C52C00FDFFAB /* FontSFCompactText20.swift */; };
+		06704A172830C52C00FDFFAB /* FontSFCompactText19.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FC2830C52C00FDFFAB /* FontSFCompactText19.swift */; };
+		06704A182830C52C00FDFFAB /* FontSFCompactText24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FD2830C52C00FDFFAB /* FontSFCompactText24.swift */; };
+		06704A192830C52C00FDFFAB /* FontSFCompactText17.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FE2830C52C00FDFFAB /* FontSFCompactText17.swift */; };
+		06704A1A2830C52C00FDFFAB /* FontSFCompactText15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067049FF2830C52C00FDFFAB /* FontSFCompactText15.swift */; };
+		06704A1B2830C52C00FDFFAB /* FontSFCompactText11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A002830C52C00FDFFAB /* FontSFCompactText11.swift */; };
+		06704A1C2830C52C00FDFFAB /* FontSFCompactText13.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A012830C52C00FDFFAB /* FontSFCompactText13.swift */; };
+		06704A1D2830C52C00FDFFAB /* FontSFCompactText9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A022830C52C00FDFFAB /* FontSFCompactText9.swift */; };
+		06704A1E2830C52C00FDFFAB /* FontSFCompactText14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A032830C52C00FDFFAB /* FontSFCompactText14.swift */; };
+		06704A1F2830C52C00FDFFAB /* FontSFCompactText32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A042830C52C00FDFFAB /* FontSFCompactText32.swift */; };
+		06704A202830C52C00FDFFAB /* FontSFCompactText16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A052830C52C00FDFFAB /* FontSFCompactText16.swift */; };
+		06704A212830C52C00FDFFAB /* FontSFCompactText12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A062830C52C00FDFFAB /* FontSFCompactText12.swift */; };
+		06704A222830C52C00FDFFAB /* FontSFCompactText8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A072830C52C00FDFFAB /* FontSFCompactText8.swift */; };
+		06704A232830C52C00FDFFAB /* FontSFCompactText10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A082830C52C00FDFFAB /* FontSFCompactText10.swift */; };
+		06704A242830C52C00FDFFAB /* Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A092830C52C00FDFFAB /* Pixels.swift */; };
+		06704A252830C52C00FDFFAB /* Bitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A0A2830C52C00FDFFAB /* Bitmap.swift */; };
+		06704A262830C52C00FDFFAB /* Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A0B2830C52C00FDFFAB /* Corners.swift */; };
+		06704A292830C53600FDFFAB /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06704A282830C53600FDFFAB /* Nodes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +212,75 @@
 		064782DB282CB2BF0058A84E /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		064782DC282CB2BF0058A84E /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = State.swift; path = ../../State.swift; sourceTree = "<group>"; };
 		064782DD282CB2BF0058A84E /* ViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewBuilder.swift; path = ../../ViewBuilder.swift; sourceTree = "<group>"; };
+		067049952830BFA500FDFFAB /* ViewExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtractor.swift; sourceTree = "<group>"; };
+		067049972830BFA500FDFFAB /* SpacerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacerDrawable.swift; sourceTree = "<group>"; };
+		067049982830BFA500FDFFAB /* VStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackDrawable.swift; sourceTree = "<group>"; };
+		067049992830BFA500FDFFAB /* DividerDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerDrawable.swift; sourceTree = "<group>"; };
+		0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleViewDrawable.swift; sourceTree = "<group>"; };
+		0670499B2830BFA500FDFFAB /* TextDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDrawable.swift; sourceTree = "<group>"; };
+		0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleDrawable.swift; sourceTree = "<group>"; };
+		0670499E2830BFA500FDFFAB /* CircleDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleDrawable.swift; sourceTree = "<group>"; };
+		0670499F2830BFA500FDFFAB /* HStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStackDrawable.swift; sourceTree = "<group>"; };
+		067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContentDrawable.swift; sourceTree = "<group>"; };
+		067049A12830BFA500FDFFAB /* RootDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDrawable.swift; sourceTree = "<group>"; };
+		067049A22830BFA500FDFFAB /* ZStackDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackDrawable.swift; sourceTree = "<group>"; };
+		067049A32830BFA500FDFFAB /* ButtonDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDrawable.swift; sourceTree = "<group>"; };
+		067049A42830BFA500FDFFAB /* ImageDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDrawable.swift; sourceTree = "<group>"; };
+		067049A52830BFA500FDFFAB /* ColorDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDrawable.swift; sourceTree = "<group>"; };
+		067049A62830BFA500FDFFAB /* StepperDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperDrawable.swift; sourceTree = "<group>"; };
+		067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelColorExtensions.swift; sourceTree = "<group>"; };
+		067049A92830BFA500FDFFAB /* ViewNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNode.swift; sourceTree = "<group>"; };
+		067049AB2830BFA500FDFFAB /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		067049AC2830BFA500FDFFAB /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		067049AD2830BFA500FDFFAB /* TupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TupleView.swift; sourceTree = "<group>"; };
+		067049AE2830BFA500FDFFAB /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		067049B02830BFA500FDFFAB /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		067049B12830BFA500FDFFAB /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		067049B22830BFA500FDFFAB /* ZStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStack.swift; sourceTree = "<group>"; };
+		067049B32830BFA500FDFFAB /* AnyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyView.swift; sourceTree = "<group>"; };
+		067049B42830BFA500FDFFAB /* ConditionalContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalContent.swift; sourceTree = "<group>"; };
+		067049B52830BFA500FDFFAB /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		067049B62830BFA500FDFFAB /* ModifiedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiedContent.swift; sourceTree = "<group>"; };
+		067049B72830BFA500FDFFAB /* Divider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
+		067049B82830BFA500FDFFAB /* HStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HStack.swift; sourceTree = "<group>"; };
+		067049B92830BFA500FDFFAB /* Stepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
+		067049BA2830BFA500FDFFAB /* VStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStack.swift; sourceTree = "<group>"; };
+		067049BB2830BFA500FDFFAB /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		067049BC2830BFA500FDFFAB /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		067049BD2830BFA500FDFFAB /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		067049BE2830BFA500FDFFAB /* ForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForEach.swift; sourceTree = "<group>"; };
+		067049BF2830BFA500FDFFAB /* HostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		067049C12830BFA500FDFFAB /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
+		067049C22830BFA500FDFFAB /* ViewBuildable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBuildable.swift; sourceTree = "<group>"; };
+		067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpingEnvironment.swift; sourceTree = "<group>"; };
+		067049EF2830C52C00FDFFAB /* PixelsImageOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelsImageOutput.swift; sourceTree = "<group>"; };
+		067049F12830C52C00FDFFAB /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
+		067049F22830C52C00FDFFAB /* Boxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boxes.swift; sourceTree = "<group>"; };
+		067049F32830C52C00FDFFAB /* PixelFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelFont.swift; sourceTree = "<group>"; };
+		067049F42830C52C00FDFFAB /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		067049F52830C52C00FDFFAB /* Circles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circles.swift; sourceTree = "<group>"; };
+		067049F72830C52C00FDFFAB /* FontSFCompactText21.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText21.swift; sourceTree = "<group>"; };
+		067049F82830C52C00FDFFAB /* FontSFCompactText23.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText23.swift; sourceTree = "<group>"; };
+		067049F92830C52C00FDFFAB /* FontSFCompactText18.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText18.swift; sourceTree = "<group>"; };
+		067049FA2830C52C00FDFFAB /* FontSFCompactText22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText22.swift; sourceTree = "<group>"; };
+		067049FB2830C52C00FDFFAB /* FontSFCompactText20.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText20.swift; sourceTree = "<group>"; };
+		067049FC2830C52C00FDFFAB /* FontSFCompactText19.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText19.swift; sourceTree = "<group>"; };
+		067049FD2830C52C00FDFFAB /* FontSFCompactText24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText24.swift; sourceTree = "<group>"; };
+		067049FE2830C52C00FDFFAB /* FontSFCompactText17.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText17.swift; sourceTree = "<group>"; };
+		067049FF2830C52C00FDFFAB /* FontSFCompactText15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText15.swift; sourceTree = "<group>"; };
+		06704A002830C52C00FDFFAB /* FontSFCompactText11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText11.swift; sourceTree = "<group>"; };
+		06704A012830C52C00FDFFAB /* FontSFCompactText13.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText13.swift; sourceTree = "<group>"; };
+		06704A022830C52C00FDFFAB /* FontSFCompactText9.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText9.swift; sourceTree = "<group>"; };
+		06704A032830C52C00FDFFAB /* FontSFCompactText14.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText14.swift; sourceTree = "<group>"; };
+		06704A042830C52C00FDFFAB /* FontSFCompactText32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText32.swift; sourceTree = "<group>"; };
+		06704A052830C52C00FDFFAB /* FontSFCompactText16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText16.swift; sourceTree = "<group>"; };
+		06704A062830C52C00FDFFAB /* FontSFCompactText12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText12.swift; sourceTree = "<group>"; };
+		06704A072830C52C00FDFFAB /* FontSFCompactText8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText8.swift; sourceTree = "<group>"; };
+		06704A082830C52C00FDFFAB /* FontSFCompactText10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSFCompactText10.swift; sourceTree = "<group>"; };
+		06704A092830C52C00FDFFAB /* Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixels.swift; sourceTree = "<group>"; };
+		06704A0A2830C52C00FDFFAB /* Bitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmap.swift; sourceTree = "<group>"; };
+		06704A0B2830C52C00FDFFAB /* Corners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Corners.swift; sourceTree = "<group>"; };
+		06704A282830C53600FDFFAB /* Nodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nodes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +313,9 @@
 		0647828B282CB27A0058A84E /* OpenSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				06704A272830C53600FDFFAB /* Nodes */,
+				067049EE2830C52C00FDFFAB /* Pixels */,
+				067049942830BFA500FDFFAB /* SwiftUIEmbedded */,
 				064782CA282CB2BE0058A84E /* _VariadicView */,
 				064782D1282CB2BF0058A84E /* _ViewTraitKey.swift */,
 				06478290282CB27C0058A84E /* Assets.xcassets */,
@@ -221,7 +362,6 @@
 				064782AB282CB2BE0058A84E /* VStackLayout.swift */,
 				064782AC282CB2BE0058A84E /* ZStack.swift */,
 				064782AD282CB2BE0058A84E /* ZStackLayout.swift */,
-				064782AE282CB2BE0058A84E /* Shape.swift */,
 				064782AF282CB2BE0058A84E /* Toggle.swift */,
 				064782B0282CB2BE0058A84E /* AnyView.swift */,
 				064782B1282CB2BE0058A84E /* ConditionalContent.swift */,
@@ -245,6 +385,7 @@
 		064782A6282CB2BE0058A84E /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
+				064782AE282CB2BE0058A84E /* Shape.swift */,
 				064782A7282CB2BE0058A84E /* Angle.swift */,
 				064782A8282CB2BE0058A84E /* Path.swift */,
 				064782A9282CB2BE0058A84E /* Circle.swift */,
@@ -304,6 +445,169 @@
 			);
 			name = Graph;
 			path = ../../Graph;
+			sourceTree = "<group>";
+		};
+		067049942830BFA500FDFFAB /* SwiftUIEmbedded */ = {
+			isa = PBXGroup;
+			children = (
+				067049952830BFA500FDFFAB /* ViewExtractor.swift */,
+				067049962830BFA500FDFFAB /* Drawables */,
+				067049A72830BFA500FDFFAB /* PixelExtensions */,
+				067049A92830BFA500FDFFAB /* ViewNode.swift */,
+				067049AA2830BFA500FDFFAB /* ViewExtensions */,
+				067049BF2830BFA500FDFFAB /* HostingController.swift */,
+				067049C02830BFA500FDFFAB /* Protocols */,
+				067049C32830BFA500FDFFAB /* Debug */,
+			);
+			name = SwiftUIEmbedded;
+			path = "../../../02-getting-started/projects/final/RGBullsEye/RGBullsEye/Sources/SwiftUIEmbedded";
+			sourceTree = "<group>";
+		};
+		067049962830BFA500FDFFAB /* Drawables */ = {
+			isa = PBXGroup;
+			children = (
+				067049972830BFA500FDFFAB /* SpacerDrawable.swift */,
+				067049982830BFA500FDFFAB /* VStackDrawable.swift */,
+				067049992830BFA500FDFFAB /* DividerDrawable.swift */,
+				0670499A2830BFA500FDFFAB /* TupleViewDrawable.swift */,
+				0670499B2830BFA500FDFFAB /* TextDrawable.swift */,
+				0670499C2830BFA500FDFFAB /* Shapes */,
+				0670499F2830BFA500FDFFAB /* HStackDrawable.swift */,
+				067049A02830BFA500FDFFAB /* ModifiedContentDrawable.swift */,
+				067049A12830BFA500FDFFAB /* RootDrawable.swift */,
+				067049A22830BFA500FDFFAB /* ZStackDrawable.swift */,
+				067049A32830BFA500FDFFAB /* ButtonDrawable.swift */,
+				067049A42830BFA500FDFFAB /* ImageDrawable.swift */,
+				067049A52830BFA500FDFFAB /* ColorDrawable.swift */,
+				067049A62830BFA500FDFFAB /* StepperDrawable.swift */,
+			);
+			path = Drawables;
+			sourceTree = "<group>";
+		};
+		0670499C2830BFA500FDFFAB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				0670499D2830BFA500FDFFAB /* RectangleDrawable.swift */,
+				0670499E2830BFA500FDFFAB /* CircleDrawable.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		067049A72830BFA500FDFFAB /* PixelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				067049A82830BFA500FDFFAB /* PixelColorExtensions.swift */,
+			);
+			path = PixelExtensions;
+			sourceTree = "<group>";
+		};
+		067049AA2830BFA500FDFFAB /* ViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				067049AB2830BFA500FDFFAB /* Picker.swift */,
+				067049AC2830BFA500FDFFAB /* Spacer.swift */,
+				067049AD2830BFA500FDFFAB /* TupleView.swift */,
+				067049AE2830BFA500FDFFAB /* Image.swift */,
+				067049AF2830BFA500FDFFAB /* Shapes */,
+				067049B22830BFA500FDFFAB /* ZStack.swift */,
+				067049B32830BFA500FDFFAB /* AnyView.swift */,
+				067049B42830BFA500FDFFAB /* ConditionalContent.swift */,
+				067049B52830BFA500FDFFAB /* Group.swift */,
+				067049B62830BFA500FDFFAB /* ModifiedContent.swift */,
+				067049B72830BFA500FDFFAB /* Divider.swift */,
+				067049B82830BFA500FDFFAB /* HStack.swift */,
+				067049B92830BFA500FDFFAB /* Stepper.swift */,
+				067049BA2830BFA500FDFFAB /* VStack.swift */,
+				067049BB2830BFA500FDFFAB /* Text.swift */,
+				067049BC2830BFA500FDFFAB /* Button.swift */,
+				067049BD2830BFA500FDFFAB /* Color.swift */,
+				067049BE2830BFA500FDFFAB /* ForEach.swift */,
+			);
+			path = ViewExtensions;
+			sourceTree = "<group>";
+		};
+		067049AF2830BFA500FDFFAB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				067049B02830BFA500FDFFAB /* Circle.swift */,
+				067049B12830BFA500FDFFAB /* Rectangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		067049C02830BFA500FDFFAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				067049C12830BFA500FDFFAB /* Drawable.swift */,
+				067049C22830BFA500FDFFAB /* ViewBuildable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		067049C32830BFA500FDFFAB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				067049C42830BFA500FDFFAB /* DumpingEnvironment.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		067049EE2830C52C00FDFFAB /* Pixels */ = {
+			isa = PBXGroup;
+			children = (
+				067049EF2830C52C00FDFFAB /* PixelsImageOutput.swift */,
+				067049F02830C52C00FDFFAB /* Shapes */,
+				067049F62830C52C00FDFFAB /* Fonts */,
+				06704A092830C52C00FDFFAB /* Pixels.swift */,
+				06704A0A2830C52C00FDFFAB /* Bitmap.swift */,
+				06704A0B2830C52C00FDFFAB /* Corners.swift */,
+			);
+			path = Pixels;
+			sourceTree = "<group>";
+		};
+		067049F02830C52C00FDFFAB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				067049F12830C52C00FDFFAB /* Lines.swift */,
+				067049F22830C52C00FDFFAB /* Boxes.swift */,
+				067049F32830C52C00FDFFAB /* PixelFont.swift */,
+				067049F42830C52C00FDFFAB /* Text.swift */,
+				067049F52830C52C00FDFFAB /* Circles.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		067049F62830C52C00FDFFAB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				067049F72830C52C00FDFFAB /* FontSFCompactText21.swift */,
+				067049F82830C52C00FDFFAB /* FontSFCompactText23.swift */,
+				067049F92830C52C00FDFFAB /* FontSFCompactText18.swift */,
+				067049FA2830C52C00FDFFAB /* FontSFCompactText22.swift */,
+				067049FB2830C52C00FDFFAB /* FontSFCompactText20.swift */,
+				067049FC2830C52C00FDFFAB /* FontSFCompactText19.swift */,
+				067049FD2830C52C00FDFFAB /* FontSFCompactText24.swift */,
+				067049FE2830C52C00FDFFAB /* FontSFCompactText17.swift */,
+				067049FF2830C52C00FDFFAB /* FontSFCompactText15.swift */,
+				06704A002830C52C00FDFFAB /* FontSFCompactText11.swift */,
+				06704A012830C52C00FDFFAB /* FontSFCompactText13.swift */,
+				06704A022830C52C00FDFFAB /* FontSFCompactText9.swift */,
+				06704A032830C52C00FDFFAB /* FontSFCompactText14.swift */,
+				06704A042830C52C00FDFFAB /* FontSFCompactText32.swift */,
+				06704A052830C52C00FDFFAB /* FontSFCompactText16.swift */,
+				06704A062830C52C00FDFFAB /* FontSFCompactText12.swift */,
+				06704A072830C52C00FDFFAB /* FontSFCompactText8.swift */,
+				06704A082830C52C00FDFFAB /* FontSFCompactText10.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		06704A272830C53600FDFFAB /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				06704A282830C53600FDFFAB /* Nodes.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,69 +680,138 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067049CF2830BFA500FDFFAB /* RootDrawable.swift in Sources */,
 				0647828F282CB27A0058A84E /* ContentView.swift in Sources */,
 				064782ED282CB2BF0058A84E /* VStackLayout.swift in Sources */,
 				06478315282CB2BF0058A84E /* Axis.swift in Sources */,
 				06478316282CB2BF0058A84E /* EdgeInsets.swift in Sources */,
 				06478313282CB2BF0058A84E /* Edge.swift in Sources */,
+				06704A1A2830C52C00FDFFAB /* FontSFCompactText15.swift in Sources */,
 				0647831A282CB2BF0058A84E /* State.swift in Sources */,
 				064782E4282CB2BF0058A84E /* EmptyView.swift in Sources */,
+				067049D62830BFA500FDFFAB /* ViewNode.swift in Sources */,
 				06478319282CB2BF0058A84E /* Graph.swift in Sources */,
+				067049D02830BFA500FDFFAB /* ZStackDrawable.swift in Sources */,
 				064782F6282CB2BF0058A84E /* Divider.swift in Sources */,
 				06478308282CB2BF0058A84E /* Binding.swift in Sources */,
+				067049C92830BFA500FDFFAB /* TupleViewDrawable.swift in Sources */,
+				067049CC2830BFA500FDFFAB /* CircleDrawable.swift in Sources */,
+				067049D52830BFA500FDFFAB /* PixelColorExtensions.swift in Sources */,
+				067049DD2830BFA500FDFFAB /* ZStack.swift in Sources */,
+				067049DF2830BFA500FDFFAB /* ConditionalContent.swift in Sources */,
 				064782F4282CB2BF0058A84E /* Group.swift in Sources */,
+				067049E02830BFA500FDFFAB /* Group.swift in Sources */,
+				067049DB2830BFA500FDFFAB /* Circle.swift in Sources */,
+				067049D92830BFA500FDFFAB /* TupleView.swift in Sources */,
 				064782DE282CB2BF0058A84E /* Animatable.swift in Sources */,
 				064782E7282CB2BF0058A84E /* TupleView.swift in Sources */,
+				067049C82830BFA500FDFFAB /* DividerDrawable.swift in Sources */,
 				064782E2282CB2BF0058A84E /* Picker.swift in Sources */,
 				0647831B282CB2BF0058A84E /* ViewBuilder.swift in Sources */,
+				06704A132830C52C00FDFFAB /* FontSFCompactText23.swift in Sources */,
 				06478314282CB2BF0058A84E /* Alignment.swift in Sources */,
+				067049D42830BFA500FDFFAB /* StepperDrawable.swift in Sources */,
+				067049CB2830BFA500FDFFAB /* RectangleDrawable.swift in Sources */,
+				06704A292830C53600FDFFAB /* Nodes.swift in Sources */,
+				06704A1F2830C52C00FDFFAB /* FontSFCompactText32.swift in Sources */,
 				06478300282CB2BF0058A84E /* EmptyModifier.swift in Sources */,
+				06704A182830C52C00FDFFAB /* FontSFCompactText24.swift in Sources */,
+				067049CD2830BFA500FDFFAB /* HStackDrawable.swift in Sources */,
 				06478309282CB2BF0058A84E /* PropertyList.swift in Sources */,
 				064782E1282CB2BF0058A84E /* View.swift in Sources */,
 				06478317282CB2BF0058A84E /* Size.swift in Sources */,
+				067049E22830BFA500FDFFAB /* Divider.swift in Sources */,
 				0647830B282CB2BF0058A84E /* VariadicView_UnaryViewRoot.swift in Sources */,
 				064782EF282CB2BF0058A84E /* ZStackLayout.swift in Sources */,
+				067049DE2830BFA500FDFFAB /* AnyView.swift in Sources */,
 				06478304282CB2BF0058A84E /* ViewModifier.swift in Sources */,
+				06704A232830C52C00FDFFAB /* FontSFCompactText10.swift in Sources */,
 				064782FB282CB2BF0058A84E /* Text.swift in Sources */,
+				06704A1C2830C52C00FDFFAB /* FontSFCompactText13.swift in Sources */,
 				064782E8282CB2BF0058A84E /* Image.swift in Sources */,
 				06478306282CB2BF0058A84E /* EnvironmentKeyWritingModifier.swift in Sources */,
+				067049E72830BFA500FDFFAB /* Button.swift in Sources */,
+				067049E42830BFA500FDFFAB /* Stepper.swift in Sources */,
+				067049ED2830BFA500FDFFAB /* DumpingEnvironment.swift in Sources */,
 				064782FF282CB2BF0058A84E /* ForEach.swift in Sources */,
+				06704A0C2830C52C00FDFFAB /* PixelsImageOutput.swift in Sources */,
+				067049D82830BFA500FDFFAB /* Spacer.swift in Sources */,
+				067049E92830BFA500FDFFAB /* ForEach.swift in Sources */,
 				064782F1282CB2BF0058A84E /* Toggle.swift in Sources */,
+				06704A122830C52C00FDFFAB /* FontSFCompactText21.swift in Sources */,
 				064782E6282CB2BF0058A84E /* Spacer.swift in Sources */,
+				067049CE2830BFA500FDFFAB /* ModifiedContentDrawable.swift in Sources */,
 				064782F0282CB2BF0058A84E /* Shape.swift in Sources */,
 				06478303282CB2BF0058A84E /* ViewModifier_Content.swift in Sources */,
 				06478311282CB2BF0058A84E /* _ViewTraitKey.swift in Sources */,
+				06704A162830C52C00FDFFAB /* FontSFCompactText20.swift in Sources */,
+				06704A252830C52C00FDFFAB /* Bitmap.swift in Sources */,
+				067049EA2830BFA500FDFFAB /* HostingController.swift in Sources */,
+				06704A112830C52C00FDFFAB /* Circles.swift in Sources */,
 				064782EE282CB2BF0058A84E /* ZStack.swift in Sources */,
+				067049E32830BFA500FDFFAB /* HStack.swift in Sources */,
+				067049DC2830BFA500FDFFAB /* Rectangle.swift in Sources */,
+				06704A1D2830C52C00FDFFAB /* FontSFCompactText9.swift in Sources */,
 				064782DF282CB2BF0058A84E /* UnaryViewAdaptor.swift in Sources */,
 				06478307282CB2BF0058A84E /* Transaction.swift in Sources */,
+				06704A222830C52C00FDFFAB /* FontSFCompactText8.swift in Sources */,
 				0647830D282CB2BF0058A84E /* VariadicView_MultiViewRoot.swift in Sources */,
 				0647830A282CB2BF0058A84E /* LocalizedStringKey.swift in Sources */,
 				064782F2282CB2BF0058A84E /* AnyView.swift in Sources */,
 				06478310282CB2BF0058A84E /* VariadicView_Children.swift in Sources */,
 				064782F7282CB2BF0058A84E /* HStack.swift in Sources */,
 				064782F5282CB2BF0058A84E /* ModifiedContent.swift in Sources */,
+				06704A212830C52C00FDFFAB /* FontSFCompactText12.swift in Sources */,
+				06704A242830C52C00FDFFAB /* Pixels.swift in Sources */,
+				06704A152830C52C00FDFFAB /* FontSFCompactText22.swift in Sources */,
 				064782EB282CB2BF0058A84E /* Circle.swift in Sources */,
 				064782EC282CB2BF0058A84E /* Rectangle.swift in Sources */,
+				06704A1B2830C52C00FDFFAB /* FontSFCompactText11.swift in Sources */,
 				064782E9282CB2BF0058A84E /* Angle.swift in Sources */,
+				06704A1E2830C52C00FDFFAB /* FontSFCompactText14.swift in Sources */,
 				064782FE282CB2BF0058A84E /* Color.swift in Sources */,
+				067049C62830BFA500FDFFAB /* SpacerDrawable.swift in Sources */,
 				064782FC282CB2BF0058A84E /* Optional.swift in Sources */,
+				067049D22830BFA500FDFFAB /* ImageDrawable.swift in Sources */,
+				067049EB2830BFA500FDFFAB /* Drawable.swift in Sources */,
 				06478312282CB2BF0058A84E /* ViewDimensions.swift in Sources */,
 				064782F3282CB2BF0058A84E /* ConditionalContent.swift in Sources */,
+				06704A0D2830C52C00FDFFAB /* Lines.swift in Sources */,
+				06704A0E2830C52C00FDFFAB /* Boxes.swift in Sources */,
 				0647830E282CB2BF0058A84E /* VariadicView.swift in Sources */,
 				064782F9282CB2BF0058A84E /* VStack.swift in Sources */,
+				067049E52830BFA500FDFFAB /* VStack.swift in Sources */,
+				067049DA2830BFA500FDFFAB /* Image.swift in Sources */,
+				067049D72830BFA500FDFFAB /* Picker.swift in Sources */,
 				064782FA282CB2BF0058A84E /* Font.swift in Sources */,
+				06704A102830C52C00FDFFAB /* Text.swift in Sources */,
 				0647830C282CB2BF0058A84E /* VariadicView_Root.swift in Sources */,
+				067049C72830BFA500FDFFAB /* VStackDrawable.swift in Sources */,
 				0647828D282CB27A0058A84E /* OpenSwiftUIApp.swift in Sources */,
+				06704A142830C52C00FDFFAB /* FontSFCompactText18.swift in Sources */,
+				067049EC2830BFA500FDFFAB /* ViewBuildable.swift in Sources */,
 				064782E3282CB2BF0058A84E /* ShapeView.swift in Sources */,
+				067049D32830BFA500FDFFAB /* ColorDrawable.swift in Sources */,
 				064782E0282CB2BF0058A84E /* Never.swift in Sources */,
+				06704A262830C52C00FDFFAB /* Corners.swift in Sources */,
+				067049D12830BFA500FDFFAB /* ButtonDrawable.swift in Sources */,
 				064782EA282CB2BF0058A84E /* Path.swift in Sources */,
+				067049C52830BFA500FDFFAB /* ViewExtractor.swift in Sources */,
 				064782F8282CB2BF0058A84E /* Stepper.swift in Sources */,
 				0647830F282CB2BF0058A84E /* VariadicView_ViewRoot.swift in Sources */,
+				06704A0F2830C52C00FDFFAB /* PixelFont.swift in Sources */,
 				064782E5282CB2BF0058A84E /* HStackLayout.swift in Sources */,
+				067049CA2830BFA500FDFFAB /* TextDrawable.swift in Sources */,
+				06704A192830C52C00FDFFAB /* FontSFCompactText17.swift in Sources */,
 				06478301282CB2BF0058A84E /* PaddingModifier.swift in Sources */,
+				067049E82830BFA500FDFFAB /* Color.swift in Sources */,
 				06478318282CB2BF0058A84E /* Point.swift in Sources */,
 				06478305282CB2BF0058A84E /* EnvironmentalModifier.swift in Sources */,
+				067049E62830BFA500FDFFAB /* Text.swift in Sources */,
+				06704A202830C52C00FDFFAB /* FontSFCompactText16.swift in Sources */,
 				06478302282CB2BF0058A84E /* BackgroundModifier.swift in Sources */,
+				067049E12830BFA500FDFFAB /* ModifiedContent.swift in Sources */,
+				06704A172830C52C00FDFFAB /* FontSFCompactText19.swift in Sources */,
 				064782FD282CB2BF0058A84E /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

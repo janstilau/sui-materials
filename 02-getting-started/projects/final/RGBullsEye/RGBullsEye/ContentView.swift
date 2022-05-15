@@ -6,38 +6,27 @@ import SwiftUI
  这些, 在 SwiftUI 中, 使用 Body 函数就能搞定了.
  
  所以, 在 Body 中, 其实就是做的上面的三件事.
- 
- @State 所代表的, 不仅仅是一个 Model 了, 而是一个 ViewModel, 是 Controller 层的东西.
- 里面包含真正的 Model, 以及各种业务函数, 在 ViewAction 中触发.
  */
 
 struct ContentView: View {
     // ViewModel
-    @State var game = Game()
+    @State var gameController = Game()
     // ViewStateModel
     @State var guess: RGB
     // ViewStateModel
     @State var showScore = false
     
-    // 无法通过, var staticShowScore = false 来构建
-    // 无法在 Button 点击函数里面, 调用 staticShowScore = true, 编译报错, self is immutable
-    var staticShowScore = false
-    
     var body: some View {
-        
-        Text("123")
         
         VStack {
             Circle()
-                .fill(Color(rgbStruct: game.target))
+                .fill(Color(rgbStruct: gameController.target))
             if !showScore {
-                Text("R: ??? G: ??? B: ???")
+                Text("R: ??                                                                                                                                                           ? G: ??? B: ???")
                     .padding()
             } else {
-                Text(game.target.intString())
-                    .padding()
+                Text(gameController.target.intString())
             }
-            ModifiedContent.init(content: Text("123"), modifier: EmptyModifier())
             Circle()
                 .fill(Color(rgbStruct: guess))
             Text(guess.intString())
@@ -48,29 +37,27 @@ struct ContentView: View {
             ColorSlider(value: $guess.blue, trackColor: .blue)
             Button("Hit Me!") {
                 showScore = true
-                //                staticShowScore = true
-                game.check(guess: guess)
+                gameController.check(guess: guess)
             }
+            /*
+             public func alert(isPresented: Binding<Bool>, content: () -> Alert) -> some View
+             */
             .alert(isPresented: $showScore) {
                 Alert(
                     title: Text("Your Score"),
-                    message: Text(String(game.scoreRound)),
+                    message: Text(String(gameController.scoreInCurrentRound)),
                     dismissButton: .default(Text("OK")) {
-                        game.startNewRound()
+                        gameController.startNewRound()
                         guess = RGB()
                     })
             }
+            
+            
+
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(guess: RGB())
-    }
-}
-
-// 子类化,
 struct ColorSlider: View {
     // 从目前来看, @Binding 里面, 会存储一个 Subject 的值.
     @Binding var value: Double
@@ -85,5 +72,13 @@ struct ColorSlider: View {
             Text("255")
         }
         .padding(.horizontal)
+    }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        ContentView(guess: RGB())
     }
 }

@@ -20,6 +20,9 @@ extension View {
     }
 }
 
+// 一个 ViewModifier.
+// 传入一个 View 过来, 使用 body(content: Content) 来生成一个新的 View.
+// self.modifier(Cardify(isFaceUp: isFaceUp)) 生成一个 ContentModifer 对象, 里面存储了 Content 和 Modifier 的信息.
 struct Cardify: AnimatableModifier {
     var rotation: Double
     
