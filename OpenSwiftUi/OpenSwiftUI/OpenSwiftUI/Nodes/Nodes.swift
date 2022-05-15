@@ -16,6 +16,7 @@ extension Node {
     // MARK: - Ancestors
     
     /// Returns all parent nodes.
+    // 没有包含 Self.
     public var ancestors: [Self] {
         var nodes = [Self]()
         if let parent = parent {

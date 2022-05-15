@@ -131,7 +131,8 @@ extension ViewNode {
             for (index, child) in children.enumerated() {
                 if !processedNodeIndices.contains(index) {
                     let proposedWidth = remainingWidth / remainingChildren
-                    let wantedWidth = child.value.wantedWidthForProposal(proposedWidth, otherLength: givenHeight)
+                    let wantedWidth = child.value.wantedWidthForProposal(proposedWidth,
+                                                                         otherLength: givenHeight)
                     // When an element fits, it should take what it needs
                     if proposedWidth > wantedWidth {
                         smallOneFound = true
@@ -172,12 +173,16 @@ extension ViewNode {
         for (index, child) in children.enumerated() {
             if index > 0 {
                 let previousNode = children[index - 1]
+                // 在这里, 进行了 HStack 所管理的 Node 的 x 的偏移.
                 child.value.origin.x = previousNode.value.origin.x + previousNode.value.size.width + ViewNode.defaultSpacing
             }
         }
         
+        // Hstack 的宽度, 其实是跟随着所有 SubNode 的 size 变化的. 相加是整个 HStackNode 的宽度.
         value.size.width = children.reduce(0, { $0 + $1.value.size.width }) + internalSpacingRequirements
-        value.size.height = children.max(by: { (lhs, rhs) -> Bool in lhs.value.size.height < rhs.value.size.height })!.value.size.height
+        // Hstack 的高度, 其实是所有的 SubNode 的 Size 的高度的最大值.
+        value.size.height = children.max(by: { (lhs, rhs) -> Bool in
+            lhs.value.size.height < rhs.value.size.height })!.value.size.height
         processor = "HStack"
     }
     

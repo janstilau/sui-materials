@@ -124,6 +124,8 @@ public class HostingController<Content: View> {
                                   height: height,
                                   alignment: .left,
                                   color: color,
+                                  // 这里有点问题, 其实是如果 textNode 找不到自身的 Font 属性, 应该顺着向上找父节点的 Font 属性.
+                                  // 如果都没有, 才使用默认的 Font.Body.
                                   font: textNode.resolvedFont.font)
         }
         
@@ -137,6 +139,8 @@ public class HostingController<Content: View> {
                               color: color)
         }
         
+        // 这里的实现, 有点问题, 应该是 ShapeDrawable, 得到 Path 之后, 然后使用 Path 进行绘制.
+        // Rectangle 和 Circle 其实都是 Path 的一种常用 case 而已.
         if let _ = node.value as? CircleDrawable {
             let color = canvas.unsignedIntegerFromColor(foregroundColor ?? Color.primary)
             let diameter = min(width, height)

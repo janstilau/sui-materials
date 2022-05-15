@@ -1,8 +1,7 @@
-
 /*
- ForEach 仅仅是存储值.
- 存储一个序列
- 存储如何根据这个序列, 来生成 View.
+ ForEach 其实更多的是一个存储类型.
+ 将, 可以遍历的 Model 存储起来.
+ 将如何根据 Item 创建出 View 的逻辑存储起来. 真正起作用, 是在建立 ViewTree 的时候. 
  */
 public struct ForEach<Data, ID, Content> where Data: RandomAccessCollection, ID: Hashable {
     public var data: Data

@@ -182,6 +182,13 @@ extension EnvironmentValues {
     }
 }
 
+extension EnvironmentValues {
+    public var colorScheme: ColorScheme {
+        set { self[ColorSchemeEnvironmentKey.self] = newValue }
+        get { self[ColorSchemeEnvironmentKey.self] }
+    }
+}
+
 
 extension Color {
     internal static func hsbToRGB(hue: Double, saturation: Double, brightness: Double) -> (red: Double, green: Double, blue: Double) {
@@ -246,9 +253,4 @@ enum ColorSchemeEnvironmentKey: EnvironmentKey {
     static var defaultValue: ColorScheme { return ColorScheme.dark }
 }
 
-extension EnvironmentValues {
-    public var colorScheme: ColorScheme {
-        set { self[ColorSchemeEnvironmentKey.self] = newValue }
-        get { self[ColorSchemeEnvironmentKey.self] }
-    }
-}
+

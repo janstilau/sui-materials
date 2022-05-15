@@ -1,5 +1,5 @@
 
-
+// 这其实也是一个节点, 在 DrawTree 里面占据了空间. 
 public struct ModifiedContentDrawable<Modifier>: Drawable {
     public var origin: Point = Point.zero
     public var size: Size = Size.zero

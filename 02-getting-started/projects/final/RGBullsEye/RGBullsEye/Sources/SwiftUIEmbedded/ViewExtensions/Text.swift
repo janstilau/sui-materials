@@ -50,6 +50,13 @@ extension Font {
         }
     }
     
+    /*
+     Font 可以有两种表现形式.
+     一种是 Enum 的 body, largeTitle 这种更加接近自然语言的表示形式.
+     一种是 SystemFontSize 这种写死数值的表示形式.
+     
+     最终, 绘画系统需要的还是使用 数值的表现形式.
+     */
     var fontSize: CGFloat {
         switch provider {
         case let textStyleProvider as TextStyleProvider:

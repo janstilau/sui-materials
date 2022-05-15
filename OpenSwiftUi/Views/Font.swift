@@ -1,5 +1,6 @@
 import Foundation
 
+// Font 是一个可以继承的属性. 
 extension View {
     public func font(_ font: Font?) -> some View {
         return environment(\.font, font)
@@ -16,6 +17,18 @@ extension EnvironmentValues {
         get { self[FontEnvironmentKey.self] }
     }
 }
+
+
+
+
+
+
+/*
+ 这是一个同样的一组数据, 使用不同的表现如何进行包装的一个示例实现.
+ 那就是, 使用一个公共父类来进行表示.
+ 这在 SnapKit 里面有着实现. 一个公用的 Protocol.
+ 不过, 这里没有组织抽象层, 而是在 Draw 的过程中, 进行了类型判断.
+ */
 
 public class AnyFontBox: Hashable, Equatable {
     public func hash(into hasher: inout Hasher) {
@@ -83,6 +96,9 @@ public struct Font: Hashable {
     }
 }
 
+/*
+ 将, 所有和 Font 相关的类型, 都定义在自己的作用域范围内.
+ */
 extension Font {
     public struct Weight: Hashable {
         public var value: CGFloat
