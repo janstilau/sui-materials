@@ -69,17 +69,18 @@ public class HostingController<Content: View> {
         let width = node.value.size.width
         let height = node.value.size.height
         
-        let x = node.ancestors.reduce(0, { $0 + $1.value.origin.x }) +
+        // 当前, ViewNode 的位置, 是父 View 的递归偏移 + 当前 Node 的 x + Padding 的位置.
+        let originX = node.ancestors.reduce(0, { $0 + $1.value.origin.x }) +
         node.value.origin.x +
         Int(parentPadding.leading)
-        let y = node.ancestors.reduce(0, { $0 + $1.value.origin.y }) +
+        let originY = node.ancestors.reduce(0, { $0 + $1.value.origin.y }) +
         node.value.origin.y +
         Int(parentPadding.top)
         
         if let colorNode = node.value as? ColorDrawable {
             let color = canvas.unsignedIntegerFromColor(colorNode.color)
-            canvas.drawBox(x: x,
-                           y: y,
+            canvas.drawBox(x: originX,
+                           y: originY,
                            width: width,
                            height: height,
                            color: color,
@@ -90,8 +91,8 @@ public class HostingController<Content: View> {
         
         if let backgroundNode = node.value as? ModifiedContentDrawable<_BackgroundModifier<Color>> {
             let color = canvas.unsignedIntegerFromColor(backgroundNode.modifier.background, colorScheme: colorScheme)
-            canvas.drawBox(x: x,
-                           y: y,
+            canvas.drawBox(x: originX,
+                           y: originY,
                            width: width,
                            height: height,
                            color: color,
@@ -114,8 +115,8 @@ public class HostingController<Content: View> {
             
             let color = canvas.unsignedIntegerFromColor(textColor, colorScheme: colorScheme)
             canvas.drawBitmapText(text: textNode.text,
-                                  x: x,
-                                  y: y,
+                                  x: originX,
+                                  y: originY,
                                   width: width,
                                   height: height,
                                   alignment: .left,
@@ -126,8 +127,8 @@ public class HostingController<Content: View> {
         if let imageNode = node.value as? ImageDrawable {
             let color = canvas.unsignedIntegerFromColor(foregroundColor ?? Color.primary)
             canvas.drawBitmap(bytes: imageNode.bitmap.bytes,
-                              x: x,
-                              y: y,
+                              x: originX,
+                              y: originY,
                               width: imageNode.bitmap.size.width,
                               height: imageNode.bitmap.size.height,
                               color: color)
@@ -145,28 +146,28 @@ public class HostingController<Content: View> {
             if height > diameter {
                 offsetY = (height - diameter) / 2
             }
-            canvas.drawCircle(xm: x + radius + offsetX, ym: y + radius + offsetY, radius: radius, color: color)
+            canvas.drawCircle(xm: originX + radius + offsetX, ym: originY + radius + offsetY, radius: radius, color: color)
         }
         
         if let _ = node.value as? RectangleDrawable {
             let color = canvas.unsignedIntegerFromColor(foregroundColor ?? Color.primary)
-            canvas.drawBox(x: x, y: y, width: width, height: height, color: color, filled: true)
+            canvas.drawBox(x: originX, y: originY, width: width, height: height, color: color, filled: true)
         }
         
         if let _ = node.value as? DividerDrawable {
             let color = canvas.unsignedIntegerFromColor(foregroundColor ?? Color.gray)
-            canvas.drawBox(x: x, y: y, width: width, height: height, color: color, filled: true)
+            canvas.drawBox(x: originX, y: originY, width: width, height: height, color: color, filled: true)
         }
         
         if let button = node.value as? ButtonDrawable {
-            let frame = CGRect(x: x, y: y, width: width, height: height)
+            let frame = CGRect(x: originX, y: originY, width: width, height: height)
             let action = Interaction(frame: frame, action: button.action)
             interactiveAreas.append(action)
         }
         
         if debugViews {
-            canvas.drawBox(x: x,
-                           y: y,
+            canvas.drawBox(x: originX,
+                           y: originY,
                            width: width,
                            height: height,
                            color: canvas.unsignedIntegerFromColor(Color.purple),

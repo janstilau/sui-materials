@@ -86,6 +86,7 @@ extension Node {
     // MARK: - Branches
     
     /// A Boolean value indicating whether the node has children.
+    // 非叶子节点
     public var isBranch: Bool {
         return !children.isEmpty
     }
