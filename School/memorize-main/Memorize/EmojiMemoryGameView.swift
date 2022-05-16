@@ -60,6 +60,7 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     // Size is 16
+    // 任何, ViewModel 的修改, 都会导致信号的发送, View 中可以检测这个信号, 然后进行重绘.
     @ObservedObject var viewModel: EmojiMemoryGame
     
     /*
@@ -72,7 +73,10 @@ struct EmojiMemoryGameView: View {
         VStack {
             HStack {
                 Button(action: {
+                    // 明确显示动画.
                     withAnimation(.easeInOut) {
+                        // 在 ViewAction 里面, 调用 ViewModel 的 ModelAction.
+                        // ModelAction 修改数据, 然后触发 Viw 的修改.
                         self.viewModel.resetGame()
                     }
                 }, label: { Text("New Game").size()})
@@ -88,7 +92,7 @@ struct EmojiMemoryGameView: View {
                 .padding(5).size()
             }
             .padding()
-            .foregroundColor(Color.red)
+            .foregroundColor(Color.orange)
         }
     }
 }
@@ -160,11 +164,11 @@ struct CardView: View {
 
 
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let game = EmojiMemoryGame()
-        game.choose(card: game.cards[0])
-        return EmojiMemoryGameView(viewModel: game)
-    }
-}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let game = EmojiMemoryGame()
+//        game.choose(card: game.cards[0])
+//        return EmojiMemoryGameView(viewModel: game)
+//    }
+//}
