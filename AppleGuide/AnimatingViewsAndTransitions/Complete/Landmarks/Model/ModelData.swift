@@ -27,6 +27,7 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
     }
 
+    // 根据, 返回值的类型, 来确定了泛型函数里面的类型. 
     do {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
