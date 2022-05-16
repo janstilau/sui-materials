@@ -38,9 +38,11 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     // MARK: - Intent(s)
-    
+    // ViewModel 直接和 View 进行对接, 来处理 ViewAction. 而不是将真正的 Model 暴露出去.
+    // ViewModel 是 Controller 层, Controller 的协调者, 在 MVVM 中其实没有丢失.
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
+        self.objectWillChange
     }
     
     func resetGame() {

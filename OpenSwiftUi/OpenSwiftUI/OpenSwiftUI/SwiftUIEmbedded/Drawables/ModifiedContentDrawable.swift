@@ -4,6 +4,7 @@ public struct ModifiedContentDrawable<Modifier>: Drawable {
     public var origin: Point = Point.zero
     public var size: Size = Size.zero
     
+    // 在这里, 其实可以拿到 Modifier 对象的. 
     let modifier: Modifier
     
     public init(modifier: Modifier) {
