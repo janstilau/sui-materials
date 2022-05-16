@@ -24,7 +24,7 @@ struct BadgeSymbol: View {
 
     var body: some View {
         GeometryReader { geometry in
-            // 一个非常棒的初始化方法, Inout Path. 
+            // 一个非常棒的初始化方法, Inout Path.
             Path { path in
                 let width = min(geometry.size.width, geometry.size.height)
                 let height = width * 0.75

@@ -24,7 +24,8 @@ struct BadgeBackground: View {
                     )
                 )
 
-                HexagonParameters.segments.forEach { segment in
+                // HexagonParameters.segments 的这个循环, 就是画出整个六边形出来.
+                HexagonParameters.segments[0...5].forEach { segment in
                     path.addLine(
                         to: CGPoint(
                             x: width * segment.line.x + xOffset,
@@ -58,7 +59,8 @@ struct BadgeBackground: View {
          他更多的是一个 Layout 区域的获取.
          占满 父 Frame, 然后按照 contentMode 来确定子内容的 Frame 的值. 
          */
-        .aspectRatio(1, contentMode: .fill)
+        // 如果, 不用 aspectRatio 进行修饰, 那么这个背景图会到最顶端. 
+        .aspectRatio(1, contentMode: .fit)
     }
     
     /*
