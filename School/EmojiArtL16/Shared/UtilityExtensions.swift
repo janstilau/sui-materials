@@ -71,6 +71,7 @@ extension Set where Element: Identifiable {
 // (thus withoutDuplicateCharacters below)
 
 extension String {
+    // 非常朴素的实现. 不过, 很高效, 拼接操作是一个高效的操作. 除了扩容比较浪费资源, 但是扩容在小容量下, 不浪费资源. 在大容量下, 频率很小. 
     var removingDuplicateCharacters: String {
         reduce(into: "") { sofar, element in
             if !sofar.contains(element) {
