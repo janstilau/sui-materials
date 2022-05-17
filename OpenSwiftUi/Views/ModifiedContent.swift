@@ -8,6 +8,11 @@ extension View {
     }
 }
 
+/*
+ 可以想象, 当遇到 ModifiedContent 的时候, 获取到真正的 View 对象.
+ 一定是 self.modifier(body: self.content)
+ 然后获取到的 View 对象, 在真正的放到 ViewTree 中. 
+ */
 public struct ModifiedContent<Content, Modifier> {
     public var content: Content
     public var modifier: Modifier

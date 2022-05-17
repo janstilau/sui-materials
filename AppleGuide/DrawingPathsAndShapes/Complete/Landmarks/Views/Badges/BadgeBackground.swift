@@ -46,6 +46,7 @@ struct BadgeBackground: View {
                 }
             }
             // 上面, 是划出了轮廓.
+            // Path 是一个 Shape. 使用 fill 之后, 才变为了一个 View
             .fill(.linearGradient(
                 Gradient(colors:
                             [Self.gradientStart, Self.gradientEnd]),

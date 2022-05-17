@@ -42,7 +42,6 @@ class EmojiMemoryGame: ObservableObject {
     // ViewModel 是 Controller 层, Controller 的协调者, 在 MVVM 中其实没有丢失.
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
-        self.objectWillChange
     }
     
     func resetGame() {
