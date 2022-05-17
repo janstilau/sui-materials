@@ -91,10 +91,10 @@
 		EC3E84B3265EE3CF00492DD0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EC3E84DC265EE48D00492DD0 /* PaletteStore.swift */,
 				EC3E84DF265EE48D00492DD0 /* EmojiArtDocumentView.swift */,
 				EC3E84DB265EE48D00492DD0 /* PaletteChooser.swift */,
 				EC3E84D9265EE48D00492DD0 /* PaletteEditor.swift */,
-				EC3E84DC265EE48D00492DD0 /* PaletteStore.swift */,
 				EC3E84B4265EE3CF00492DD0 /* EmojiArtApp.swift */,
 				EC3E84B5265EE3CF00492DD0 /* EmojiArtDocument.swift */,
 				EC3E84DA265EE48D00492DD0 /* EmojiArtModel.Background.swift */,

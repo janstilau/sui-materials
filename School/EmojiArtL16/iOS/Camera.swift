@@ -16,7 +16,7 @@ struct Camera: UIViewControllerRepresentable {
     static var isAvailable: Bool {
         UIImagePickerController.isSourceTypeAvailable(.camera)
     }
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(handlePickedImage: handlePickedImage)
     }
@@ -35,7 +35,7 @@ struct Camera: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         var handlePickedImage: (UIImage?) -> Void
-
+        
         init(handlePickedImage: @escaping (UIImage?) -> Void) {
             self.handlePickedImage = handlePickedImage
         }
@@ -43,7 +43,7 @@ struct Camera: UIViewControllerRepresentable {
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             handlePickedImage(nil)
         }
-
+        
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             handlePickedImage((info[.editedImage] ?? info[.originalImage]) as? UIImage)
         }

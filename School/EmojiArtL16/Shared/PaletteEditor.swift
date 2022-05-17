@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PaletteEditor: View {
-    @Binding var palette: Palette
+    @Binding var palette: PaletteCategory
     
     var body: some View {
         Form {

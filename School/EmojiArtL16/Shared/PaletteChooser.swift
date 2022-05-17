@@ -50,11 +50,11 @@ struct PaletteChooser: View {
             chosenPaletteIndex = store.removePalette(at: chosenPaletteIndex)
         }
         // L16 no EditMode on macOS, so no PaletteManager
-        #if os(iOS)
+#if os(iOS)
         AnimatedActionButton(title: "Manager", systemImage: "slider.vertical.3") {
             managing = true
         }
-        #endif
+#endif
         gotoMenu
     }
     
@@ -72,7 +72,7 @@ struct PaletteChooser: View {
         }
     }
     
-    func body(for palette: Palette) -> some View {
+    func body(for palette: PaletteCategory) -> some View {
         HStack {
             Text(palette.name)
             ScrollingEmojisView(emojis: palette.emojis)
@@ -82,18 +82,18 @@ struct PaletteChooser: View {
         .transition(rollTransition)
         .popover(item: $paletteToEdit) { palette in
             PaletteEditor(palette: $store.palettes[palette])
-                // L16 see macOS.swift
+            // L16 see macOS.swift
                 .popoverPadding()
-                // L15 make this popover dismissable with a Close button on iPhone
+            // L15 make this popover dismissable with a Close button on iPhone
                 .wrappedInNavigationViewToMakeDismissable { paletteToEdit = nil }
         }
         .sheet(isPresented: $managing) {
             PaletteManager()
         }
     }
-        
+    
     @State private var managing = false
-    @State private var paletteToEdit: Palette?
+    @State private var paletteToEdit: PaletteCategory?
     
     var rollTransition: AnyTransition {
         AnyTransition.asymmetric(
@@ -105,7 +105,7 @@ struct PaletteChooser: View {
 
 struct ScrollingEmojisView: View {
     let emojis: String
-
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
