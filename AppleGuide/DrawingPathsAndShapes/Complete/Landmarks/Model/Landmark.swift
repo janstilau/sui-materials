@@ -18,6 +18,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var isFavorite: Bool
 
     private var imageName: String
+    // 这里有点问题, 为什么 model 中要掺杂 View 层的东西.
     var image: Image {
         Image(imageName)
     }
