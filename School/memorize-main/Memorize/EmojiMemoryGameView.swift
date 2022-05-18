@@ -1,6 +1,14 @@
+//
+//  EmojiMemoryGameView.swift
+//  Memorize
+//
+//  Created by Sergey Maslennikov on 23.11.2020.
+//
+
 import SwiftUI
 
 /*
+ 
  /// A view that arranges its children in a vertical line.
  
  /// Unlike ``LazyVStack``, which only renders the views when your app needs to
@@ -65,7 +73,7 @@ struct EmojiMemoryGameView: View {
         VStack {
             HStack {
                 Button(action: {
-                    // 明确显示动画.
+                    // 显示动画.
                     withAnimation(.easeInOut) {
                         // 在 ViewAction 里面, 调用 ViewModel 的 ModelAction.
                         // ModelAction 修改数据, 然后触发 Viw 的修改.
@@ -77,7 +85,10 @@ struct EmojiMemoryGameView: View {
             
             Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
-                    withAnimation(.linear(duration: 0.5)) {
+//                    withAnimation(.linear(duration: 0.5)) {
+//                        self.viewModel.choose(card: card)
+//                    }
+                    withAnimation {
                         self.viewModel.choose(card: card)
                     }
                 }.size()
@@ -85,7 +96,6 @@ struct EmojiMemoryGameView: View {
             }
             .padding()
             .foregroundColor(Color.orange)
-            .border(Color.purple)
         }
     }
 }
@@ -102,7 +112,7 @@ struct CardView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            self.cardView(for: geometry.size)
+            self.body(for: geometry.size)
         }
     }
     
@@ -111,13 +121,14 @@ struct CardView: View {
     private func startBonusTimeAnimation() {
         animatedBonusRemaining = card.bonusRemaining
         withAnimation(.linear(duration: card.bonusTimeRemaining)) {
+            // 在动画中, 进行值的修改, 也会触发 View 的刷新操作.
             animatedBonusRemaining = 0
         }
     }
     
     // allowing those closures to provide multiple child views 允许闭包中提供多个子视图
     @ViewBuilder
-    private func cardView(for size: CGSize) -> some View {
+    private func body(for size: CGSize) -> some View {
         if card.isFaceUp || !card.isMatched {
             ZStack {
                 Group {
@@ -135,10 +146,39 @@ struct CardView: View {
                 
                 Text(card.content)
                     .font(Font.system(size: fontSize(for: size)))
-                //                    .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
-                //                    .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
+                /*
+                 Use rotationEffect(_:anchor:) to rotate the view by a specific amount.
+                 In the example below, the text is rotated by 22˚.
+                 */
+                // 动画的前提是, Change. rotationEffect 在 !isMatch 的时候, 其实就起了作用了. 0
+                // 当 card.isMatched 变化的时候, 绕一周, 才引起了真正的动画.
+                    .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                /*
+                 Applies the given animation to all animatable values within this view.
+                 Declaration
+                 
+                 func animation(_ animation: Animation?) -> some View
+                 Discussion
+                 
+                 Use this modifier on leaf views rather than container views. The animation applies to all child views within this view; calling animation(_:) on a container view can lead to unbounded scope.
+                 Parameters
+                 
+                 animation
+                 The animation to apply to animatable values within this view.
+                 
+                 Returns
+                 A view that wraps this view and applies animation to all animatable values used within the view.
+                 */
+                // 一个线性的赋值操作. Animation 的任何的修改, 都返回自身类型.
+                // 可以想象, Animation 中一定有一个引用值, 方法的修改, 其实是在修改那个引用值.
+                // Animation 没有暴露任何的属性, 只有方法. 这种设计其实是可以借鉴的.
+                // animation ViewModifier, 就是 Animation 相关属性的收集工作.
+                    .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
+                // 在 Animation 后面, 添加 font 会出现问题.
+//                    .font(Font.system(size: fontSize(for: size)))
             }
             .cardify(isFaceUp: card.isFaceUp)
+            // transition
             .transition(AnyTransition.scale)
         }
     }
@@ -152,6 +192,12 @@ struct CardView: View {
 }
 
 
+
+
+
+
+
+
 //
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
@@ -160,4 +206,3 @@ struct CardView: View {
 //        return EmojiMemoryGameView(viewModel: game)
 //    }
 //}
- 

@@ -22,6 +22,7 @@ struct EmojiArtDocumentView: View {
         }
     }
     
+    // 在 SwiftUI 中, 这种计算属性, 其实非常常见. 
     var documentBody: some View {
         GeometryReader { geometry in
             ZStack {
@@ -32,6 +33,7 @@ struct EmojiArtDocumentView: View {
                     .scaleEffect(zoomScale)
                     .position(convertFromEmojiCoordinates((0,0), in: geometry))
                 .gesture(doubleTapToZoom(in: geometry.size))
+                
                 if document.backgroundImageFetchStatus == .fetching {
                     ProgressView().scaleEffect(2)
                 } else {
@@ -39,6 +41,7 @@ struct EmojiArtDocumentView: View {
                         Text(emoji.text)
                             .font(.system(size: fontSize(for: emoji)))
                             .scaleEffect(zoomScale)
+                        // Position 的显示使用, 使得原有的 Frame 编程, 变为了可能. 
                             .position(position(for: emoji, in: geometry))
                     }
                 }

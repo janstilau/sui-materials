@@ -20,9 +20,7 @@ extension View {
     }
 }
 
-// 一个 ViewModifier.
-// 传入一个 View 过来, 使用 body(content: Content) 来生成一个新的 View.
-// self.modifier(Cardify(isFaceUp: isFaceUp)) 生成一个 ContentModifer 对象, 里面存储了 Content 和 Modifier 的信息.
+
 struct Cardify: AnimatableModifier {
     var rotation: Double
     
@@ -39,12 +37,9 @@ struct Cardify: AnimatableModifier {
         set { rotation = newValue }
     }
     
-    // body(content: Content) 可以是对 Content 进行各种 Modifier.
-    // 也可以是创建一个新的 View, 将 Content 当做一个参数.
-    
     /*
-     body(content: Content) -> some View
-     这个接口太过于抽象, 有可能是修改原来的 View, 也有可能是用原来的 View, 来创建新的 View.
+     ViewModify 是一个很自由的 Protocol. 就是可以根据一个 View, 来创建另外的一个 View
+     是设置这个 View, 还是将这个 View 作为积木组合出一个新的 View. 这个实现其实并没有强制的要求.
      */
     func body(content: Content) -> some View {
         ZStack {
@@ -54,9 +49,12 @@ struct Cardify: AnimatableModifier {
                 content
             }
             .opacity(isFaceUp ? 1 : 0)
+            // 背景色, 以及 content 一直都在 View 上, 这样 match up 修改了之后, 动画才能正常.
             RoundedRectangle(cornerRadius: cornerRadius).fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
+        // 在这里, 进行了 Flip 的动画效果的设置.
+        // rotation 发生了变化, 会触发 3D 旋转效果. 
         .rotation3DEffect(Angle.degrees(rotation), axis: (0,1,0))
     }
     

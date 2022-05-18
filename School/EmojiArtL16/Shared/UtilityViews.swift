@@ -36,10 +36,12 @@ struct AnimatedActionButton: View {
     
     var body: some View {
         Button {
+            // ViewAction 带有 Animation, 在 SwiftUI 中, 是一个非常常用的做法.
             withAnimation {
                 action()
             }
         } label: {
+            // Button 的真正展示的内容, some View 类型.
             if title != nil && systemImage != nil {
                 Label(title!, systemImage: systemImage!)
             } else if title != nil {

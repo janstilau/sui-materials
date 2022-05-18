@@ -13,10 +13,6 @@ struct TestBuilder {
     static func buildBlock(_ items: String...) -> [String] {
         items
     }
-    
-    static func buildBlock(_ items: Int...) -> [Int] {
-        items
-    }
 }
 
 struct MyContentView: View {
@@ -26,16 +22,16 @@ struct MyContentView: View {
         VStack {
             Button("test") {
                 self.test {
-                    1
-                    2
-                    3
-                    4
+                    "a"
+                    "b"
+                    "c"
+                    "d"
                 }
             }
         }
     }
 
-    func test(@TestBuilder _ content: () -> [Int]) -> Void {
+    func test(@TestBuilder _ content: () -> [String]) -> Void {
         print("@TestBuilder Begin")
         print(content())
     }
@@ -67,16 +63,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(card: Card) {
-//        let view =  MyContentView().test {
-//            1
-//            2
-//            3
-//            4
-//        }
-//        print(view)
-//        print("----")
-//        return ()
-        
         if let chosenIndex: Int = cards.firstIndex(matching: card),
            !cards[chosenIndex].isFaceUp,
            !cards[chosenIndex].isMatched {
@@ -86,7 +72,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     cards[potentialMatchIndex].isMatched = true
                     counterOfMatches += 1
                 }
-                // 并没有设计结束的标志. 当最后一组匹配之后, 没有弹出对应的提示.
                 self.cards[chosenIndex].isFaceUp = true
             } else {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex

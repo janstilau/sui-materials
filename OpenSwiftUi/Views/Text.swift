@@ -17,7 +17,7 @@ public struct Text: View, Equatable {
     public typealias Body = Never
     
     public var _storage: Storage
-    // 里面, 存储的是 Enum 这种数据类型. 数组里面的 Item 的大小, 是固定的. 是 Enum 中最大数据类型宽度. 
+    // 里面, 存储的是 Enum 这种数据类型. 数组里面的 Item 的大小, 是固定的. 是 Enum 中最大数据类型宽度.
     public var _modifiers: [Text.Modifier] = [Modifier]()
     
     public enum Storage: Equatable {
@@ -32,8 +32,9 @@ public struct Text: View, Equatable {
             }
         }
         
-        // 一字不差地，逐字地
-        case verbatim(String)
+        // 只是存储 Text 的原始信息. 没有任何的修饰. 类似于 Label 仅仅进行了 Text 的设置.
+        // 在真正绘制的地方, 绘制系统发现 Text 没有任何的修饰信息, 会使用系统提供的默认值, 进行真正的绘制工作.
+        case verbatim(String)// 一字不差地，逐字地
         case anyTextStorage(AnyTextStorage<String>)
     }
     
@@ -83,6 +84,11 @@ public struct Text: View, Equatable {
     }
 }
 
+/*
+ 这里可以说明下, 各种 Modifier 返回一个 View 的真实情况.
+ 对于 Swift UI 来说, View 就是用来收集信息的. 所以这些信息存在哪里, 是它的内部实现. 可以有一个真正的引用语义的值, 在不断收集信息, 然后所有返回的 View 都引用同一个值. 这样, 虽然有很多的 ViewStruct 生成了, 但是信息还是存储了.
+ 在 Struct 中存储一个引用值, 是一个非常常用的操作.
+ */
 extension Text {
     public func foregroundColor(_ color: Color?) -> Text {
         textWithModifier(Text.Modifier.color(color))

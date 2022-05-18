@@ -17,7 +17,7 @@ class EmojiArtDocument: ReferenceFileDocument
 {
     static var readableContentTypes = [UTType.emojiart]
     static var writeableContentTypes = [UTType.emojiart]
-
+    
     required init(configuration: ReadConfiguration) throws {
         if let data = configuration.file.regularFileContents {
             emojiArt = try EmojiArtModel(json: data)
@@ -34,7 +34,7 @@ class EmojiArtDocument: ReferenceFileDocument
     func fileWrapper(snapshot: Data, configuration: WriteConfiguration) throws -> FileWrapper {
         FileWrapper(regularFileWithContents: snapshot)
     }
-        
+    
     @Published private(set) var emojiArt: EmojiArtModel {
         didSet {
             if emojiArt.background != oldValue.background {

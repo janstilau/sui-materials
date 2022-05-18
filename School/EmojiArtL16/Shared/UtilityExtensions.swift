@@ -1,11 +1,3 @@
-//
-//  UtilityExtensions.swift
-//  EmojiArt
-//
-//  Created by CS193p Instructor on 4/26/21.
-//  Copyright © 2021 Stanford University. All rights reserved.
-//
-
 import SwiftUI
 
 // in a Collection of Identifiables
@@ -40,7 +32,7 @@ extension RangeReplaceableCollection where Element: Identifiable {
             remove(at: index)
         }
     }
-
+    
     subscript(_ element: Element) -> Element {
         get {
             if let index = index(matching: element) {
@@ -51,6 +43,7 @@ extension RangeReplaceableCollection where Element: Identifiable {
         }
         set {
             if let index = index(matching: element) {
+                // 使用, RangeReplaceableCollection 原有的方法, 来包装出更加方便快捷的方法.
                 replaceSubrange(index...index, with: [newValue])
             }
         }
@@ -78,6 +71,7 @@ extension Set where Element: Identifiable {
 // (thus withoutDuplicateCharacters below)
 
 extension String {
+    // 非常朴素的实现. 不过, 很高效, 拼接操作是一个高效的操作. 除了扩容比较浪费资源, 但是扩容在小容量下, 不浪费资源. 在大容量下, 频率很小. 
     var removingDuplicateCharacters: String {
         reduce(into: "") { sofar, element in
             if !sofar.contains(element) {
@@ -99,6 +93,7 @@ extension Character {
         // (the start of the "miscellaneous items" section)
         // or check to see if this is a multiple scalar unicode sequence
         // (e.g. a 1 with a unicode modifier to force it to be presented as emoji 1️⃣)
+        // Emoji 原来有着专门的判断方式.
         if let firstScalar = unicodeScalars.first, firstScalar.properties.isEmoji {
             return (firstScalar.value >= 0x238d || unicodeScalars.count > 1)
         } else {
@@ -135,6 +130,8 @@ extension DragGesture.Value {
     var distance: CGSize { location - startLocation }
 }
 
+// CG 相关的快捷方法.
+// 这在之前, 也是很常见的.
 extension CGRect {
     var center: CGPoint {
         CGPoint(x: midX, y: midY)

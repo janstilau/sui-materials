@@ -17,7 +17,7 @@ struct PhotoLibrary: UIViewControllerRepresentable {
     static var isAvailable: Bool {
         return true
     }
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(handlePickedImage: handlePickedImage)
     }
@@ -36,7 +36,7 @@ struct PhotoLibrary: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var handlePickedImage: (UIImage?) -> Void
-
+        
         init(handlePickedImage: @escaping (UIImage?) -> Void) {
             self.handlePickedImage = handlePickedImage
         }
