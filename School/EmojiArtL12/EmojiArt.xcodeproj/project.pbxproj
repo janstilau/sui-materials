@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0643BCF52834D1CD007C92E7 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0643BCF42834D1CD007C92E7 /* RenderView.swift */; };
 		EC030741263771AD001E9F47 /* EmojiArtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC030740263771AD001E9F47 /* EmojiArtApp.swift */; };
 		EC030743263771AD001E9F47 /* EmojiArtDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC030742263771AD001E9F47 /* EmojiArtDocumentView.swift */; };
 		EC030745263771AD001E9F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC030744263771AD001E9F47 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0643BCF42834D1CD007C92E7 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		EC03073D263771AD001E9F47 /* EmojiArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC030740263771AD001E9F47 /* EmojiArtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtApp.swift; sourceTree = "<group>"; };
 		EC030742263771AD001E9F47 /* EmojiArtDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				EC030744263771AD001E9F47 /* Assets.xcassets */,
 				EC030749263771AD001E9F47 /* Info.plist */,
 				EC030746263771AD001E9F47 /* Preview Content */,
+				0643BCF42834D1CD007C92E7 /* RenderView.swift */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				EC030758263774A2001E9F47 /* UtilityViews.swift in Sources */,
 				ECC0F51B26434B75004657CD /* PaletteManager.swift in Sources */,
+				0643BCF52834D1CD007C92E7 /* RenderView.swift in Sources */,
 				ECD76A60264094A2008FA96E /* PaletteStore.swift in Sources */,
 				ECC0F51926434363004657CD /* PaletteEditor.swift in Sources */,
 				EC030743263771AD001E9F47 /* EmojiArtDocumentView.swift in Sources */,

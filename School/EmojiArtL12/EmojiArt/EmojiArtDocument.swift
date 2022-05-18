@@ -8,8 +8,19 @@
 
 import SwiftUI
 
-class EmojiArtDocument: ObservableObject
-{
+extension EmojiArtDocument {
+    private struct Autosave {
+        static let filename = "Autosaved.emojiart"
+        static var url: URL? {
+            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            return documentDirectory?.appendingPathComponent(filename)
+        }
+        static let coalescingInterval = 5.0
+    }
+}
+
+class EmojiArtDocument: ObservableObject {
+    // 该值, 会在每一次, EmojiArtModel 中的元素发生改变的时候调用, 例如, 添加 emoji, emoji 的位置变化等等.
     @Published private(set) var emojiArt: EmojiArtModel {
         didSet {
             scheduleAutosave()
@@ -22,19 +33,13 @@ class EmojiArtDocument: ObservableObject
     private var autosaveTimer: Timer?
     
     private func scheduleAutosave() {
+        // 如果, 一个 Timer 已经处于 Invalidate 的状态, 重新调用 invalidate 是合法的, 没有任何的错误.
+        // 但是, 这里还是应该进行该 timer 的置空处理.
         autosaveTimer?.invalidate()
         autosaveTimer = Timer.scheduledTimer(withTimeInterval: Autosave.coalescingInterval, repeats: false) { _ in
             self.autosave()
+            self.autosaveTimer = nil
         }
-    }
-    
-    private struct Autosave {
-        static let filename = "Autosaved.emojiart"
-        static var url: URL? {
-            let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-            return documentDirectory?.appendingPathComponent(filename)
-        }
-        static let coalescingInterval = 5.0
     }
     
     private func autosave() {
@@ -63,8 +68,6 @@ class EmojiArtDocument: ObservableObject
             fetchBackgroundImageDataIfNecessary()
         } else {
             emojiArt = EmojiArtModel()
-    //        emojiArt.addEmoji("😀", at: (-200, -100), size: 80)
-    //        emojiArt.addEmoji("😷", at: (50, 100), size: 40)
         }
     }
     
@@ -74,6 +77,13 @@ class EmojiArtDocument: ObservableObject
     // MARK: - Background
     
     @Published var backgroundImage: UIImage?
+    /*
+     backgroundImageFetchStatus 该值是一个 Publisher. 它的状态的改变, 会直接触发 View 的更新操作.
+     这种, 信号的发射, 感觉不好追踪了.
+     没有一个很好的办法, 来进行逻辑的梳理.
+     backgroundImageFetchStatus 的改变, 是在 fetchBackgroundImageDataIfNecessary 中, 这是一个私有方法.
+     导致的问题就是, View 的更新时机, 其实没有办法通过代码的调用进行梳理.
+     */
     @Published var backgroundImageFetchStatus = BackgroundImageFetchStatus.idle
     
     enum BackgroundImageFetchStatus: Equatable {
@@ -84,6 +94,7 @@ class EmojiArtDocument: ObservableObject
     
     private func fetchBackgroundImageDataIfNecessary() {
         backgroundImage = nil
+        // Enum 是一个更好的组织代码的方式. 但是, 在实际处理的时候, 其实代码会比较容易混乱的.
         switch emojiArt.background {
         case .url(let url):
             // fetch the url
@@ -132,4 +143,5 @@ class EmojiArtDocument: ObservableObject
             emojiArt.emojis[index].size = Int((CGFloat(emojiArt.emojis[index].size) * scale).rounded(.toNearestOrAwayFromZero))
         }
     }
+    
 }

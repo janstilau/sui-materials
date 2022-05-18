@@ -9,10 +9,14 @@ import SwiftUI
 
 // L11 a simple, persistent storage place for Palettes
 
+// 调色板 Model
 struct Palette: Identifiable, Codable, Hashable {
+    // 调色板名称, Weather, Faces 等.
     var name: String
-    var emojis: String
+    // 调色板 ID, Identifiable 的实现.
     var id: Int
+    // 调色板的内容
+    var emojis: String
     
     fileprivate init(name: String, emojis: String, id: Int) {
         self.name = name
@@ -30,30 +34,6 @@ class PaletteStore: ObservableObject {
         }
     }
     
-    private var userDefaultsKey: String {
-        "PaletteStore:" + name
-    }
-    
-    private func storeInUserDefaults() {
-        UserDefaults.standard.set(try? JSONEncoder().encode(palettes), forKey: userDefaultsKey)
-//        UserDefaults.standard.set(palettes.map { [$0.name,$0.emojis,String($0.id)] }, forKey: userDefaultsKey)
-    }
-    
-    private func restoreFromUserDefaults() {
-        if let jsonData = UserDefaults.standard.data(forKey: userDefaultsKey),
-           let decodedPalettes = try? JSONDecoder().decode(Array<Palette>.self, from: jsonData) {
-            palettes = decodedPalettes
-        }
-//        if let palettesAsPropertyList = UserDefaults.standard.array(forKey: userDefaultsKey) as? [[String]] {
-//            for paletteAsArray in palettesAsPropertyList {
-//                if paletteAsArray.count == 3, let id = Int(paletteAsArray[2]), !palettes.contains(where: { $0.id == id }) {
-//                    let palette = Palette(name: paletteAsArray[0], emojis: paletteAsArray[1], id: id)
-//                    palettes.append(palette)
-//                }
-//            }
-//        }
-    }
-    
     init(named name: String) {
         self.name = name
         restoreFromUserDefaults()
@@ -67,6 +47,22 @@ class PaletteStore: ObservableObject {
             insertPalette(named: "Weather", emojis: "☀️🌤⛅️🌥☁️🌦🌧⛈🌩🌨❄️💨☔️💧💦🌊☂️🌫🌪")
             insertPalette(named: "COVID", emojis: "💉🦠😷🤧🤒")
             insertPalette(named: "Faces", emojis: "😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤯😳🥶😥😓🤗🤔🤭🤫🤥😬🙄😯😧🥱😴🤮😷🤧🤒🤠")
+        }
+    }
+    
+    // Name 仅仅在这里起了作用. 当做了存储位置的索引条件.
+    private var userDefaultsKey: String {
+        "PaletteStore:" + name
+    }
+    
+    private func storeInUserDefaults() {
+        UserDefaults.standard.set(try? JSONEncoder().encode(palettes), forKey: userDefaultsKey)
+    }
+    
+    private func restoreFromUserDefaults() {
+        if let jsonData = UserDefaults.standard.data(forKey: userDefaultsKey),
+           let decodedPalettes = try? JSONDecoder().decode(Array<Palette>.self, from: jsonData) {
+            palettes = decodedPalettes
         }
     }
     
@@ -86,6 +82,8 @@ class PaletteStore: ObservableObject {
     }
     
     func insertPalette(named name: String, emojis: String? = nil, at index: Int = 0) {
+        // id 的确定, 是根据现有 ID 的最大值.
+        // 之所以要这样, 是因为会有删除操作. 所以 id 并不是连续的. 还有排序操作, 所以 id 也不是有序的.
         let unique = (palettes.max(by: { $0.id < $1.id })?.id ?? 0) + 1
         let palette = Palette(name: name, emojis: emojis ?? "", id: unique)
         let safeIndex = min(max(index, 0), palettes.count)

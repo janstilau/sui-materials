@@ -15,19 +15,13 @@ struct OptionalImage: View {
     var uiImage: UIImage?
     
     var body: some View {
+        // 如果, UIImage 有值, 就进行渲染, 否则就是一个 EmptyView.
+        // 其实应该是返回一个大白背景 View.
         if uiImage != nil {
             Image(uiImage: uiImage!)
         }
     }
 }
-
-// syntactic sugar
-// lots of times we want a simple button
-// with just text or a label or a systemImage
-// but we want the action it performs to be animated
-// (i.e. withAnimation)
-// this just makes it easy to create such a button
-// and thus cleans up our code
 
 struct AnimatedActionButton: View {
     var title: String? = nil
