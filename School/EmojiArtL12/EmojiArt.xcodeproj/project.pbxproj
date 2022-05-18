@@ -305,7 +305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"EmojiArt/Preview Content\"";
-				DEVELOPMENT_TEAM = DJ26AU4A57;
+				DEVELOPMENT_TEAM = GAJJ4F72ZK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = EmojiArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -313,7 +313,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.instructor.EmojiArt;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.stanford.cs193p.instructor.EmojiArt-yami";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,7 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"EmojiArt/Preview Content\"";
-				DEVELOPMENT_TEAM = DJ26AU4A57;
+				DEVELOPMENT_TEAM = GAJJ4F72ZK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = EmojiArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -335,7 +335,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.instructor.EmojiArt;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.stanford.cs193p.instructor.EmojiArt-yami";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
