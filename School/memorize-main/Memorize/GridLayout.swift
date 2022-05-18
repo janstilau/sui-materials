@@ -22,11 +22,6 @@ struct GridLayout {
         self.size = size
         guard size.width != 0, size.height != 0, itemCount > 0 else { return }
         
-        // find the bestLayout
-        // i.e., one which results in cells whose aspectRatio
-        // has the smallestVariance from desiredAspectRatio
-        // not necessarily most optimal code to do this, but easy to follow (hopefully)
-        // 没有必要深究这里面的实现. 就是说算出 row, column 的值而已. 
         var bestLayout: (rowCount: Int, columnCount: Int) = (1, itemCount)
         var smallestVariance: Double?
         let sizeAspectRatio = abs(Double(size.width/size.height))
