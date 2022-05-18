@@ -82,7 +82,7 @@ extension PaletteStore {
     private func storeInUserDefaults() {
         UserDefaults.standard.set(try? JSONEncoder().encode(palettes), forKey: userDefaultsKey)
         // 原本, 使用比较传统的方式进行存储. 现在使用了 JSONEncoder 这种, 更加符合 Swift 的方式了
-//        UserDefaults.standard.set(palettes.map { [$0.name,$0.emojis,String($0.id)] }, forKey: userDefaultsKey)
+        //        UserDefaults.standard.set(palettes.map { [$0.name,$0.emojis,String($0.id)] }, forKey: userDefaultsKey)
     }
     
     private func restoreFromUserDefaults() {
@@ -92,13 +92,13 @@ extension PaletteStore {
         }
         // 使用传统的方式, 整个的解析过程, 要自己去进行拼接.
         // 其实, 存储的时候, 也是将存储的逻辑, 写到了 store 方法的内部了. 最最重要的是, 这种写法, 没有扩展性.
-//        if let palettesAsPropertyList = UserDefaults.standard.array(forKey: userDefaultsKey) as? [[String]] {
-//            for paletteAsArray in palettesAsPropertyList {
-//                if paletteAsArray.count == 3, let id = Int(paletteAsArray[2]), !palettes.contains(where: { $0.id == id }) {
-//                    let palette = Palette(name: paletteAsArray[0], emojis: paletteAsArray[1], id: id)
-//                    palettes.append(palette)
-//                }
-//            }
-//        }
+        //        if let palettesAsPropertyList = UserDefaults.standard.array(forKey: userDefaultsKey) as? [[String]] {
+        //            for paletteAsArray in palettesAsPropertyList {
+        //                if paletteAsArray.count == 3, let id = Int(paletteAsArray[2]), !palettes.contains(where: { $0.id == id }) {
+        //                    let palette = Palette(name: paletteAsArray[0], emojis: paletteAsArray[1], id: id)
+        //                    palettes.append(palette)
+        //                }
+        //            }
+        //        }
     }
 }

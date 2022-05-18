@@ -30,46 +30,46 @@ struct PaletteChooser: View {
          Clips this view to its bounding rectangular frame.
          
          func clipped(antialiased: Bool = false) -> some View
-
+         
          Use the clipped(antialiased:) modifier to hide any content that extends beyond the layout bounds of the shape.
          By default, a view’s bounding frame is used only for layout.
          so any content that extends beyond the edges of the frame is still visible.
          
          Text("This long text string is clipped")
-             .fixedSize()
-             .frame(width: 175, height: 100)
-             .clipped()
-             .border(Color.gray)
+         .fixedSize()
+         .frame(width: 175, height: 100)
+         .clipped()
+         .border(Color.gray)
          Parameters
-
+         
          antialiased
          A Boolean value that indicates whether the rendering system applies smoothing to the edges of the clipping rectangle.
          Returns
-
+         
          A view that clips this view to its bounding frame.
          */
         .clipped()
         /*
          Adds a border to this view with the specified style and width.
-
+         
          func border<S>(_ content: S, width: CGFloat = 1) -> some View where S : ShapeStyle
          Discussion
-
+         
          Use this modifier to draw a border of a specified width around the view’s frame. By default, the border appears inside the bounds of this view. For example, you can add a four-point wide border covers the text:
          Text("Purple border inside the view bounds.")
-             .border(Color.purple, width: 4)
+         .border(Color.purple, width: 4)
          To place a border around the outside of this view, apply padding of the same width before adding the border:
          Text("Purple border outside the view bounds.")
-             .padding(4)
-             .border(Color.purple, width: 4)
+         .padding(4)
+         .border(Color.purple, width: 4)
          Parameters
-
+         
          content
          A value that conforms to the ShapeStyle protocol, like a Color or HierarchicalShapeStyle, that SwiftUI uses to fill the border.
          width
          The thickness of the border. The default is 1 pixel.
          Returns
-
+         
          A view that adds a border with the specified style and width to this view.
          */
         // Border 应该仅仅是为了进行信息的存储操作.
@@ -92,24 +92,24 @@ struct PaletteChooser: View {
         /*
          Adds a context menu to the view.
          func contextMenu<MenuItems>(menuItems: () -> MenuItems) -> some View where MenuItems : View
-
+         
          Use contextual menus to add actions that change depending on the user’s current focus and task.
          The following example creates a Text view with a contextual menu. Note that the actions invoked by the menu selection could be coded directly inside the button closures or, as shown below, invoked via function references.
          func selectHearts() {
-             // Act on hearts selection.
+         // Act on hearts selection.
          }
          func selectClubs() { ... }
          func selectSpades() { ... }
          func selectDiamonds() { ... }
-
+         
          Text("Favorite Card Suit")
-             .padding()
-             .contextMenu {
-                 Button("♥️ - Hearts", action: selectHearts)
-                 Button("♣️ - Clubs", action: selectClubs)
-                 Button("♠️ - Spades", action: selectSpades)
-                 Button("♦️ - Diamonds", action: selectDiamonds)
-             }
+         .padding()
+         .contextMenu {
+         Button("♥️ - Hearts", action: selectHearts)
+         Button("♣️ - Clubs", action: selectClubs)
+         Button("♠️ - Spades", action: selectSpades)
+         Button("♦️ - Diamonds", action: selectDiamonds)
+         }
          A contextMenu that contains one or more menu items.
          A view that adds a contextual menu to this view.
          */
@@ -124,12 +124,12 @@ struct PaletteChooser: View {
         // paletteToEdit 是一个 ViewState 值, 修改之后, 可以直接改变 View.
         // AnimatedActionButton 的存在, 使得 Button 触发的 Action, 都会在 withAnimation 的环境下进行触发.
         AnimatedActionButton(title: "Edit", systemImage: "pencil") {
-//            editing = true
+            //            editing = true
             paletteToEdit = store.palette(at: chosenPaletteIndex)
         }
         AnimatedActionButton(title: "New", systemImage: "plus") {
             store.insertPalette(named: "New", emojis: "", at: chosenPaletteIndex)
-//            editing = true
+            //            editing = true
             paletteToEdit = store.palette(at: chosenPaletteIndex)
         }
         AnimatedActionButton(title: "Delete", systemImage: "minus.circle") {
@@ -141,10 +141,10 @@ struct PaletteChooser: View {
         gotoMenu
     }
     
-//    @State private var editing = false
+    //    @State private var editing = false
     @State private var managing = false
     @State private var paletteToEdit: Palette?
-        
+    
     func body(for palette: Palette) -> some View {
         HStack {
             Text(palette.name)
@@ -160,9 +160,9 @@ struct PaletteChooser: View {
         .id(palette.id)
         /// Associates a transition with the view.
         .transition(rollTransition)
-//        .popover(isPresented: $editing) {
-//            PaletteEditor(palette: $store.palettes[chosenPaletteIndex])
-//        }
+        //        .popover(isPresented: $editing) {
+        //            PaletteEditor(palette: $store.palettes[chosenPaletteIndex])
+        //        }
         .popover(item: $paletteToEdit) { palette in
             PaletteEditor(palette: $store.palettes[palette])
         }
@@ -195,7 +195,7 @@ struct PaletteChooser: View {
 
 struct ScrollingEmojisView: View {
     let emojis: String
-
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
@@ -204,20 +204,20 @@ struct ScrollingEmojisView: View {
                     Text(emoji)
                     /*
                      Summary
-
+                     
                      Activates this view as the source of a drag and drop operation.
                      Declaration
-
+                     
                      func onDrag(_ data: @escaping () -> NSItemProvider) -> some View
                      Discussion
-
+                     
                      Applying the onDrag(_:) modifier adds the appropriate gestures for drag and drop to this view. When a drag operation begins, a rendering of this view is generated and used as the preview image.
                      Parameters
-
+                     
                      data
                      A closure that returns a single NSItemProvider that represents the draggable data from this view.
                      Returns
-
+                     
                      A view that activates this view as the source of a drag and drop operation, beginning with user gesture input.
                      */
                     /*

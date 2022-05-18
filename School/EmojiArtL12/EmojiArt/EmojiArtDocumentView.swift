@@ -366,6 +366,7 @@ struct EmojiArtDocumentView: View {
          struct DragGestureView: View {
              @State var isDragging = false
 
+         // 可以看到, 在系统给的示例代码里面, 也是使用计算属性, 来生成了 Body 中的内容. 
              var drag: some Gesture {
                  DragGesture()
                      .onChanged { _ in self.isDragging = true }
