@@ -13,6 +13,10 @@ struct TestBuilder {
     static func buildBlock(_ items: String...) -> [String] {
         items
     }
+    
+    static func buildBlock(_ items: Int...) -> [Int] {
+        items
+    }
 }
 
 struct MyContentView: View {
@@ -22,16 +26,16 @@ struct MyContentView: View {
         VStack {
             Button("test") {
                 self.test {
-                    "a"
-                    "b"
-                    "c"
-                    "d"
+                    1
+                    2
+                    3
+                    4
                 }
             }
         }
     }
 
-    func test(@TestBuilder _ content: () -> [String]) -> Void {
+    func test(@TestBuilder _ content: () -> [Int]) -> Void {
         print("@TestBuilder Begin")
         print(content())
     }
@@ -63,15 +67,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(card: Card) {
-        let view =  MyContentView().test {
-            "a"
-            "b"
-            "c"
-            "d"
-        }
-        print(view)
-        print("----")
-        return ()
+//        let view =  MyContentView().test {
+//            1
+//            2
+//            3
+//            4
+//        }
+//        print(view)
+//        print("----")
+//        return ()
+        
         if let chosenIndex: Int = cards.firstIndex(matching: card),
            !cards[chosenIndex].isFaceUp,
            !cards[chosenIndex].isMatched {

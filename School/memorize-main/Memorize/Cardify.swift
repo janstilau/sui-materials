@@ -39,6 +39,13 @@ struct Cardify: AnimatableModifier {
         set { rotation = newValue }
     }
     
+    // body(content: Content) 可以是对 Content 进行各种 Modifier.
+    // 也可以是创建一个新的 View, 将 Content 当做一个参数.
+    
+    /*
+     body(content: Content) -> some View
+     这个接口太过于抽象, 有可能是修改原来的 View, 也有可能是用原来的 View, 来创建新的 View.
+     */
     func body(content: Content) -> some View {
         ZStack {
             Group {

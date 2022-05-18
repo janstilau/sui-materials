@@ -9,12 +9,14 @@ import SwiftUI
 
 /*
  MemoryGame 是真正的数据存储的地方, 是一个 Struct.
- EmojiMemoryGame 是 ViewModel. 是 Controller 层的东西. 它是一个 Class, 引用类型, 便于在各个 View 中共享, 便于生命周期的控制. s
+ EmojiMemoryGame 是 ViewModel. 是 Controller 层的东西. 它是一个 Class, 引用类型, 便于在各个 View 中共享, 便于生命周期的控制.
  */
 class EmojiMemoryGame: ObservableObject {
     /*
      @Published 是一个非常非常重要的属性.
-     model.choose(card: card) 被调用, 修改了 MemoryGame 内部的数据. 而 MemoryGame 是一个 Struct, 所以它的 DidSet 的逻辑, 会被触发的.
+     model.choose(card: card) 被调用, 修改了 MemoryGame 内部的数据.
+     而 MemoryGame 是一个 Struct, 它的任何修改, 都会导致自身被重新赋值. 这是 Swfit 语言的运行特性.
+     model 的 didSet, 因为被 @Published 修饰, 所以实际内部是调用对应的 Subject 的 send 方法, 在这个 Subject 的 Send 方法内部, 会触发 objectWillChange 信号的发出. 
      @Published 属性修饰, 会使得 ObservableObject 的 objectWillChange 信号被触发. 而 UI 部分, 是根据这个信号, 进行刷新动作的.
      
      如果, 把 @Published 注释掉, 那么整个 UI 刷新就不起作用了.
@@ -42,7 +44,6 @@ class EmojiMemoryGame: ObservableObject {
     // ViewModel 是 Controller 层, Controller 的协调者, 在 MVVM 中其实没有丢失.
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
-        self.objectWillChange
     }
     
     func resetGame() {

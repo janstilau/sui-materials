@@ -34,6 +34,8 @@ struct Pie: Shape {
         var p = Path()
         p.move(to: center)
         p.addLine(to: start)
+        // 这种写法很常见很常见.
+        // 直接在 ( 后面, 对参数进行换行, 这和自己的习惯不太一直. 自己还是习惯, 在第一个参数后面进行换行. 
         p.addArc(
             center: center,
             radius: radius,
