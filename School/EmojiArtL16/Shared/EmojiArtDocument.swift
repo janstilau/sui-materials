@@ -35,6 +35,13 @@ class EmojiArtDocument: ReferenceFileDocument
         FileWrapper(regularFileWithContents: snapshot)
     }
     
+    /*
+     struct EmojiArtModel: Codable {
+     EmojiArtModel 是一个 Struct, 所以, 任何它上面的值的修改, 都会引起 emojiArt 的 didSet 的调用. 然后, 就会触发后面的 fetch 操作.
+     这也就是为什么, Swfit 特别推动值语义的修改的原因.
+     
+     在 Swfit 的当前的设计里面, 可以使用 Struct, 方便的进行监听这回事.
+     */
     @Published private(set) var emojiArt: EmojiArtModel {
         didSet {
             if emojiArt.background != oldValue.background {
@@ -75,12 +82,14 @@ class EmojiArtDocument: ReferenceFileDocument
                 .map { (data, urlResponse) in UIImage(data: data) }
                 .replaceError(with: nil)
                 .receive(on: DispatchQueue.main)
+            // 这里, 使用了 Combine 来做图片的下载操作.
             backgroundImageFetchCancellable = publisher
                 .sink { [weak self] image in
                     self?.backgroundImage = image
                     self?.backgroundImageFetchStatus = (image != nil) ? .idle : .failed(url)
                 }
         case .imageData(let data):
+            // 最理想的方式, 就是传输的是 Data 的信息.
             backgroundImage = UIImage(data: data)
         case .blank:
             break
