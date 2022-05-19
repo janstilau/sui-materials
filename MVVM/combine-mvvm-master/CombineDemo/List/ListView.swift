@@ -72,8 +72,12 @@ final class ListView: UIView {
             activityIndicationView.widthAnchor.constraint(equalToConstant: 50.0)
         ])
     }
-    
+}
+
+extension ListView {
     private func createLayout() -> UICollectionViewLayout {
+        // 这种方式的函数调用, 在 Swfit 推崇的方式.
+        // 我个人很不习惯. 但是, 标准的写法就是这样.
         let size = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .estimated(40))
