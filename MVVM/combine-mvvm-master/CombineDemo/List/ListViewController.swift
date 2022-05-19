@@ -38,7 +38,7 @@ final class ListViewController: UIViewController {
         configureDataSource()
         setUpBindings()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.retrySearch()

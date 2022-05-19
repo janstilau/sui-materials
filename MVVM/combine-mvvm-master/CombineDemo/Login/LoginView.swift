@@ -21,9 +21,8 @@ final class LoginView: UIView {
     init() {
         super.init(frame: .zero)
         
-        addSubviews()
+        setupViews()
         setUpConstraints()
-        setUpViews()
     }
     
     required init?(coder: NSCoder) {
@@ -41,12 +40,23 @@ final class LoginView: UIView {
         activityIndicator.stopAnimating()
     }
     
-    private func addSubviews() {
-        [loginTextField, passwordTextField, loginButton, activityIndicator]
-            .forEach {
-                addSubview($0)
-                $0.translatesAutoresizingMaskIntoConstraints = false
-            }
+    private func setupViews() {
+        backgroundColor = .background
+        
+        [loginTextField, passwordTextField, loginButton, activityIndicator].forEach {
+            addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        loginTextField.backgroundColor = .systemBackground
+        loginTextField.placeholder = "login"
+        
+        passwordTextField.backgroundColor = .systemBackground
+        passwordTextField.placeholder = "password"
+        
+        loginButton.setTitle("Log in", for: UIControl.State())
+        loginButton.setTitleColor(.white, for: UIControl.State())
+        loginButton.backgroundColor = .nonValid
     }
     
     private func setUpConstraints() {
@@ -72,18 +82,5 @@ final class LoginView: UIView {
             activityIndicator.heightAnchor.constraint(equalToConstant: 50),
             activityIndicator.widthAnchor.constraint(equalToConstant: 50.0)
         ])
-    }
-    
-    private func setUpViews() {
-        backgroundColor = .background
-        loginTextField.backgroundColor = .systemBackground
-        loginTextField.placeholder = "login"
-        
-        passwordTextField.backgroundColor = .systemBackground
-        passwordTextField.placeholder = "password"
-        
-        loginButton.setTitle("Log in", for: UIControl.State())
-        loginButton.setTitleColor(.white, for: UIControl.State())
-        loginButton.backgroundColor = .nonValid
     }
 }

@@ -15,22 +15,26 @@ final class ListView: UIView {
     init() {
         super.init(frame: .zero)
         
-        addSubviews()
+        setupViews()
         setUpConstraints()
-        setUpViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubviews() {
+    private func setupViews() {
         let subviews = [searchTextField, collectionView, activityIndicationView]
         
         subviews.forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+        
+        collectionView.backgroundColor = .background
+        searchTextField.autocorrectionType = .no
+        searchTextField.backgroundColor = .background
+        searchTextField.placeholder = "NBA Player"
     }
     
     func startLoading() {
@@ -67,14 +71,6 @@ final class ListView: UIView {
             activityIndicationView.heightAnchor.constraint(equalToConstant: 50),
             activityIndicationView.widthAnchor.constraint(equalToConstant: 50.0)
         ])
-    }
-    
-    private func setUpViews() {
-        collectionView.backgroundColor = .background
-        
-        searchTextField.autocorrectionType = .no
-        searchTextField.backgroundColor = .background
-        searchTextField.placeholder = "NBA Player"
     }
     
     private func createLayout() -> UICollectionViewLayout {

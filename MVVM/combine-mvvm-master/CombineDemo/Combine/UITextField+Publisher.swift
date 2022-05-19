@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 extension UITextField {
+    // 使用, UITextField 的 Notification, 可以很方便的将 UITextFiled 进行 信号化.
     var textPublisher: AnyPublisher<String, Never> {
         NotificationCenter.default
             .publisher(for: UITextField.textDidChangeNotification, object: self)
