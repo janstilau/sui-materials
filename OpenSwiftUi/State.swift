@@ -4,21 +4,27 @@
  
  Declaration
  @frozen @propertyWrapper struct State<Value>
- Overview
- SwiftUI manages the storage of a property that you declare as state. When the value changes, SwiftUI updates the parts of the view hierarchy that depend on the value. Use state as the single source of truth for a given value stored in a view hierarchy.
  
- A State instance isn’t the value itself; it’s a means of reading and writing the value. To access a state’s underlying value, refer to it by its property name, which returns the wrappedValue property value. For example, you can read and update the isPlaying state property in a PlayButton view by referring to the property directly:
+ Overview
+ SwiftUI manages the storage of a property that you declare as state.
+ When the value changes, SwiftUI updates the parts of the view hierarchy that depend on the value. Use state as the single source of truth for a given value stored in a view hierarchy.
+ 
+ A State instance isn’t the value itself; it’s a means of reading and writing the value.
+ To access a state’s underlying value, refer to it by its property name, which returns the wrappedValue property value.
+ For example, you can read and update the isPlaying state property in a PlayButton view by referring to the property directly:
  
  struct PlayButton: View {
  @State private var isPlaying: Bool = false
  
  var body: some View {
  Button(isPlaying ? "Pause" : "Play") {
- isPlaying.toggle()
+    isPlaying.toggle()
  }
  }
  }
- If you pass a state property to a child view, SwiftUI updates the child any time the value changes in the parent, but the child can’t modify the value. To enable the child view to modify the stored value, pass a Binding instead. You can get a binding to a state value by accessing the state’s projectedValue, which you get by prefixing the property name with a dollar sign ($).
+ 
+ If you pass a state property to a child view, SwiftUI updates the child any time the value changes in the parent, but the child can’t modify the value.
+ To enable the child view to modify the stored value, pass a Binding instead. You can get a binding to a state value by accessing the state’s projectedValue, which you get by prefixing the property name with a dollar sign ($).
  
  For example, you can remove the isPlaying state from the play button in the example above, and instead make the button take a binding to the state:
  
@@ -31,6 +37,7 @@
  }
  }
  }
+ 
  Then you can define a player view that declares the state and creates a binding to the state using the dollar sign prefix:
  
  struct PlayerView: View {
@@ -109,7 +116,7 @@ public struct State<Value>: DynamicProperty {
      State 里面, 是应一个引用值, 来存储真正的数据.
      
      Binding 值, 存储的是对于这个引用值的修改.
-     这样, 就能保证, 其实操作的是同样的一个值. 
+     这样, 就能保证, 其实操作的是同样的一个值.
      */
     public var projectedValue: Binding<Value> {
         return Binding(get: { return self.wrappedValue },

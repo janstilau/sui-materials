@@ -4,17 +4,16 @@
  */
 
 /*
- 
  /// A property wrapper type that can read and write a value owned by a source of
  /// truth.
- ///
+ 
  /// Use a binding to create a two-way connection between a property that stores
  /// data, and a view that displays and changes the data. A binding connects a
  /// property to a source of truth stored elsewhere, instead of storing data
  /// directly. For example, a button that toggles between play and pause can
  /// create a binding to a property of its parent view using the `Binding`
  /// property wrapper.
- ///
+ 
  ///     struct PlayButton: View {
  ///         @Binding var isPlaying: Bool
  ///
@@ -26,7 +25,8 @@
  ///             }
  ///         }
  ///     }
- ///
+ 
+ 
  /// The parent view declares a property to hold the playing state, using the
  /// ``State`` property wrapper to indicate that this property is the value's
  /// source of truth.
@@ -196,17 +196,12 @@ public struct Binding<Value> {
 }
 
 class StoredLocation<Value>: AnyLocation<Value> {
-    
 }
 
 extension Binding {
     public func transaction(_ transaction: Transaction) -> Binding<Value> {
         fatalError()
     }
-    
-    //    public func animation(_ animation: Animation? = .default) -> Binding<Value> {
-    //
-    //    }
 }
 
 extension Binding: DynamicProperty {
