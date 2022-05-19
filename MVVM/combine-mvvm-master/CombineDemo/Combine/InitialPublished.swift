@@ -7,6 +7,9 @@
 
 import Combine
 
+/*
+ 这难道是在模拟, @Published 的实现???
+ */
 @propertyWrapper // @propertyDelegate
 struct InitialPublished<Value>: Publisher {
     typealias Output = Value
