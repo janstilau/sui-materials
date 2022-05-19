@@ -85,6 +85,33 @@ struct PaletteChooser: View {
         gotoMenu
     }
     
+    /*
+     Summary
+     A control for presenting a menu of actions.
+     Declaration
+
+     struct Menu<Label, Content> where Label : View, Content : View
+     Discussion
+
+     The following example presents a menu of three buttons and a submenu, which contains three buttons of its own.
+     Menu("Actions") {
+         Button("Duplicate", action: duplicate)
+         Button("Rename", action: rename)
+         Button("Delete…", action: delete)
+         Menu("Copy") {
+             Button("Copy", action: copy)
+             Button("Copy Formatted", action: copyFormatted)
+             Button("Copy Library Path", action: copyPath)
+         }
+     }
+     You can create the menu’s title with a LocalizedStringKey, as seen in the previous example, or with a view builder that creates multiple views, such as an image and a text view:
+     Menu {
+         Button("Open in Preview", action: openInPreview)
+         Button("Save as PDF", action: saveAsPDF)
+     } label: {
+         Label("PDF", systemImage: "doc.fill")
+     }
+     */
     var gotoMenu: some View {
         Menu {
             ForEach (store.palettes) { palette in
@@ -115,6 +142,7 @@ struct PaletteChooser: View {
             // L15 make this popover dismissable with a Close button on iPhone
                 .wrappedInNavigationViewToMakeDismissable { paletteToEdit = nil }
         }
+        // 当, managing 改变的时候, Sheet 进行出现. 
         .sheet(isPresented: $managing) {
             PaletteManager()
         }
@@ -136,7 +164,7 @@ struct ScrollingEmojisView: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            // 如果, 这里不用 HStack 包装一层, 那么 ForEach 生成的 View, 是从上到下进行的罗列. 
+            // 如果, 这里不用 HStack 包装一层, 那么 ForEach 生成的 View, 是从上到下进行的罗列.
             HStack {
                 ForEach(emojis.removingDuplicateCharacters.map { String($0) }, id: \.self) { emoji in
                     Text(emoji)

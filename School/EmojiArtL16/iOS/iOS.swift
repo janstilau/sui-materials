@@ -62,7 +62,8 @@ extension View {
     // L16 made platform-specific
     @ViewBuilder
     func dismissable(_ dismiss: (() -> Void)?) -> some View {
-        if UIDevice.current.userInterfaceIdiom != .pad, let dismiss = dismiss {
+        if UIDevice.current.userInterfaceIdiom != .pad,
+            let dismiss = dismiss {
             self.toolbar {
                 // L15 note .cancellationAction placement of the Close button
                 // L15 SwiftUI will put it in the appropriate spot in some toolbar somewhere

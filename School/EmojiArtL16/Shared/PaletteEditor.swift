@@ -10,6 +10,69 @@ import SwiftUI
 struct PaletteEditor: View {
     @Binding var palette: PaletteCategory
     
+    /*
+     Summary
+
+     A container for grouping controls used for data entry, such as in settings or inspectors.
+     
+     Declaration
+
+     struct Form<Content> where Content : View
+     Discussion
+
+     SwiftUI applies platform-appropriate styling to views contained inside a form, to group them together. Form-specific styling applies to things like buttons, toggles, labels, lists, and more. Keep in mind that these stylings may be platform-specific. For example, forms apppear as grouped lists on iOS, and as aligned vertical stacks on macOS.
+     The following example shows a simple data entry form on iOS, grouped into two sections. The supporting types (NotifyMeAboutType and ProfileImageSize) and state variables (notifyMeAbout, profileImageSize, playNotificationSounds, and sendReadReceipts) are omitted for simplicity.
+     var body: some View {
+         NavigationView {
+             Form {
+                 Section(header: Text("Notifications")) {
+                     Picker("Notify Me About", selection: $notifyMeAbout) {
+                         Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
+                         Text("Mentions").tag(NotifyMeAboutType.mentions)
+                         Text("Anything").tag(NotifyMeAboutType.anything)
+                     }
+                     Toggle("Play notification sounds", isOn: $playNotificationSounds)
+                     Toggle("Send read receipts", isOn: $sendReadReceipts)
+                 }
+                 Section(header: Text("User Profiles")) {
+                     Picker("Profile Image Size", selection: $profileImageSize) {
+                         Text("Large").tag(ProfileImageSize.large)
+                         Text("Medium").tag(ProfileImageSize.medium)
+                         Text("Small").tag(ProfileImageSize.small)
+                     }
+                     Button("Clear Image Cache") {}
+                 }
+             }
+         }
+     }
+     On macOS, a similar form renders as a vertical stack. To adhere to macOS platform conventions, this version doesn’t use sections, and uses colons at the end of its labels. It also sets the picker to use the inline style, which produces radio buttons on macOS.
+     var body: some View {
+         Spacer()
+         HStack {
+             Spacer()
+             Form {
+                 Picker("Notify Me About:", selection: $notifyMeAbout) {
+                     Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
+                     Text("Mentions").tag(NotifyMeAboutType.mentions)
+                     Text("Anything").tag(NotifyMeAboutType.anything)
+                 }
+                 Toggle("Play notification sounds", isOn: $playNotificationSounds)
+                 Toggle("Send read receipts", isOn: $sendReadReceipts)
+
+                 Picker("Profile Image Size:", selection: $profileImageSize) {
+                     Text("Large").tag(ProfileImageSize.large)
+                     Text("Medium").tag(ProfileImageSize.medium)
+                     Text("Small").tag(ProfileImageSize.small)
+                 }
+                 .pickerStyle(.inline)
+
+                 Button("Clear Image Cache") {}
+             }
+             Spacer()
+         }
+         Spacer()
+     }
+     */
     var body: some View {
         Form {
             nameSection
@@ -31,6 +94,9 @@ struct PaletteEditor: View {
     var addEmojisSection: some View {
         Section(header: Text("Add Emojis")) {
             TextField("", text: $emojisToAdd)
+            // 没有直接 Bind 到 palette.emojis 上, 不应该在这里, 把已有的表情都显示出来.
+            // 用户新输入什么, 在这显示什么, 然后将输入的显示, 添加到 palette 中.
+            // 这种, 临时绑定到一个成员变量, 然后更改之后做事情, 触发场景非常非常广. 
                 .onChange(of: emojisToAdd) { emojis in
                     addEmojis(emojis)
                 }

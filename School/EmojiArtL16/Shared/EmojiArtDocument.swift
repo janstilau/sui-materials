@@ -82,7 +82,8 @@ class EmojiArtDocument: ReferenceFileDocument
                 .map { (data, urlResponse) in UIImage(data: data) }
                 .replaceError(with: nil)
                 .receive(on: DispatchQueue.main)
-            // 这里, 使用了 Combine 来做图片的下载操作.
+            // 这里, 使用了 Combine 来做图片的下载操纵 .
+            // 最终, 还是使用了 Sink, 回到了响应式的代码.
             backgroundImageFetchCancellable = publisher
                 .sink { [weak self] image in
                     self?.backgroundImage = image
