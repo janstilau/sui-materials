@@ -38,7 +38,7 @@ extension View {
     func popoverPadding() -> some View {
         self
     }
-
+    
     // L15 convenience function to make an iPhone sheet or popover dismissable
     // L15 wraps it in a NavigationView to put the Close button at the top of the screen
     // L15 does nothing on iPad
@@ -63,7 +63,7 @@ extension View {
     @ViewBuilder
     func dismissable(_ dismiss: (() -> Void)?) -> some View {
         if UIDevice.current.userInterfaceIdiom != .pad,
-            let dismiss = dismiss {
+           let dismiss = dismiss {
             self.toolbar {
                 // L15 note .cancellationAction placement of the Close button
                 // L15 SwiftUI will put it in the appropriate spot in some toolbar somewhere
