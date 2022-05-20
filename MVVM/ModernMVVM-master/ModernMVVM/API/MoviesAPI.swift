@@ -14,20 +14,20 @@ enum MoviesAPI {
     
     private static let base = URL(string: "https://api.themoviedb.org/3")!
     private static let apiKey = "efb6cac7ab6a05e4522f6b4d1ad0fa43"
-    private static let agent = Agent()
+    private static let agent = APIClient()
     
     static func trending() -> AnyPublisher<PageDTO<MovieDTO>, Error> {
         let request = URLComponents(url: base.appendingPathComponent("trending/movie/week"), resolvingAgainstBaseURL: true)?
             .addingApiKey(apiKey)
             .request
-        return agent.run(request!)
+        return agent.load(request!)
     }
     
     static func movieDetail(id: Int) -> AnyPublisher<MovieDetailDTO, Error> {
         let request = URLComponents(url: base.appendingPathComponent("movie/\(id)"), resolvingAgainstBaseURL: true)?
             .addingApiKey(apiKey)
             .request
-        return agent.run(request!)
+        return agent.load(request!)
     }
 }
 

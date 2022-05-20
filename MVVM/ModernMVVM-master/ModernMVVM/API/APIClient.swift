@@ -9,8 +9,8 @@
 import Foundation
 import Combine
 
-struct Agent {
-    func run<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
+struct APIClient {
+    func load<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
         return URLSession.shared
             .dataTaskPublisher(for: request)
             .map { $0.data }

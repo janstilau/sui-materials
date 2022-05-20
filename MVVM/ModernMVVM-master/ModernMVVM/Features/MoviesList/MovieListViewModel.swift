@@ -9,7 +9,8 @@
 import Foundation
 import Combine
 
-final class MoviesListViewModel: ObservableObject {
+final class MoviesHomeViewModel: ObservableObject {
+    
     @Published private(set) var state = State.idle
     
     private var bag = Set<AnyCancellable>()
@@ -26,6 +27,7 @@ final class MoviesListViewModel: ObservableObject {
                 Self.userInput(input: input.eraseToAnyPublisher())
             ]
         )
+        // 真正的对于 Model 的修改, 是在这里.
         .assign(to: \.state, on: self)
         .store(in: &bag)
     }
@@ -41,7 +43,7 @@ final class MoviesListViewModel: ObservableObject {
 
 // MARK: - Inner Types
 
-extension MoviesListViewModel {
+extension MoviesHomeViewModel {
     enum State {
         case idle
         case loading
@@ -71,7 +73,8 @@ extension MoviesListViewModel {
 
 // MARK: - State Machine
 
-extension MoviesListViewModel {
+extension MoviesHomeViewModel {
+    // 状态机的变化, 都在这里.
     static func reduce(_ state: State, _ event: Event) -> State {
         switch state {
         case .idle:
