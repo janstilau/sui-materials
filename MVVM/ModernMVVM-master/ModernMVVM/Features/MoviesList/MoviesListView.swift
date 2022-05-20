@@ -17,6 +17,8 @@ struct MoviesListView: View {
             content
                 .navigationBarTitle("Trending Movies")
         }
+        // ViewAction, 触发 ViewModel 的 IntentAction.
+        // 然后 ViewModel 的 Signal 连接到 View 的 Update.
         .onAppear { self.viewModel.send(event: .onAppear) }
     }
     
