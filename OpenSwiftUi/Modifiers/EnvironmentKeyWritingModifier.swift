@@ -36,7 +36,6 @@ public struct Environment<Value>: DynamicProperty {
     }
     
     internal var content: Environment<Value>.Content
-    
     public init(_ keyPath: KeyPath<EnvironmentValues, Value>) {
         content = .keyPath(keyPath)
     }

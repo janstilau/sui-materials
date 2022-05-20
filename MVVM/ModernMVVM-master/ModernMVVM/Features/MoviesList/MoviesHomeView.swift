@@ -64,6 +64,7 @@ struct MoviesHomeView: View {
 
 struct MovieListItemView: View {
     let movie: MoviesHomeViewModel.ListItem
+    // 使用了 @Environment 这个技术, 进行了对应的 Service 的获取.
     @Environment(\.imageCache) var cache: ImageCache
 
     var body: some View {
@@ -73,6 +74,7 @@ struct MovieListItemView: View {
         }
     }
     
+    // 其实, 在 SwiftUI 里面, 各种 Compute Value 就是 setup Subview 的各种方法的调用了.
     private var title: some View {
         Text(movie.title)
             .font(.title)
@@ -80,6 +82,7 @@ struct MovieListItemView: View {
     }
     
     private var poster: some View {
+        let value =
         movie.poster.map { url in
             AsyncImage(
                 url: url,
@@ -90,6 +93,12 @@ struct MovieListItemView: View {
         }
         .aspectRatio(contentMode: .fit)
         .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
+        
+        // ModifiedContent<ModifiedContent<Optional<AsyncImage<Spinner>>, _AspectRatioLayout>, _FlexFrameLayout>
+        // <Optional<AsyncImage<Spinner>>, _AspectRatioLayout>
+        print(type(of: value))
+        
+        return value
     }
     
     private var spinner: some View {
