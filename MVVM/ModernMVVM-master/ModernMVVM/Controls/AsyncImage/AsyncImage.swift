@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct AsyncImage<Placeholder: View>: View {

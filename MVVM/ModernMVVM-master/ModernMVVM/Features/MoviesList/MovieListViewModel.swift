@@ -21,7 +21,6 @@ final class MoviesHomeViewModel: ObservableObject {
         Publishers.system(
             initial: state,
             reduce: Self.reduce,
-            scheduler: RunLoop.main,
             feedbacks: [
                 Self.whenLoading(),
                 Self.userInput(input: input.eraseToAnyPublisher())
@@ -74,15 +73,16 @@ extension MoviesHomeViewModel {
 // MARK: - State Machine
 
 extension MoviesHomeViewModel {
-    // 状态机的变化, 都在这里.
-    static func reduce(_ state: State, _ event: Event) -> State {
-        switch state {
+    
+    // 状态机的变化函数.
+    static func reduce(_ currentState: State, _ event: Event) -> State {
+        switch currentState {
         case .idle:
             switch event {
             case .onAppear:
                 return .loading
             default:
-                return state
+                return currentState
             }
         case .loading:
             switch event {
@@ -91,12 +91,12 @@ extension MoviesHomeViewModel {
             case .onMoviesLoaded(let movies):
                 return .loaded(movies)
             default:
-                return state
+                return currentState
             }
         case .loaded:
-            return state
+            return currentState
         case .error:
-            return state
+            return currentState
         }
     }
     
@@ -104,9 +104,14 @@ extension MoviesHomeViewModel {
         Feedback { (state: State) -> AnyPublisher<Event, Never> in
             guard case .loading = state else { return Empty().eraseToAnyPublisher() }
             
-            return MoviesAPI.trending()
+            return
+            // 网络请求
+                MoviesAPI.trending()
+            // 网络请求解包
                 .map { $0.results.map(ListItem.init) }
+            // 状态改变.
                 .map(Event.onMoviesLoaded)
+            // 错误处理. 将 event 修改为失败.
                 .catch { Just(Event.onFailedToLoadMovies($0)) }
                 .eraseToAnyPublisher()
         }

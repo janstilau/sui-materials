@@ -22,7 +22,6 @@ final class MovieDetailViewModel: ObservableObject {
         Publishers.system(
             initial: state,
             reduce: Self.reduce,
-            scheduler: RunLoop.main,
             feedbacks: [
                 Self.whenLoading(),
                 Self.userInput(input: input.eraseToAnyPublisher())

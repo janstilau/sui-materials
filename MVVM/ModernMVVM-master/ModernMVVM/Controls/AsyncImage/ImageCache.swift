@@ -78,7 +78,9 @@ struct TemporaryImageCache: ImageCache {
  
  */
 struct ImageCacheKey: EnvironmentKey {
-    static let defaultValue: ImageCache = TemporaryImageCache()
+    static let defaultValue: ImageCache = {
+        return TemporaryImageCache()
+    }()
 }
 
 extension EnvironmentValues {

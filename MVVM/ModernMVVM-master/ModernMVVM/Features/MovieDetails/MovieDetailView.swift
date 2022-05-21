@@ -32,6 +32,7 @@ struct MovieDetailView: View {
         }
     }
     
+    // 真正的电影列表
     private func movie(_ movie: MovieDetailViewModel.MovieDetail) -> some View {
         ScrollView {
             VStack {
@@ -39,6 +40,10 @@ struct MovieDetailView: View {
                 
                 Text(movie.title)
                     .font(.largeTitle)
+                /*
+                 Use multilineTextAlignment(_:) to select an alignment for all of the text in this view or view hierarchy.
+                 In the example below, the contents of the Text view are center aligned. This also applies to the interpolated newline placed in the middle of the text since “multiple lines” refers to all of the text inside the view, regardless of any internal formatting or inclusion of interpolated text.
+                 */
                     .multilineTextAlignment(.center)
                 
                 Divider()

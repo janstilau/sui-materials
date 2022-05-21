@@ -92,6 +92,7 @@ struct MovieListItemView: View {
             )
         }
         .aspectRatio(contentMode: .fit)
+        // 这里固定好了尺寸的值.
         .frame(idealHeight: UIScreen.main.bounds.width / 2 * 3) // 2:3 aspect ratio
         
         // ModifiedContent<ModifiedContent<Optional<AsyncImage<Spinner>>, _AspectRatioLayout>, _FlexFrameLayout>
