@@ -34,7 +34,7 @@ enum MoviesAPI {
 /*
  各种工具方法, 都定义到了对应的类型下.
  并且, 使用 private 来控制作用域.
- 功能和类型进行了挂钩, 位置更加的合理. 
+ 功能和类型进行了挂钩, 位置更加的合理.
  */
 private extension URLComponents {
     func addingApiKey(_ apiKey: String) -> URLComponents {

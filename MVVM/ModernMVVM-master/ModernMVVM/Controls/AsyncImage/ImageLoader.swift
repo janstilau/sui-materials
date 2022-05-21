@@ -31,6 +31,10 @@ class ImageLoader: ObservableObject {
         cancellable?.cancel()
     }
     
+    /*
+     在 ViewModel 内, 触发 IntentAction
+     在 IntentAction 内, 进行数据的改变, 然后触发信号的改变. 
+     */
     func load() {
         guard !isLoading else { return }
 

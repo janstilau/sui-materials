@@ -2,6 +2,13 @@ import SwiftUI
 
 struct AsyncImage<Placeholder: View>: View {
     
+    // 该 View 的 ViewModel 类.
+    /*
+     在出现的时候, 触发 ViewModel 的取值操作.
+     在结束的时候, 取消 ViewModel 的取值操作.
+     
+     ViewModel 的信号变化, 触发整个 View 的信号变化.
+     */
     @ObservedObject private var imgLoader: ImageLoader
     
     private let placeholder: Placeholder?
@@ -22,7 +29,6 @@ struct AsyncImage<Placeholder: View>: View {
             .onAppear(perform: imgLoader.load)
         // Adds an action to perform when this view disappears.
             .onDisappear(perform: imgLoader.cancel)
-            .environment(\.lineLimit, 2)
     }
     
     // 大量大量, 使用了计算属性的方式, 在 Body 里面进行创建.
