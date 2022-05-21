@@ -22,8 +22,8 @@ struct RepositoryDetailView_Previews : PreviewProvider {
     static var previews: some View {
         RepositoryDetailView(viewModel: .init(
             repository: Repository(id: 1, fullName: "foo", owner:
-                User(id: 1, login: "bar", avatarUrl: URL(string: "http://baz.com")!))
-            )
+                                    User(id: 1, login: "bar", avatarUrl: URL(string: "http://baz.com")!))
+        )
         )
     }
 }

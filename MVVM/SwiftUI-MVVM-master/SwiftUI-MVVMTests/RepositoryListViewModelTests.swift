@@ -12,8 +12,9 @@ import XCTest
 @testable import SwiftUI_MVVM
 
 /*
- ViewModel 的可测试性. 
+ ViewModel 的可测试性.
  */
+// Controller 层, 是提供了
 final class RepositoryListViewModelTests: XCTestCase {
     
     func test_updateRepositoriesWhenOnAppear() {
@@ -41,6 +42,7 @@ final class RepositoryListViewModelTests: XCTestCase {
     
     func test_serviceErrorWhenOnAppear() {
         let apiService = MockAPIService()
+        // Mock 网络错误的情况.
         apiService.stub(for: SearchRepositoryRequest.self) { _ in
             Result.Publisher(
                 APIServiceError.responseError
