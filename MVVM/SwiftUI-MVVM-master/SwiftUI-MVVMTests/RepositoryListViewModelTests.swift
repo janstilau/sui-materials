@@ -11,6 +11,9 @@ import Combine
 import XCTest
 @testable import SwiftUI_MVVM
 
+/*
+ ViewModel 的可测试性. 
+ */
 final class RepositoryListViewModelTests: XCTestCase {
     
     func test_updateRepositoriesWhenOnAppear() {
@@ -28,6 +31,9 @@ final class RepositoryListViewModelTests: XCTestCase {
                 )
             ).eraseToAnyPublisher()
         }
+        // 注入可测试的 Service 实现. 验证结果.
+        // 验证结果, 就是检测输出的信号值.
+        // 使用 Subject 来充当信号源. 既保持了属性的可读性, 也是信号发送的一种机制.
         let viewModel = makeViewModel(apiService: apiService)
         viewModel.apply(.onAppear)
         XCTAssertTrue(!viewModel.repositories.isEmpty)

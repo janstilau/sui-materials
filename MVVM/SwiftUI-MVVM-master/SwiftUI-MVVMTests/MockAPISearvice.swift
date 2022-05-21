@@ -10,10 +10,12 @@ import Foundation
 import Combine
 @testable import SwiftUI_MVVM
 
+// 提供了一个, 录入假数据的方式 .
 final class MockAPIService: APIServiceType {
     var stubs: [Any] = []
     
-    func stub<Request>(for type: Request.Type, response: @escaping ((Request) -> AnyPublisher<Request.Response, APIServiceError>)) where Request: APIRequestType {
+    func stub<Request>(for type: Request.Type,
+                       response: @escaping ((Request) -> AnyPublisher<Request.Response, APIServiceError>)) where Request: APIRequestType {
         stubs.append(response)
     }
     

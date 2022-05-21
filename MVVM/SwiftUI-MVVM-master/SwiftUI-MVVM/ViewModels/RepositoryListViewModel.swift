@@ -12,18 +12,22 @@ import Combine
 
 final class RepositoryListViewModel: ObservableObject, UnidirectionalDataFlowType {
     typealias InputType = Input
-
+    
     private var cancellables: [AnyCancellable] = []
     
     // MARK: Input
     enum Input {
         case onAppear
     }
+    
+    // 这种状态机的切换, 也不知道是个什么模式, 居然使用的人这么多.
     func apply(_ input: Input) {
         switch input {
         case .onAppear: onAppearSubject.send(())
         }
     }
+    
+    // 主动地, 在 Appear 里面, 调用相关的逻辑不更好. 为什么要把所有的逻辑, 都封装到一个地方 .
     private let onAppearSubject = PassthroughSubject<Void, Never>()
     
     // MARK: Output
@@ -39,6 +43,7 @@ final class RepositoryListViewModel: ObservableObject, UnidirectionalDataFlowTyp
     private let apiService: APIServiceType
     private let trackerService: TrackerType
     private let experimentService: ExperimentServiceType
+    
     init(apiService: APIServiceType = APIService(),
          trackerService: TrackerType = TrackerService(),
          experimentService: ExperimentServiceType = ExperimentService()) {
@@ -52,16 +57,17 @@ final class RepositoryListViewModel: ObservableObject, UnidirectionalDataFlowTyp
     
     private func bindInputs() {
         let request = SearchRepositoryRequest()
-        let responsePublisher = onAppearSubject
+        let networkPublisher = onAppearSubject
             .flatMap { [apiService] _ in
                 apiService.response(from: request)
                     .catch { [weak self] error -> Empty<SearchRepositoryResponse, Never> in
                         self?.errorSubject.send(error)
+                        // Empty
                         return .init()
-                }
-        }
+                    }
+            }
         
-        let responseStream = responsePublisher
+        let responseStream = networkPublisher
             .share()
             .subscribe(responseSubject)
         

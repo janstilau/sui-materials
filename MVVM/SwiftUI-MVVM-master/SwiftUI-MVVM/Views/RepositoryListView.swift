@@ -21,6 +21,7 @@ struct RepositoryListView : View {
             })
             .navigationBarTitle(Text("Repositories"))
         }
+        // 在 View Action 中, 触发 ViewModel 的 IntentAction
         .onAppear(perform: { self.viewModel.apply(.onAppear) })
     }
 }

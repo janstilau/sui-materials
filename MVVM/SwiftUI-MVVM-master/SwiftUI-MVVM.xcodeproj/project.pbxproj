@@ -115,12 +115,12 @@
 		EC6D6A9322A86FF900F21E11 /* SwiftUI-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				EC6D6A9422A86FF900F21E11 /* AppDelegate.swift */,
+				EC6D6A9622A86FF900F21E11 /* SceneDelegate.swift */,
 				EC6D6AB922A8714200F21E11 /* Services */,
 				EC6D6AB822A870C600F21E11 /* Models */,
 				EC6D6AB622A8708D00F21E11 /* Views */,
 				EC6D6AB722A8709600F21E11 /* ViewModels */,
-				EC6D6A9422A86FF900F21E11 /* AppDelegate.swift */,
-				EC6D6A9622A86FF900F21E11 /* SceneDelegate.swift */,
 				EC6D6A9A22A8700500F21E11 /* Assets.xcassets */,
 				EC6D6A9F22A8700500F21E11 /* LaunchScreen.storyboard */,
 				EC6D6AA222A8700500F21E11 /* Info.plist */,

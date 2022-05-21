@@ -9,6 +9,10 @@
 import Foundation
 import Combine
 
+/*
+ 这里和 HttpClient 的逻辑差不多.
+ Request 中, 绑定了 Response 的类型.
+ */
 protocol APIRequestType {
     associatedtype Response: Decodable
     
@@ -17,7 +21,8 @@ protocol APIRequestType {
 }
 
 protocol APIServiceType {
-    func response<Request>(from request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
+    func response<Request>(from request: Request) ->
+    AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType
 }
 
 final class APIService: APIServiceType {

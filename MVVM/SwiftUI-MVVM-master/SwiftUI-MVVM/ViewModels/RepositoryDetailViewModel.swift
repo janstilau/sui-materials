@@ -10,9 +10,10 @@ import Foundation
 import SwiftUI
 import Combine
 
+// Detail 中, 并没有多少逻辑. 
 final class RepositoryDetailViewModel: ObservableObject {
     let objectWillChange: AnyPublisher<RepositoryListViewModel, Never>
-    let objectWillChangeSubject = PassthroughSubject<RepositoryListViewModel, Never>()
+    private let objectWillChangeSubject = PassthroughSubject<RepositoryListViewModel, Never>()
     
     let repository: Repository
     

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*
+ 定义 Request 的时候, 绑定了 Response 的相关类型. 
+ */
 struct SearchRepositoryRequest: APIRequestType {
     typealias Response = SearchRepositoryResponse
     
@@ -18,4 +21,8 @@ struct SearchRepositoryRequest: APIRequestType {
             .init(name: "order", value: "desc")
         ]
     }
+}
+
+struct SearchRepositoryResponse: Decodable {
+    var items: [Repository]
 }

@@ -14,7 +14,13 @@ struct RepositoryListRow: View {
     @State var repository: Repository
 
     var body: some View {
-        NavigationLink(destination: RepositoryDetailView(viewModel: .init(repository: repository))) {
+        /*
+         NavigationLink
+         public init(@ViewBuilder destination: () -> Destination, @ViewBuilder label: () -> Label)
+         NavigationLink 中, 存储的是两个 Block. 所以, 并不是在 cell 显示的时候, 就把对应的 DetailView 就创建了出来.
+         */
+        NavigationLink(destination: RepositoryDetailView(
+            viewModel: .init(repository: repository))) {
             Text(repository.fullName)
         }
     }
@@ -23,6 +29,7 @@ struct RepositoryListRow: View {
 #if DEBUG
 struct RepositoryListRow_Previews : PreviewProvider {
     static var previews: some View {
+        // 在 Preview 里面, 使用假数据.
         RepositoryListRow(repository:
             Repository(
                 id: 1,

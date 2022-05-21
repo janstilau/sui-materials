@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MoviesHomeView: View {
     @ObservedObject var viewModel: MoviesHomeViewModel
-        
+    
     var body: some View {
         NavigationView {
             let value = content
@@ -66,7 +66,7 @@ struct MovieListItemView: View {
     let movie: MoviesHomeViewModel.ListItem
     // 使用了 @Environment 这个技术, 进行了对应的 Service 的获取.
     @Environment(\.imageCache) var cache: ImageCache
-
+    
     var body: some View {
         VStack {
             title
