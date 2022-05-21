@@ -11,8 +11,9 @@ import Combine
 
 struct MovieDetailView: View {
     @ObservedObject var viewModel: MovieDetailViewModel
+    // 通过, @Environment, 来进行通用的环境变量的获取.
     @Environment(\.imageCache) var cache: ImageCache
-
+    
     var body: some View {
         content
             .onAppear { self.viewModel.send(event: .onAppear) }
@@ -39,9 +40,9 @@ struct MovieDetailView: View {
                 Text(movie.title)
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
-                             
+                
                 Divider()
-
+                
                 HStack {
                     Text(movie.releasedAt)
                     Text(movie.language)
@@ -50,17 +51,17 @@ struct MovieDetailView: View {
                 .font(.subheadline)
                 
                 poster(of: movie)
-                                
+                
                 genres(of: movie)
                 
                 Divider()
-
+                
                 movie.rating.map {
                     Text("⭐️ \(String($0))/10").font(.body)
                 }
                 
                 Divider()
-
+                
                 movie.overview.map {
                     Text($0).font(.body)
                 }
@@ -82,7 +83,7 @@ struct MovieDetailView: View {
                 placeholder: self.spinner,
                 configuration: { $0.resizable() }
             )
-            .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
         }
     }
     

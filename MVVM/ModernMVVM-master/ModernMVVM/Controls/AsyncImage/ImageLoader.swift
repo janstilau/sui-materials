@@ -10,14 +10,16 @@ import Combine
 import UIKit
 
 class ImageLoader: ObservableObject {
+    // ImageLoader 内部, 进行真正的网络请求, 在结束之后, 通过信号传递给外界. 
     @Published var image: UIImage?
     
     private(set) var isLoading = false
     
     private let url: URL
-    private var cache: ImageCache?
+    private var cache: ImageCache? // 通过 环境值, 获取到的.
     private var cancellable: AnyCancellable?
     
+    // 将, 所有的图片处理, 放到了一个队列里面了.
     private static let imageProcessingQueue = DispatchQueue(label: "image-processing")
     
     init(url: URL, cache: ImageCache? = nil) {
@@ -40,6 +42,7 @@ class ImageLoader: ObservableObject {
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
+        // 可以在必要的时候, 进行副作用代码的插入, 使用 do
             .handleEvents(receiveSubscription: { [weak self] _ in self?.onStart() },
                           receiveOutput: { [weak self] in self?.cache($0) },
                           receiveCompletion: { [weak self] _ in self?.onFinish() },

@@ -12,17 +12,14 @@ import Combine
 struct APIClient {
     // 根据返回值的类型, 来确定解析的对象类型.
     func load<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error> {
-        let value = URLSession.shared
+        URLSession.shared
             .dataTaskPublisher(for: request)
             .map { $0.data }
         // handleEvents 就是做副作用的.
             .handleEvents(receiveOutput: {
                 print(NSString(data: $0, encoding: String.Encoding.utf8.rawValue)!) })
-            .eraseToAnyPublisher()
-        
-        let value2 = value.decode(type: T.self, decoder: JSONDecoder()).eraseToAnyPublisher()
-        
-        return value2.receive(on: DispatchQueue.main)
+            .decode(type: T.self, decoder: JSONDecoder()).eraseToAnyPublisher()
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }
