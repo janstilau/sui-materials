@@ -15,9 +15,12 @@ protocol LBFMMineHeaderViewDelegate:NSObjectProtocol {
 // 我的页面顶部headerview
 class LBFMMineHeaderView: UIView {
     weak var delegate : LBFMMineHeaderViewDelegate?
+    
     /// 上下浮动的vip标签view
     private lazy var animationView:LBFMVipAnimationView = {
         let view = LBFMVipAnimationView()
+        view.layer.borderColor = UIColor.green.cgColor
+        view.layer.borderWidth = 2
         return view
     }()
     
@@ -63,7 +66,6 @@ class LBFMMineHeaderView: UIView {
         return label
     }()
     
-    
     // shopView
     private lazy var shopView:UIView = {
         let view = UIView()
@@ -84,6 +86,9 @@ class LBFMMineHeaderView: UIView {
         setUpLayout()
         setUpShopView()
         self.backgroundColor = UIColor.white
+        
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.red.cgColor
     }
     
     func setUpLayout(){
@@ -210,3 +215,60 @@ class LBFMMineHeaderView: UIView {
         super.init(coder: aDecoder)
     }
 }
+
+/*
+ public struct AnimationOptions : OptionSet {
+
+     public init(rawValue: UInt)
+
+     
+     public static var layoutSubviews: UIView.AnimationOptions { get }
+
+     public static var allowUserInteraction: UIView.AnimationOptions { get } // turn on user interaction while animating
+
+     public static var beginFromCurrentState: UIView.AnimationOptions { get } // start all views from current value, not initial value
+
+     public static var `repeat`: UIView.AnimationOptions { get } // repeat animation indefinitely
+
+     public static var autoreverse: UIView.AnimationOptions { get } // if repeat, run animation back and forth
+
+     public static var overrideInheritedDuration: UIView.AnimationOptions { get } // ignore nested duration
+
+     public static var overrideInheritedCurve: UIView.AnimationOptions { get } // ignore nested curve
+
+     public static var allowAnimatedContent: UIView.AnimationOptions { get } // animate contents (applies to transitions only)
+
+     public static var showHideTransitionViews: UIView.AnimationOptions { get } // flip to/from hidden state instead of adding/removing
+
+     public static var overrideInheritedOptions: UIView.AnimationOptions { get } // do not inherit any options or animation type
+
+     
+     public static var curveEaseInOut: UIView.AnimationOptions { get } // default
+
+     public static var curveEaseIn: UIView.AnimationOptions { get }
+
+     public static var curveEaseOut: UIView.AnimationOptions { get }
+
+     public static var curveLinear: UIView.AnimationOptions { get }
+
+     
+     public static var transitionFlipFromLeft: UIView.AnimationOptions { get }
+
+     public static var transitionFlipFromRight: UIView.AnimationOptions { get }
+
+     public static var transitionCurlUp: UIView.AnimationOptions { get }
+
+     public static var transitionCurlDown: UIView.AnimationOptions { get }
+
+     public static var transitionCrossDissolve: UIView.AnimationOptions { get }
+
+     public static var transitionFlipFromTop: UIView.AnimationOptions { get }
+
+     public static var transitionFlipFromBottom: UIView.AnimationOptions { get }
+
+     
+     public static var preferredFramesPerSecond60: UIView.AnimationOptions { get }
+
+     public static var preferredFramesPerSecond30: UIView.AnimationOptions { get }
+ }
+ */

@@ -15,6 +15,7 @@ class LBFMNavigationController: UINavigationController {
 
         setupNavBarAppearence()
     }
+    
     func setupNavBarAppearence() {
         // 设置导航栏默认的背景颜色
         WRNavigationBar.defaultNavBarBarTintColor = UIColor.init(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)

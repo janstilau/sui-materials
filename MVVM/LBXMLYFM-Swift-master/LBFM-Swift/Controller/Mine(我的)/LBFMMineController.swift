@@ -7,12 +7,12 @@
 //
 
 import UIKit
+
 let kNavBarBottom = WRNavigationBar.navBarBottom()
+private let LBFMMineMakeCellID = "LBFMMineMakeCell"
+private let LBFMMineShopCellID = "LBFMMineShopCell"
 
 class LBFMMineController: UIViewController {
-    private let LBFMMineMakeCellID = "LBFMMineMakeCell"
-    private let LBFMMineShopCellID = "LBFMMineShopCell"
-    
     private lazy var dataSource: Array = {
         return [[["icon":"钱数", "title": "分享赚钱"],
                  ["icon":"沙漏", "title": "免流量服务"]],
@@ -21,13 +21,13 @@ class LBFMMineController: UIViewController {
                 [["icon":"意见反馈", "title": "帮助与反馈"]]]
     }()
     
-    
     // 懒加载顶部头视图
     private lazy var headerView:LBFMMineHeaderView = {
         let view = LBFMMineHeaderView.init(frame: CGRect(x:0, y:0, width:LBFMScreenWidth, height: 300))
         view.delegate = self
         return view
     }()
+    
     // 懒加载TableView
     private lazy var tableView : UITableView = {
         let tableView = UITableView.init(frame:CGRect(x:0, y:0, width:LBFMScreenWidth, height:LBFMScreenHeight), style: UITableView.Style.plain)
@@ -48,7 +48,6 @@ class LBFMMineController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        super.wr_viewWillAppear(animated)
         self.headerView.setAnimationViewAnimation()
     }
     

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+
+// 一个简单的 View 的布局而已.
+
 /// 上下浮动vip领取view
 class LBFMVipAnimationView: UIView {
     // 图片

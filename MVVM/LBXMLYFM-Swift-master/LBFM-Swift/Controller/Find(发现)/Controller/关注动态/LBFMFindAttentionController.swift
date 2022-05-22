@@ -14,6 +14,7 @@ class LBFMFindAttentionController: UIViewController , LTTableViewProtocal{
     private let LBFMFindAttentionCellID = "LBFMFindAttentionCell"
     
     private lazy var tableView: UITableView = {
+        // tableViewConfig 垃圾代码.
         let tableView = tableViewConfig(CGRect(x: 0, y: 0, width:LBFMScreenWidth, height: LBFMScreenHeight - LBFMNavBarHeight - LBFMTabBarHeight), self, self, nil)
         tableView.register(LBFMFindAttentionCell.self, forCellReuseIdentifier: LBFMFindAttentionCellID)
         return tableView

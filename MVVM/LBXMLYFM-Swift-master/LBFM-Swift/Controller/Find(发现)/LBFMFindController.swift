@@ -14,6 +14,8 @@ class LBFMFindController: UIViewController {
     private lazy var headerView:LBFMFindHeaderView = {
         let view = LBFMFindHeaderView.init(frame: CGRect(x:0, y:0, width:LBFMScreenWidth, height:190))
         view.backgroundColor = UIColor.white
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.green.cgColor
         return view
     }()
     
@@ -86,7 +88,6 @@ class LBFMFindController: UIViewController {
         // 导航栏左右item
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftBarButton)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: rightBarButton)
-        
     }
     
     deinit {

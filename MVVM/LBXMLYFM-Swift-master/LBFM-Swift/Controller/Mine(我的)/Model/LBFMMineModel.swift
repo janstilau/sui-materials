@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Mine 这个模块, 没有使用 ViewModel 这种方式. 
 class LBFMMineModel: NSObject {
 
 }

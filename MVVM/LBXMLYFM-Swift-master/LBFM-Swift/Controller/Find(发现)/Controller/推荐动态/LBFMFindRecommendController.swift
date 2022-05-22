@@ -43,8 +43,6 @@ class LBFMFindRecommendController: UIViewController ,LTTableViewProtocal{
         }
         viewModel.refreshDataSource()
     }
-    
-    
 }
 
 extension LBFMFindRecommendController : UITableViewDelegate, UITableViewDataSource {

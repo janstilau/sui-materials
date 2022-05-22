@@ -69,14 +69,22 @@ class LBFMFindAttentionCell: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(LBFMFindAttentionPicCell.self, forCellWithReuseIdentifier:"LBFMFindAttentionPicCell")
+        collectionView.layer.borderWidth = 2
+        collectionView.layer.borderColor = UIColor.yellow.cgColor
         return collectionView
     }()
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         setUpLayout()
+        
+        self.layer.borderColor = UIColor.purple.cgColor
+        self.layer.borderWidth = 2
     }
+    
+    /*
+     各个 View 的创建过程, 在自己的懒加载之中.
+     */
     
     func setUpLayout(){
         // 头像
@@ -163,6 +171,8 @@ class LBFMFindAttentionCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // 垃圾代码, 所有的 Update View 的逻辑, 积压到了一起. 
     var eventInfosModel:LBFMEventInfosModel? {
         didSet {
             guard let model = eventInfosModel else {return}
