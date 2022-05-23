@@ -1,10 +1,3 @@
-//
-//  EmojiMemoryGameView.swift
-//  Memorize
-//
-//  Created by Sergey Maslennikov on 23.11.2020.
-//
-
 import SwiftUI
 
 /*
@@ -16,14 +9,18 @@ import SwiftUI
  /// of whether they are on- or offscreen. Use the regular `VStack` when you have
  /// a small number of child views or don't want the delayed rendering behavior
  /// of the "lazy" version.
+ 
  ///
  /// The following example shows a simple vertical stack of 10 text views:
  ///
  ///     var body: some View {
+ 
+ // 这种, 使用构造函数的方式, 实在是太普遍了.
  ///         VStack(
  ///             alignment: .leading,
  ///             spacing: 10
  ///         ) {
+ // 这样的编写方式真的好吗. 感觉好丑.
  ///             ForEach(
  ///                 1...10,
  ///                 id: \.self
@@ -33,10 +30,6 @@ import SwiftUI
  ///         }
  ///     }
  ///
- /// ![Ten text views, named Item 1 through Item 10, arranged in a
- /// vertical line.](SwiftUI-VStack-simple.png)
- ///
- @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
  @frozen public struct VStack<Content> : View where Content : View {
  
  /// Creates an instance with the given spacing and horizontal alignment.
@@ -59,7 +52,6 @@ import SwiftUI
  */
 
 struct EmojiMemoryGameView: View {
-    // Size is 16
     // 任何, ViewModel 的修改, 都会导致信号的发送, View 中可以检测这个信号, 然后进行重绘.
     @ObservedObject var viewModel: EmojiMemoryGame
     
@@ -85,24 +77,15 @@ struct EmojiMemoryGameView: View {
             
             Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
-//                    withAnimation(.linear(duration: 0.5)) {
-//                        self.viewModel.choose(card: card)
-//                    }
                     withAnimation {
                         self.viewModel.choose(card: card)
                     }
-                }.size()
-                    .padding(5).size()
+                }
+                .padding(5)
             }
             .padding()
             .foregroundColor(Color.orange)
         }
-    }
-}
-
-struct MyView: View {
-    var body: some View {
-        Text("12").size()
     }
 }
 
@@ -175,7 +158,7 @@ struct CardView: View {
                 // animation ViewModifier, 就是 Animation 相关属性的收集工作.
                     .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
                 // 在 Animation 后面, 添加 font 会出现问题.
-//                    .font(Font.system(size: fontSize(for: size)))
+                //                    .font(Font.system(size: fontSize(for: size)))
             }
             .cardify(isFaceUp: card.isFaceUp)
             // transition
@@ -190,19 +173,3 @@ struct CardView: View {
         min(size.width, size.height) * 0.7
     }
 }
-
-
-
-
-
-
-
-
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let game = EmojiMemoryGame()
-//        game.choose(card: game.cards[0])
-//        return EmojiMemoryGameView(viewModel: game)
-//    }
-//}
