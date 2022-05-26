@@ -116,6 +116,7 @@ struct CalculatorButton : View {
 
 // 非常简单的一些声明式的语句, 就能够显示整个 View 了
 struct HistoryView: View {
+    // @ObservedObject 的标识, 标识存储位置不在这里.
     @ObservedObject var model: CalculatorModel
     var body: some View {
         VStack {
