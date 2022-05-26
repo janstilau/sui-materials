@@ -10,6 +10,8 @@ import SwiftUI
 
 /*
  纯展示的 ViewModel, 里面没有 ModelAction 的逻辑.
+ 但是这还是一个 ViewModel. 一定要记住, ViewModel 是控制层的东西.
+ 在这里, 这个 ViewModel 所做的就是, 将那些 View 相关的展示, 从 Model 中提出出来, 使用属性直接暴露给 View 层.
  */
 struct PokemonViewModel: Identifiable, Codable {
     
@@ -23,6 +25,9 @@ struct PokemonViewModel: Identifiable, Codable {
     
     var id: Int { pokemon.id }
     
+    // 以下, 各种属性, 都只是为了将两个数据层 Model 中的信息提取出来, 直接给 View 层使用.
+    // 可以看到, 其实包含了比较复杂的逻辑, 比如 species 中生成 Type, 然后根据 Type 进行的颜色的展示.
+    // 这些如果写到 View 层, 会让 View 层的代码, 有大问题. 
     var color: Color { species.color.name.color }
     var height: String { "\(Double(pokemon.height) / 10)m" }
     var weight: String { "\(Double(pokemon.weight) / 10)kg" }

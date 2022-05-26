@@ -8,20 +8,23 @@
 
 import Foundation
 
+/*
+ 一个纯工具类, 里面所有的方法, 都是静态方法.
+ 这种方式, 是通用的, 在很多的地方, 都见过这种工具方法集合而构建出来的一个类.
+ */
 enum FileHelper {
-
     static func loadBundledJSON<T: Decodable>(file: String) -> T {
         guard let url = Bundle.main.url(forResource: file, withExtension: "json") else {
             fatalError("Resource not found: \(file)")
         }
         return try! loadJSON(from: url)
     }
-
+    // 通过, 返回值的类型, 来确定最终的元素的类型.
     static func loadJSON<T: Decodable>(from url: URL) throws -> T {
         let data = try Data(contentsOf: url)
         return try appDecoder.decode(T.self, from: data)
     }
-
+    
     static func loadJSON<T: Decodable>(
         from directory: FileManager.SearchPathDirectory,
         fileName: String
@@ -30,12 +33,12 @@ enum FileHelper {
         let url = FileManager.default.urls(for: directory, in: .userDomainMask).first!
         return try loadJSON(from: url.appendingPathComponent(fileName))
     }
-
+    
     static func writeJSON<T: Encodable>(_ value: T, to url: URL) throws {
         let data = try appEncoder.encode(value)
         try data.write(to: url)
     }
-
+    
     static func writeJSON<T: Encodable>(
         _ value: T,
         to directory: FileManager.SearchPathDirectory,
@@ -47,7 +50,7 @@ enum FileHelper {
         }
         try writeJSON(value, to: url.appendingPathComponent(fileName))
     }
-
+    
     static func delete(
         from directory: FileManager.SearchPathDirectory,
         fileName: String) throws
