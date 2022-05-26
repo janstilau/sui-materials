@@ -33,7 +33,7 @@ struct PokemonList: View {
             // 这里使用的是 overlay. 怪不得没有办法消失.
             VStack {
                 Spacer()
-//                PokemonInfoPanel(model: .sample(id: 1))
+                PokemonInfoPanel(model: .sample(id: 1))
             }.edgesIgnoringSafeArea(.bottom)
         )
     }

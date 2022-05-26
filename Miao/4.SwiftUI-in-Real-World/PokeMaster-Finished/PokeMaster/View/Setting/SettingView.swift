@@ -7,17 +7,10 @@
 //
 
 import SwiftUI
+import UIKit
 
+// 一个纯 Model 类, 所有要存储的数据, 都使用 @Published 进行了标识.
 class Settings: ObservableObject {
-
-    enum AccountBehavior: CaseIterable {
-        case register, login
-    }
-
-    enum Sorting: CaseIterable {
-        case id, name, color, favorite
-    }
-
     @Published var accountBehavior = AccountBehavior.login
     @Published var email = ""
     @Published var password = ""
@@ -40,12 +33,17 @@ struct SettingView: View {
 
     var accountSection: some View {
         Section(header: Text("账户")) {
+            // 无法自定义感觉.
+            // 感觉, 一切都要使用 UIKit 进行包装要.
+            // 然后, 把 Model 传入进去.
+            // 这样没什么价值啊, 为了动态刷新.
             Picker(selection: $settings.accountBehavior, label: Text("")) {
                 ForEach(Settings.AccountBehavior.allCases, id: \.self) {
                     Text($0.text)
                 }
             }
             .pickerStyle(SegmentedPickerStyle())
+            
             TextField("电子邮箱", text: $settings.email)
             SecureField("密码", text: $settings.password)
             if settings.accountBehavior == .register {
@@ -84,28 +82,30 @@ struct SettingView: View {
     }
 }
 
-extension Settings.Sorting {
-    var text: String {
-        switch self {
-        case .id: return "ID"
-        case .name: return "名字"
-        case .color: return "颜色"
-        case .favorite: return "最爱"
+extension Settings {
+    enum Sorting: CaseIterable {
+        case id, name, color, favorite
+        
+        var text: String {
+            switch self {
+            case .id: return "ID"
+            case .name: return "名字"
+            case .color: return "颜色"
+            case .favorite: return "最爱"
+            }
         }
     }
 }
 
-extension Settings.AccountBehavior {
-    var text: String {
-        switch self {
-        case .register: return "注册"
-        case .login: return "登录"
+extension Settings {
+    enum AccountBehavior: CaseIterable {
+        case register, login
+        
+        var text: String {
+            switch self {
+            case .register: return "注册"
+            case .login: return "登录"
+            }
         }
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingView()
     }
 }
