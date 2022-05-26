@@ -106,6 +106,7 @@ struct CalculatorButton : View {
     let action: () -> Void
     
     var body: some View {
+        // 符合同样方法签名的闭包, 直接进行传入就好了.
         Button(action: action) {
             Text(title)
                 .font(.system(size: fontSize * scale))
@@ -141,6 +142,7 @@ struct CalculatorButtonRow : View {
 
 struct CalculatorButtonPad: View {
     // 使用 Model, 来控制 UI, 这是一个决定不会错的思路.
+    // 直接, 把数据放到了 CalculatorButtonPad 的内部了.
     let pad: [[CalculatorButtonItem]] = [
         [.command(.clear), .command(.flip),
          .command(.percent), .op(.divide)],
