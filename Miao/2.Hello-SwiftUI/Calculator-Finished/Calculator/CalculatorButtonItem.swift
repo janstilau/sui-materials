@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 
+// Model 部分. 
+
 // 使用, Enum 当做数据盒子. 
 enum CalculatorButtonItem {
     case digit(Int)
@@ -48,6 +50,7 @@ extension CalculatorButtonItem {
     // 所有 UI 相关的东西, 如果需要自我控制, 那么将这些逻辑封装到逻辑层.
     // 从这个意义上来看, View 中存储的, 其实会有很多的 ViewState 的值.
     var size: CGSize {
+        // 特殊处理了一下. 
         if case .digit(let value) = self, value == 0 {
             return CGSize(width: 88 * 2 + 8, height: 88)
         }
