@@ -12,17 +12,17 @@ import SwiftUI
  纯展示的 ViewModel, 里面没有 ModelAction 的逻辑.
  */
 struct PokemonViewModel: Identifiable, Codable {
-
-    var id: Int { pokemon.id }
-
+    
     let pokemon: Pokemon
     let species: PokemonSpecies
-
+    
     init(pokemon: Pokemon, species: PokemonSpecies) {
         self.pokemon = pokemon
         self.species = species
     }
-
+    
+    var id: Int { pokemon.id }
+    
     var color: Color { species.color.name.color }
     var height: String { "\(Double(pokemon.height) / 10)m" }
     var weight: String { "\(Double(pokemon.weight) / 10)kg" }
@@ -30,21 +30,22 @@ struct PokemonViewModel: Identifiable, Codable {
     var nameEN: String { species.names.EN }
     var genus: String { species.genera.CN }
     var genusEN: String { species.genera.EN }
-
+    
+    // 特殊的类型, 对内部的 Model 的数据, 进行了转化.
     var types: [Type] {
         self.pokemon.types
             .sorted { $0.slot < $1.slot }
             .map { Type(pokemonType: $0) }
     }
-
+    
     var iconImageURL: URL {
         URL(string: "https://raw.githubusercontent.com/onevcat/pokemaster-images/master/images/Pokemon-\(id).png")!
     }
-
+    
     var detailPageURL: URL {
         URL(string: "https://cn.portal-pokemon.com/play/pokedex/\(String(format: "%03d", id))")!
     }
-
+    
     var descriptionText: String { species.flavorTextEntries.CN.newlineRemoved }
     var descriptionTextEN: String { species.flavorTextEntries.EN.newlineRemoved }
 }
@@ -57,17 +58,17 @@ extension PokemonViewModel: CustomStringConvertible {
 
 extension PokemonViewModel {
     struct `Type`: Identifiable {
-
+        
         var id: String { return name }
-
+        
         let name: String
         let color: Color
-
+        
         init(name: String, color: Color) {
             self.name = name
             self.color = color
         }
-
+        
         init(pokemonType: Pokemon.`Type`) {
             if let v = TypeInternal(rawValue: pokemonType.type.name)?.value {
                 self = v
@@ -76,7 +77,7 @@ extension PokemonViewModel {
                 self.color = .gray
             }
         }
-
+        
         enum TypeInternal: String {
             case normal
             case fighting
@@ -98,7 +99,7 @@ extension PokemonViewModel {
             case fairy
             case unknown
             case shadow
-
+            
             var value: Type {
                 switch self {
                 case .normal:

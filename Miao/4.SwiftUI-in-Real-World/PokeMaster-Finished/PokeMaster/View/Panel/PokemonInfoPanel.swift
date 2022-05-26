@@ -52,8 +52,8 @@ struct PokemonInfoPanel: View {
     }
 }
 
-struct PokemonInfoPanel_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonInfoPanel(model: .sample(id: 1))
-    }
-}
+//struct PokemonInfoPanel_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PokemonInfoPanel(model: .sample(id: 1))
+//    }
+//}
