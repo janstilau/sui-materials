@@ -29,7 +29,7 @@ struct ContentView : View {
             }
             
             // 直接是使用了 ViewModel 的属性的计算方法来获取 UI 展示.
-            Text(model.brain.output)
+            Text(model.brainLogic.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, 24 * scale)
@@ -121,7 +121,7 @@ struct HistoryView: View {
                 }
                 HStack {
                     Text("显示").font(.headline)
-                    Text("\(model.brain.output)")
+                    Text("\(model.brainLogic.output)")
                 }
                 Slider(value: $model.slidingIndex,
                        in: 0...Float(model.totalCount),
@@ -132,12 +132,12 @@ struct HistoryView: View {
 }
 
 
-struct ContentView_Previews : PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-            ContentView().previewDevice("iPhone SE")
-            ContentView().previewDevice("iPad Air 2")
-        }
-    }
-}
+//struct ContentView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ContentView()
+//            ContentView().previewDevice("iPhone SE")
+//            ContentView().previewDevice("iPad Air 2")
+//        }
+//    }
+//}

@@ -14,7 +14,7 @@ import Combine
  */
 class CalculatorModel: ObservableObject {
     
-    @Published var brain: CalculatorBrain = .left("0")
+    @Published var brainLogic: CalculatorBrain = .left("0")
     @Published var history: [CalculatorButtonItem] = []
     
     var temporaryKept: [CalculatorButtonItem] = []
@@ -23,7 +23,7 @@ class CalculatorModel: ObservableObject {
         // Brain 记录了当前的输入状态.
         // 并且, 封装了根据记录状态和输入, 计算出新的状态的能力.
         // Brain, 是一个 Enum 对象, 一个值语义的对象. 所以每次都是全量的更新. 而这种更新方式, 使得 @Published 生效.
-        brain = brain.apply(item: item)
+        brainLogic = brainLogic.apply(item: item)
         history.append(item)
         
         // 有了新的操作, 历史记录中后续还没有表现出来的操作, 也就废弃了.
@@ -46,7 +46,7 @@ class CalculatorModel: ObservableObject {
         history = Array(total[..<index])
         temporaryKept = Array(total[index...])
         
-        brain = history.reduce(CalculatorBrain.left("0")) {
+        brainLogic = history.reduce(CalculatorBrain.left("0")) {
             result, item in
             // brain 的状态, 是从头到尾进行了一次计算模拟得到的.
             // 所以, 这里感觉会有一些性能损失.
