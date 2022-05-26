@@ -14,7 +14,7 @@ let scale = UIScreen.main.bounds.width / 414
 
 struct ContentView : View {
     
-    @EnvironmentObject var model: CalculatorModel
+    @EnvironmentObject var calculateViewModel: CalculatorModel
     
     @State private var editingHistory = false
     
@@ -22,14 +22,17 @@ struct ContentView : View {
         VStack(spacing: 12) {
             Spacer()
             
-            Button("操作履历: \(model.history.count)") {
+            // 在 View 中, 其实是已经预埋了按钮点击之后的流程了.
+            // 更改 Model, 来触发这个流程.
+            // 一切, 都建立在对于 Model 的修改之上.
+            Button("操作履历: \(calculateViewModel.history.count)") {
                 self.editingHistory = true
             }.sheet(isPresented: self.$editingHistory) {
-                HistoryView(model: self.model)
+                HistoryView(model: self.calculateViewModel)
             }
             
             // 直接是使用了 ViewModel 的属性的计算方法来获取 UI 展示.
-            Text(model.brainLogic.output)
+            Text(calculateViewModel.brainLogic.output)
                 .font(.system(size: 76))
                 .minimumScaleFactor(0.5)
                 .padding(.horizontal, 24 * scale)
@@ -41,28 +44,6 @@ struct ContentView : View {
             // 使用, @EnvironmentObject 这种方式, 不用传输值了.
             CalculatorButtonPad()
                 .padding(.bottom)
-        }
-    }
-}
-
-struct CalculatorButton : View {
-    // 各种, 相关的数据, 需要在构造方法中传递过来.
-    // 并且, 因为 SwiftUI 里面的都是 Struct 类型的, 所以, 自动的进行了 memberWise 构造方法的声明.
-    let fontSize: CGFloat = 38
-    let title: String
-    let size: CGSize
-    let backgroundColorName: String
-    let foregroundColor: Color
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .font(.system(size: fontSize * scale))
-                .foregroundColor(foregroundColor)
-                .frame(width: size.width * scale, height: size.height * scale)
-                .background(Color(backgroundColorName))
-                .cornerRadius(size.width * scale / 2)
         }
     }
 }
@@ -103,6 +84,28 @@ struct CalculatorButtonRow : View {
                     self.model.apply(item)
                 }
             }
+        }
+    }
+}
+
+struct CalculatorButton : View {
+    // 各种, 相关的数据, 需要在构造方法中传递过来.
+    // 并且, 因为 SwiftUI 里面的都是 Struct 类型的, 所以, 自动的进行了 memberWise 构造方法的声明.
+    let fontSize: CGFloat = 38
+    let title: String
+    let size: CGSize
+    let backgroundColorName: String
+    let foregroundColor: Color
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: fontSize * scale))
+                .foregroundColor(foregroundColor)
+                .frame(width: size.width * scale, height: size.height * scale)
+                .background(Color(backgroundColorName))
+                .cornerRadius(size.width * scale / 2)
         }
     }
 }

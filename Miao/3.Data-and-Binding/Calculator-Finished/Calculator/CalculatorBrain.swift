@@ -187,18 +187,12 @@ var formatter: NumberFormatter = {
     return f
 }()
 
+
+
 // 各种相关的值的计算, 是放到了相关的数据类型里面了.
 // 并没有把逻辑, 统一的放到了 CalculatorBrain 里面. 这样, 逻辑的存储位置更加的合理.
 // 如果, extensnion 前面有着范围限定符, 那么是更加清晰的代码布局方式.
 extension String {
-    var containsDot: Bool {
-        return contains(".")
-    }
-    
-    var startWithNegative: Bool {
-        return starts(with: "-")
-    }
-    
     // 数字和数字的拼接工作.
     // 在小函数里面, 将各种特殊 Case 进行处理, 在高层逻辑里面, 使用起来就会很方便.
     func apply(num: Int) -> String {
@@ -212,6 +206,10 @@ extension String {
         return containsDot ? self : "\(self)."
     }
     
+    var containsDot: Bool {
+        return contains(".")
+    }
+    
     func flipped() -> String {
         if startWithNegative {
             var s = self
@@ -220,6 +218,10 @@ extension String {
         } else {
             return "-\(self)"
         }
+    }
+    
+    var startWithNegative: Bool {
+        return starts(with: "-")
     }
     
     func percentaged() -> String {

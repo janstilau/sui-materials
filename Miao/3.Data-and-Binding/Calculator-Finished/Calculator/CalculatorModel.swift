@@ -37,6 +37,8 @@ class CalculatorModel: ObservableObject {
         history.map { $0.description }.joined()
     }
     
+    // Model Action, 会触发信号的改变.
+    // @Published 的存在, 使得信号的改变, 变得异常简单. 在爷
     func keepHistory(upTo index: Int) {
         precondition(index <= totalCount, "Out of index.")
         
@@ -46,6 +48,7 @@ class CalculatorModel: ObservableObject {
         history = Array(total[..<index])
         temporaryKept = Array(total[index...])
         
+        // 每次都是从头到脚的一次遍历.
         brainLogic = history.reduce(CalculatorBrain.left("0")) {
             result, item in
             // brain 的状态, 是从头到尾进行了一次计算模拟得到的.
@@ -59,6 +62,8 @@ class CalculatorModel: ObservableObject {
         history.count + temporaryKept.count
     }
     
+    // Index 的改变, 有着对于 model 的改变.
+    // 对于 Model 的改变,
     var slidingIndex: Float = 0 {
         didSet {
             keepHistory(upTo: Int(slidingIndex))
