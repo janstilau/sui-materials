@@ -1,16 +1,43 @@
-//
-//  CalculatorHistory.swift
-//  Calculator
-//
-//  Created by 王 巍 on 2019/07/20.
-//  Copyright © 2019 OneV's Den. All rights reserved.
-//
-
 import SwiftUI
 import Combine
 
 /*
- ObservableObject 中, 如果有 @Published
+ ObservableObject 中, 如果有 @Published, 那么 Published 属性的改变, 会自动的触发 objectWillChange 信号的发射.
+ 
+ Summary
+ 
+ // 在改变之前, 发射信号.
+ // View 那里, 应该仅仅是设置脏状态, 在 Runloop 中统一进行刷新.
+ A type of object with a publisher that emits before the object has changed.
+ Declaration
+ 
+ protocol ObservableObject : AnyObject
+ Discussion
+ 
+ By default an ObservableObject synthesizes an objectWillChange publisher that emits the changed value before any of its @Published properties changes.
+ class Contact: ObservableObject {
+ @Published var name: String
+ @Published var age: Int
+ 
+ init(name: String, age: Int) {
+ self.name = name
+ self.age = age
+ }
+ 
+ func haveBirthday() -> Int {
+ age += 1
+ return age
+ }
+ }
+ 
+ let john = Contact(name: "John Appleseed", age: 24)
+ cancellable = john.objectWillChange
+ .sink { _ in
+ print("\(john.age) will change")
+ }
+ print(john.haveBirthday())
+ // Prints "24 will change"
+ // Prints "25"
  */
 class CalculatorModel: ObservableObject {
     
