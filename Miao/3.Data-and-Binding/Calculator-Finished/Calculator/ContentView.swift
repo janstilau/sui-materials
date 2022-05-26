@@ -25,6 +25,7 @@ struct ContentView : View {
             // 在 View 中, 其实是已经预埋了按钮点击之后的流程了.
             // 更改 Model, 来触发这个流程.
             // 一切, 都建立在对于 Model 的修改之上.
+            // 这种, 使用 project 的值应该是一个非常非常通用的设置了.
             Button("操作履历: \(calculateViewModel.history.count)") {
                 self.editingHistory = true
             }.sheet(isPresented: self.$editingHistory) {
@@ -41,6 +42,7 @@ struct ContentView : View {
                     minWidth: 0,
                     maxWidth: .infinity,
                     alignment: .trailing)
+            
             // 使用, @EnvironmentObject 这种方式, 不用传输值了.
             CalculatorButtonPad()
                 .padding(.bottom)
@@ -88,6 +90,8 @@ struct CalculatorButtonRow : View {
     }
 }
 
+// 对于这种小 View, 是把所有的属性暴露出来.
+// 因为, 这些属性的配置过程, 是在组件的内部, 不会直接暴露给用户.
 struct CalculatorButton : View {
     // 各种, 相关的数据, 需要在构造方法中传递过来.
     // 并且, 因为 SwiftUI 里面的都是 Struct 类型的, 所以, 自动的进行了 memberWise 构造方法的声明.
@@ -126,6 +130,8 @@ struct HistoryView: View {
                     Text("显示").font(.headline)
                     Text("\(model.brainLogic.output)")
                 }
+                // Slider 的修改, 会引起 ViewModel 的修改.
+                // 而 ViewModel 的修改, 会导致
                 Slider(value: $model.slidingIndex,
                        in: 0...Float(model.totalCount),
                        step: 1)
