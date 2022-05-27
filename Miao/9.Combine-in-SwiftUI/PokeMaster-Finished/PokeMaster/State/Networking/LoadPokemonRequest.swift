@@ -19,6 +19,7 @@ struct LoadPokemonRequest {
     let id: Int
 
     var publisher: AnyPublisher<PokemonViewModel, AppError> {
+        // 一个串行的 Loading 方式. 这样好吗. 
         pokemonPublisher(id)
             .flatMap { self.speciesPublisher($0) }
             .map { PokemonViewModel(pokemon: $0, species: $1) }

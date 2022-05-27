@@ -12,6 +12,7 @@ enum AppError: Error, Identifiable {
     var id: String { localizedDescription }
 
     case passwordWrong
+    // 一个通用的 case.
     case networkingFailed(Error)
 }
 

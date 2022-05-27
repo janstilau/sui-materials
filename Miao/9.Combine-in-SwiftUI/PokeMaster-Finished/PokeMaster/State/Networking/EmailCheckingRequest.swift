@@ -9,6 +9,9 @@
 import Foundation
 import Combine
 
+/*
+ 这里, 如果是真正的业务处理, 应该是判断 email 有没有注册过的相关逻辑. 
+ */
 struct EmailCheckingRequest {
     let email: String
 

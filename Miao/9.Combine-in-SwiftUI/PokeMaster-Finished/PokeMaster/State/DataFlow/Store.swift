@@ -10,42 +10,37 @@ import Combine
 
 class Store: ObservableObject {
     @Published var appState = AppState()
-
+    
     private var disposeBag = Set<AnyCancellable>()
-
+    
     init() {
         setupObservers()
     }
-
+    
     func setupObservers() {
         appState.settings.checker.isEmailValid.sink {
             isValid in
             self.dispatch(.emailValid(valid: isValid))
         }.store(in: &disposeBag)
     }
-
+    
     func dispatch(_ action: AppAction) {
-        #if DEBUG
-        print("[ACTION]: \(action)")
-        #endif
         let result = Store.reduce(state: appState, action: action)
         appState = result.0
         if let command = result.1 {
-            #if DEBUG
-            print("[COMMAND]: \(command)")
-            #endif
             command.execute(in: self)
         }
     }
-
+    
     static func reduce(state: AppState, action: AppAction) -> (AppState, AppCommand?) {
         var appState = state
         var appCommand: AppCommand?
-
+        
         switch action {
         case .login(let email, let password):
             guard !appState.settings.loginRequesting else { break }
             appState.settings.loginRequesting = true
+            // 带有异步操作.
             appCommand = LoginAppCommand(email: email, password: password)
         case .accountBehaviorDone(let result):
             appState.settings.loginRequesting = false
@@ -64,21 +59,21 @@ class Store: ObservableObject {
                 break
             }
             appState.pokemonList.loadingPokemons = true
+            // 带有异步操作.
             appCommand = LoadPokemonsCommand()
         case .loadPokemonsDone(let result):
             appState.pokemonList.loadingPokemons = false
-            
             switch result {
             case .success(let models):
                 appState.pokemonList.pokemons =
-                    Dictionary(
-                        uniqueKeysWithValues: models.map { ($0.id, $0) }
-                    )
+                Dictionary(
+                    uniqueKeysWithValues: models.map { ($0.id, $0) }
+                )
             case .failure(let error):
                 print(error)
             }
         }
-
+        
         return (appState, appCommand)
     }
 }
