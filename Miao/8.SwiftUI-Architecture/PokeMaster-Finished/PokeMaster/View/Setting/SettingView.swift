@@ -12,9 +12,11 @@ struct SettingView: View {
 
     @EnvironmentObject var store: Store
     
+    // 当, 需要 Bind 的时候, 使用该值.
     var settingsBinding: Binding<AppState.Settings> {
         $store.appState.settings
     }
+    // 当, 仅仅是进行展示的时候, 使用该值.
     var settings: AppState.Settings {
         store.appState.settings
     }
@@ -33,7 +35,7 @@ struct SettingView: View {
     var accountSection: some View {
         Section(header: Text("账户")) {
             if settings.loginUser == nil {
-                Picker(selection: settingsBinding.accountBehavior, label: Text("")) {
+                Picker(selection: settingsBinding.currentBehavior, label: Text("")) {
                     ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
                         Text($0.text)
                     }
@@ -41,13 +43,13 @@ struct SettingView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 TextField("电子邮箱", text: settingsBinding.email)
                 SecureField("密码", text: settingsBinding.password)
-                if settings.accountBehavior == .register {
+                if settings.currentBehavior == .register {
                     SecureField("确认密码", text: settingsBinding.verifyPassword)
                 }
                 if settings.loginRequesting {
                     Text("登录中...")
                 } else {
-                    Button(settings.accountBehavior.text) {
+                    Button(settings.currentBehavior.text) {
                         self.store.dispatch(
                             .login(
                                 email: self.settings.email,
@@ -70,7 +72,7 @@ struct SettingView: View {
             Toggle(isOn: settingsBinding.showEnglishName) {
                 Text("显示英文名")
             }
-            Picker(selection: settingsBinding.sorting, label: Text("排序方式")) {
+            Picker(selection: settingsBinding.sortingWay, label: Text("排序方式")) {
                 ForEach(AppState.Settings.Sorting.allCases, id: \.self) {
                     Text($0.text)
                 }

@@ -22,13 +22,13 @@ extension AppState {
             case register, login
         }
 
-        var accountBehavior = AccountBehavior.login
+        var currentBehavior = AccountBehavior.login
         var email = ""
         var password = ""
         var verifyPassword = ""
         
         var showEnglishName = true
-        var sorting = Sorting.id
+        var sortingWay = Sorting.id
         var showFavoriteOnly = false
 
         @FileStorage(directory: .documentDirectory, fileName: "user.json") var loginUser: User?

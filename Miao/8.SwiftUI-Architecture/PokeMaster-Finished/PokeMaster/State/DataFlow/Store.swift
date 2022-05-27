@@ -9,11 +9,18 @@
 
 import Combine
 
+/*
+ 这是一个 ViewModel, AppState 则是 Model 对象 .
+ */
 class Store: ObservableObject {
     @Published var appState = AppState()
     
+    // ViewModel 的 ModelAction .
+    // 其实就是修改自己的内部状态, 不过的是, 这里使用了一个比较复杂的机制.
     func dispatch(_ action: AppAction) {
         let result = Store.reduce(state: appState, action: action)
+        // 现将自身的状态改变, 然后触发异步任务.
+        // 在异步任务中, 再次进行 dispatch, 触发 ModelAction.
         appState = result.0
         if let command = result.1 {
             command.execute(in: self)
