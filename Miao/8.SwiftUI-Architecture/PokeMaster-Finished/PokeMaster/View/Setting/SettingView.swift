@@ -11,6 +11,7 @@ import SwiftUI
 struct SettingView: View {
 
     @EnvironmentObject var store: Store
+    
     var settingsBinding: Binding<AppState.Settings> {
         $store.appState.settings
     }
@@ -108,13 +109,5 @@ extension AppState.Settings.AccountBehavior {
         case .register: return "注册"
         case .login: return "登录"
         }
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        let store = Store()
-        store.appState.settings.sorting = .color
-        return SettingView().environmentObject(store)
     }
 }

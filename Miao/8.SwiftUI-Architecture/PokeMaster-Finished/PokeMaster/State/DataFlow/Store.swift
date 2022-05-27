@@ -13,19 +13,14 @@ class Store: ObservableObject {
     @Published var appState = AppState()
     
     func dispatch(_ action: AppAction) {
-#if DEBUG
-        print("[ACTION]: \(action)")
-#endif
         let result = Store.reduce(state: appState, action: action)
         appState = result.0
         if let command = result.1 {
-#if DEBUG
-            print("[COMMAND]: \(command)")
-#endif
             command.execute(in: self)
         }
     }
     
+    // 这里的逻辑, 和之前的 Calculate 是一致的.
     static func reduce(state: AppState, action: AppAction) -> (AppState, AppCommand?) {
         var appState = state
         var appCommand: AppCommand?

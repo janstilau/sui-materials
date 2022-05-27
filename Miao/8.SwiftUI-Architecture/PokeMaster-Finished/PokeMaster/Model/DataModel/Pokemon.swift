@@ -9,7 +9,6 @@
 import Foundation
 
 struct Pokemon: Codable {
-
     struct `Type`: Codable {
         struct Internal: Codable {
             let name: String

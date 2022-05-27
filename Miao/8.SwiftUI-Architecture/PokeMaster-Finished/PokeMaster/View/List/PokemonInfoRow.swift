@@ -81,13 +81,3 @@ struct ToolButtonModifier: ViewModifier {
             .frame(width: 30, height: 30)
     }
 }
-
-struct PokemonInfoRow_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            PokemonInfoRow(model: .sample(id: 1), expanded: false)
-            PokemonInfoRow(model: .sample(id: 21), expanded: true)
-            PokemonInfoRow(model: .sample(id: 25), expanded: false)
-        }
-    }
-}

@@ -31,8 +31,7 @@ extension AppState {
         var sorting = Sorting.id
         var showFavoriteOnly = false
 
-        @FileStorage(directory: .documentDirectory, fileName: "user.json")
-        var loginUser: User?
+        @FileStorage(directory: .documentDirectory, fileName: "user.json") var loginUser: User?
 
         var loginRequesting = false
         var loginError: AppError?
