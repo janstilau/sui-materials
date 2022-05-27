@@ -27,6 +27,7 @@ struct PokemonList: View {
                         expanded: self.expandingIndex == pokemon.id
                     )
                     .onTapGesture {
+                        // 这种
                         withAnimation(
                             .spring(
                                 response: 0.55,
@@ -54,8 +55,3 @@ struct PokemonList: View {
     }
 }
 
-struct PokemonList_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonList()
-    }
-}

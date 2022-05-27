@@ -16,7 +16,7 @@ import Combine
 struct LoginRequest {
     let email: String
     let password: String
-
+    
     var publisher: AnyPublisher<User, AppError> {
         Future { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) {

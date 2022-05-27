@@ -9,6 +9,7 @@
 import Combine
 
 class Store: ObservableObject {
+    // appState 还是 @Published, 所以, 它的内存态改变, 还是会造成信号的发送.
     @Published var appState = AppState()
     
     private var disposeBag = Set<AnyCancellable>()
@@ -65,7 +66,8 @@ class Store: ObservableObject {
             appState.pokemonList.loadingPokemons = false
             switch result {
             case .success(let models):
-                appState.pokemonList.pokemons =
+                // 如果, 成功了, 那么修改 DataSource 进行更新. 
+                appState.pokemonList.thePokemons =
                 Dictionary(
                     uniqueKeysWithValues: models.map { ($0.id, $0) }
                 )

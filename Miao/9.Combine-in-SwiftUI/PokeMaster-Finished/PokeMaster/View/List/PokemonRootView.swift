@@ -13,8 +13,9 @@ struct PokemonRootView: View {
 
     var body: some View {
         NavigationView {
-            if store.appState.pokemonList.pokemons == nil {
+            if store.appState.pokemonList.thePokemons == nil {
                 Text("Loading...").onAppear {
+                    // 这应该是 ViewDidLoad 中的 ViewAction 的调用 .
                     self.store.dispatch(.loadPokemons)
                 }
             } else {

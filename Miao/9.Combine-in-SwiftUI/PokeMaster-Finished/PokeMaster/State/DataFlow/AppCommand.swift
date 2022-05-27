@@ -45,6 +45,7 @@ struct LoginAppCommand: AppCommand {
 
 struct LoadPokemonsCommand: AppCommand {
     func execute(in store: Store) {
+        // 还是原来的套路, 在 Sink 中, 也就是异步操作的最后, 调用 store 来触发 ModelAction
         let token = SubscriptionToken()
         LoadPokemonRequest.all
             .sink(
