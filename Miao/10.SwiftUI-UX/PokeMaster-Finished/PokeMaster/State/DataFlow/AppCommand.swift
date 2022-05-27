@@ -16,29 +16,29 @@ protocol AppCommand {
 struct LoginAppCommand: AppCommand {
     let email: String
     let password: String
-
+    
     func execute(in store: Store) {
         let token = SubscriptionToken()
         LoginRequest(
             email: email,
             password: password
         ).publisher
-        .sink(
-            receiveCompletion: { complete in
-                if case .failure(let error) = complete {
+            .sink(
+                receiveCompletion: { complete in
+                    if case .failure(let error) = complete {
+                        store.dispatch(
+                            .accountBehaviorDone(result: .failure(error))
+                        )
+                    }
+                    token.unseal()
+                },
+                receiveValue: { user in
                     store.dispatch(
-                        .accountBehaviorDone(result: .failure(error))
+                        .accountBehaviorDone(result: .success(user))
                     )
                 }
-                token.unseal()
-            },
-            receiveValue: { user in
-                store.dispatch(
-                    .accountBehaviorDone(result: .success(user))
-                )
-            }
-        )
-        .seal(in: token)
+            )
+            .seal(in: token)
     }
 }
 
@@ -62,21 +62,25 @@ struct LoadPokemonsCommand: AppCommand {
 }
 
 struct LoadAbilitiesCommand: AppCommand {
-
+    
     let pokemon: Pokemon
-
+    
     func load(pokemonAbility: Pokemon.AbilityEntry, in store: Store)
-        -> AnyPublisher<AbilityViewModel, AppError>
+    -> AnyPublisher<AbilityViewModel, AppError>
     {
+        // 缓存策略, 可以看到, 中途安插的缓存, 也要纳入到 Combine 的体系里面.
+        // Just 是个好东西
         if let value = store.appState.pokemonList.abilities?[pokemonAbility.id.extractedID!] {
             return Just(value)
+            // 要保持, 返回值的类型是统一的.
+            // setFailureType 只使用到, Fail 为 Never 的情况下.
                 .setFailureType(to: AppError.self)
                 .eraseToAnyPublisher()
         } else {
             return LoadAbilityRequest(pokemonAbility: pokemonAbility).publisher
         }
     }
-
+    
     func execute(in store: Store) {
         let token = SubscriptionToken()
         pokemon.abilities

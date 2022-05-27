@@ -36,11 +36,3 @@ extension PokemonInfoPanel {
         }
     }
 }
-
-struct PokemonInfoPanelAbilityList_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonInfoPanel.AbilityList(
-            model: .sample(id: 1),
-            abilityModels: AbilityViewModel.sample(pokemonID: 1))
-    }
-}
