@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct PokemonRootView: View {
-
+    
     @EnvironmentObject var store: Store
-
+    
     var body: some View {
         NavigationView {
             if store.appState.pokemonList.pokemons == nil {
@@ -32,11 +32,11 @@ struct PokemonRootView: View {
             }
         }
     }
-
+    
     struct RetryButton: View {
-
+        
         let block: () -> Void
-
+        
         var body: some View {
             Button(action: {
                 self.block()
@@ -55,14 +55,6 @@ struct PokemonRootView: View {
             }
         }
     }
-
-
+    
+    
 }
-
-#if DEBUG
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonRootView().environmentObject(Store.sample)
-    }
-}
-#endif

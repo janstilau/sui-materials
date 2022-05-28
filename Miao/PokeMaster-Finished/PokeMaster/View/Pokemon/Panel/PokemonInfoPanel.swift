@@ -65,11 +65,3 @@ struct PokemonInfoPanel: View {
         .fixedSize(horizontal: false, vertical: true)
     }
 }
-
-#if DEBUG
-struct PokemonInfoPanel_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonInfoPanel(model: .sample(id: 1)).environmentObject(Store.sample)
-    }
-}
-#endif

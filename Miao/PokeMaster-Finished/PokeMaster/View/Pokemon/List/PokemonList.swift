@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct PokemonList: View {
-
+    
     @EnvironmentObject var store: Store
-
+    
     var pokemonList: AppState.PokemonList { store.appState.pokemonList }
-
+    
     var body: some View {
         ScrollView {
             LazyVStack {
@@ -25,12 +25,12 @@ struct PokemonList: View {
                         model: pokemon,
                         expanded: self.pokemonList.selectionState.isExpanding(pokemon.id)
                     )
-                    .onTapGesture {
-                        withAnimation(.spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)) {
-                            self.store.dispatch(.toggleListSelection(index: pokemon.id))
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)) {
+                                self.store.dispatch(.toggleListSelection(index: pokemon.id))
+                            }
+                            self.store.dispatch(.loadAbilities(pokemon: pokemon.pokemon))
                         }
-                        self.store.dispatch(.loadAbilities(pokemon: pokemon.pokemon))
-                    }
                 }
             }
             Spacer()
@@ -38,11 +38,3 @@ struct PokemonList: View {
         }
     }
 }
-
-#if DEBUG
-struct PokemonList_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonList().environmentObject(Store.sample)
-    }
-}
-#endif

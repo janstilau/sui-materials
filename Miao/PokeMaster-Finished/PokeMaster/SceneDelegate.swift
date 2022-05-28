@@ -23,9 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         showMainTab(scene: scene, with: store)
     }
 
+    // 这里的逻辑, 其实和之前的没有太大的区别.
+    // 就是生成一个 Window, 色值 Window 的 RootVC.
     private func showMainTab(scene: UIScene, with store: Store) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            // 在生成 RootVC 的时候, 对于 Model 进行了设置.
             window.rootViewController = UIHostingController(rootView:
                 MainTab().environmentObject(store)
             )
