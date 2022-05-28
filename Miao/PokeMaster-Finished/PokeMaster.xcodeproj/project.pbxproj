@@ -26,7 +26,6 @@
 		4BFE513622F8018D00500B72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BFE513522F8018D00500B72 /* Preview Assets.xcassets */; };
 		4BFE513922F8018D00500B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFE513722F8018D00500B72 /* LaunchScreen.storyboard */; };
 		D10ED98922FF1ED100E632CB /* OverlaySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ED98822FF1ED100E632CB /* OverlaySheet.swift */; };
-		D115E9DD2352F980001F8F05 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D115E9DC2352F980001F8F05 /* KingfisherSwiftUI */; };
 		D11D5CFD2313DCE7001DCEEF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D5CFC2313DCE7001DCEEF /* LoadingView.swift */; };
 		D130B8A422F874CE006EDCDC /* PokemonInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D130B8A322F874CE006EDCDC /* PokemonInfoRow.swift */; };
 		D130B8A722F875AC006EDCDC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D130B8A622F875AC006EDCDC /* Pokemon.swift */; };
@@ -110,9 +109,12 @@
 		D1EA9E0722FE5D1900CD45DE /* PokemonInfoPanelHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA9E0622FE5D1900CD45DE /* PokemonInfoPanelHeader.swift */; };
 		D1EA9E0A22FE689B00CD45DE /* PokemonInfoPanelAbilityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA9E0922FE689B00CD45DE /* PokemonInfoPanelAbilityList.swift */; };
 		D1EA9E0C22FF138E00CD45DE /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA9E0B22FF138E00CD45DE /* MainTab.swift */; };
+		D6CD1CC9B3CCE44BA356312F /* Pods_PokeMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D462DFC55FA97D625EAFF1D /* Pods_PokeMaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		047C0EDD47B6D6D7F16FDE4E /* Pods-PokeMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMaster.debug.xcconfig"; path = "Target Support Files/Pods-PokeMaster/Pods-PokeMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		2D462DFC55FA97D625EAFF1D /* Pods_PokeMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1FEF50230CD69F00B7D017 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		4B1FEF52230CD6D500B7D017 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4B1FEF54230CDAED00B7D017 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		4BFE513522F8018D00500B72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4BFE513822F8018D00500B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BFE513A22F8018D00500B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B65A44064C654B73BF9819 /* Pods-PokeMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeMaster.release.xcconfig"; path = "Target Support Files/Pods-PokeMaster/Pods-PokeMaster.release.xcconfig"; sourceTree = "<group>"; };
 		D10ED98822FF1ED100E632CB /* OverlaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlaySheet.swift; sourceTree = "<group>"; };
 		D11D5CFC2313DCE7001DCEEF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D130B8A322F874CE006EDCDC /* PokemonInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoRow.swift; sourceTree = "<group>"; };
@@ -224,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D115E9DD2352F980001F8F05 /* KingfisherSwiftUI in Frameworks */,
+				D6CD1CC9B3CCE44BA356312F /* Pods_PokeMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +313,7 @@
 				4BFE512B22F8018800500B72 /* PokeMaster */,
 				4BFE512A22F8018800500B72 /* Products */,
 				D1389B1223461C6300EF3CE4 /* Frameworks */,
+				A4DC9D66991FF8B411895EDA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -345,6 +349,15 @@
 				4BFE513522F8018D00500B72 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A4DC9D66991FF8B411895EDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				047C0EDD47B6D6D7F16FDE4E /* Pods-PokeMaster.debug.xcconfig */,
+				86B65A44064C654B73BF9819 /* Pods-PokeMaster.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		D130B8A522F87599006EDCDC /* Model */ = {
@@ -417,6 +430,7 @@
 		D1389B1223461C6300EF3CE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D462DFC55FA97D625EAFF1D /* Pods_PokeMaster.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -532,9 +546,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BFE513D22F8018D00500B72 /* Build configuration list for PBXNativeTarget "PokeMaster" */;
 			buildPhases = (
+				4AF5596046FB54265E433358 /* [CP] Check Pods Manifest.lock */,
 				4BFE512522F8018800500B72 /* Sources */,
 				4BFE512622F8018800500B72 /* Frameworks */,
 				4BFE512722F8018800500B72 /* Resources */,
+				CE1AEE9146B131F4E048E16F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -542,7 +558,6 @@
 			);
 			name = PokeMaster;
 			packageProductDependencies = (
-				D115E9DC2352F980001F8F05 /* KingfisherSwiftUI */,
 			);
 			productName = PokeMaster;
 			productReference = 4BFE512922F8018800500B72 /* PokeMaster.app */;
@@ -555,7 +570,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "OneV's Den";
 				TargetAttributes = {
 					4BFE512822F8018800500B72 = {
@@ -659,6 +674,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AF5596046FB54265E433358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeMaster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE1AEE9146B131F4E048E16F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeMaster/Pods-PokeMaster-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeMaster/Pods-PokeMaster-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeMaster/Pods-PokeMaster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BFE512522F8018800500B72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -744,6 +801,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -804,6 +862,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -834,19 +893,20 @@
 		};
 		4BFE513E22F8018D00500B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 047C0EDD47B6D6D7F16FDE4E /* Pods-PokeMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "PokeMaster/Preview\\ Content";
-				DEVELOPMENT_TEAM = A4YJ9MRZ66;
+				DEVELOPMENT_TEAM = GAJJ4F72ZK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PokeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.PokeMaster;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.PokeMaster-yami";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -855,19 +915,20 @@
 		};
 		4BFE513F22F8018D00500B72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86B65A44064C654B73BF9819 /* Pods-PokeMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "PokeMaster/Preview\\ Content";
-				DEVELOPMENT_TEAM = A4YJ9MRZ66;
+				DEVELOPMENT_TEAM = GAJJ4F72ZK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PokeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.PokeMaster;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.PokeMaster-yami";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -907,14 +968,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D115E9DC2352F980001F8F05 /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D115E9DB2352F980001F8F05 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4BFE512122F8018800500B72 /* Project object */;
 }
