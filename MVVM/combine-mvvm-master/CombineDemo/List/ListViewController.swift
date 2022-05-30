@@ -39,15 +39,18 @@ final class ListViewController: UIViewController {
         setUpBindings()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.retrySearch()
-    }
-    
+    /*
+     View 的构建操作, 移交完了 ListView 的内部, VC 里面, 仅仅做布局的处理.
+     */
     private func setUpTableView() {
         contentView.collectionView.register(
             PlayerCollectionCell.self,
             forCellWithReuseIdentifier: PlayerCollectionCell.identifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.retrySearch()
     }
     
     private func setUpBindings() {

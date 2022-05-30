@@ -21,7 +21,6 @@ enum ListViewModelState: Equatable {
 final class ListViewModel {
     enum Section { case players }
     
-    // 暴露给业务方的信号源. @Published 这种方式, 使得 Subject 的使用, 大大减少了.
     @Published private(set) var players: [Player] = []
     @Published private(set) var state: ListViewModelState = .loading
     private var currentSearchQuery: String = ""
