@@ -24,9 +24,3 @@ struct PokemonRootView: View {
         }
     }
 }
-
-struct PokemonListRoot_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonRootView()
-    }
-}

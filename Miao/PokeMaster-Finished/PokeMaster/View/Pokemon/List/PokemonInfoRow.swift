@@ -7,15 +7,15 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
+import Kingfisher
 
 struct PokemonInfoRow: View {
-
+    
     @EnvironmentObject var store: Store
-
+    
     let model: PokemonViewModel
     let expanded: Bool
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -61,7 +61,7 @@ struct PokemonInfoRow: View {
                     Image(systemName: "chart.bar")
                         .modifier(ToolButtonModifier())
                 }
-
+                
                 NavigationLink(
                     destination:
                         SafariView(
@@ -100,7 +100,7 @@ struct PokemonInfoRow: View {
         )
         .padding(.horizontal)
     }
-
+    
     var isFavorite: Bool {
         if let user = store.appState.settings.loginUser {
             return user.favoritePokemonIDs.contains(model.id)
@@ -119,14 +119,3 @@ struct ToolButtonModifier: ViewModifier {
     }
 }
 
-#if DEBUG
-struct PokemonInfoRow_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            PokemonInfoRow(model: .sample(id: 1), expanded: false)
-            PokemonInfoRow(model: .sample(id: 21), expanded: true)
-            PokemonInfoRow(model: .sample(id: 25), expanded: false)
-        }.environmentObject(Store())
-    }
-}
-#endif

@@ -13,12 +13,13 @@ import Foundation
  但是, 存储是 ViewModel 中做的.
  这是一个工具类.
  */
-
-// 这是一个Enum 的对象, 所以, 不断的传递, 其实会复制的, 在传递之后的修改, 是不会对于原有的数据有任何的影响的.
+/*
+ 根据当前的值, 以及传递过来的 Item 的值, 计算出新的状态值. 这符合 Reduce 的思想.
+ */
 enum CalculatorBrain {
-    case left(String)
-    case leftOp(left: String, op: CalculatorButtonItem.Op)
-    case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String)
+    case left(String) // 正在输入左操作数
+    case leftOp(left: String, op: CalculatorButtonItem.Op) // 输入了左操作数, 正在输入操作符.
+    case leftOpRight(left: String, op: CalculatorButtonItem.Op, right: String) // 输入了左操作数, 操作符, 正在输入右操作数.
     case error
     
     /*
@@ -43,11 +44,13 @@ enum CalculatorBrain {
         }
     }
     
-    // ViewState 相关的计算属性. 是这个类存在的根本.
-    // 数据修改了之后, 需要暴露给外界, 这个类才有意义. 在 SwiftUI 中, 就是给 View 提供显示数据.
-    // 根据当前自己所处的状态, 抽取出应该展示的内容.
+    // ViewState 相关的计算属性.
+    // 根据当前自己所处的状态, 计算出应该显示到上方 Panel 中的内容.
+    // Swfit UI 中, 是直接根据 Model 的 output, 进行上方面板的显示的.
     var output: String {
         let result: String
+        // 具体的实现, 就是根据当前的 case 值, 抽取应该显示的内容.
+        // Enum 数据容器的作用, 在这里体现了出来了.
         switch self {
         case .left(let left): result = left
         case .leftOp(let left, _): result = left
@@ -61,6 +64,7 @@ enum CalculatorBrain {
     }
 }
 
+// 真正的 Apply, 是一个 Dispatch 函数. 根据 Item 的种类不同, 来进行不同的 Apply 函数的调用.
 extension CalculatorBrain {
     private func apply(num: Int) -> CalculatorBrain {
         switch self {
@@ -101,9 +105,11 @@ extension CalculatorBrain {
         case .left(let left):
             switch op {
                 // 左操作数输入状态, 碰到了操作符, 进入到操作符输入完毕状态.
+                // 所以, 实际上, 这里并没有做计算.
             case .plus, .minus, .multiply, .divide:
                 return .leftOp(left: left, op: op)
                 // 左操作数输入状态, 碰到了==操作符, 还是在左操作符输入状态.
+                // 这是一个很好的设计, 保持了后续的操作流程.
             case .equal:
                 return self
             }
@@ -111,6 +117,7 @@ extension CalculatorBrain {
             switch op {
             case .plus, .minus, .multiply, .divide:
                 // 操作符输入完毕状态, 碰到了操作符, 其实是修改输入的操作符.
+                // 这是一个很好的设计.
                 return .leftOp(left: left, op: op)
             case .equal:
                 // 这可能是一个通用逻辑, 就是前操作符赋值成为后操作数, 来做运算. 等号的方便用法????
@@ -180,18 +187,12 @@ var formatter: NumberFormatter = {
     return f
 }()
 
+
+
 // 各种相关的值的计算, 是放到了相关的数据类型里面了.
 // 并没有把逻辑, 统一的放到了 CalculatorBrain 里面. 这样, 逻辑的存储位置更加的合理.
 // 如果, extensnion 前面有着范围限定符, 那么是更加清晰的代码布局方式.
 extension String {
-    var containsDot: Bool {
-        return contains(".")
-    }
-    
-    var startWithNegative: Bool {
-        return starts(with: "-")
-    }
-    
     // 数字和数字的拼接工作.
     // 在小函数里面, 将各种特殊 Case 进行处理, 在高层逻辑里面, 使用起来就会很方便.
     func apply(num: Int) -> String {
@@ -205,6 +206,10 @@ extension String {
         return containsDot ? self : "\(self)."
     }
     
+    var containsDot: Bool {
+        return contains(".")
+    }
+    
     func flipped() -> String {
         if startWithNegative {
             var s = self
@@ -215,6 +220,10 @@ extension String {
         }
     }
     
+    var startWithNegative: Bool {
+        return starts(with: "-")
+    }
+    
     func percentaged() -> String {
         return String(Double(self)! / 100)
     }
@@ -222,6 +231,7 @@ extension String {
 
 extension CalculatorButtonItem.Op {
     // 将四则运算的相关逻辑, 放到了 Operation 类里面了.
+    // 非常好的设计. 完美的解决了, 函数应该在哪个类中定义的问题.
     func calculate(l: String, r: String) -> String? {
         guard let left = Double(l),
               let right = Double(r) else {

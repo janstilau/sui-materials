@@ -13,9 +13,11 @@ import Combine
  最终的效果, 就是使得 ViewModel 在 VC 里面, 就像是信号槽一样被使用.
  */
 final class LoginViewModel {
+    
     @Published var login: String = ""
     @Published var password: String = ""
-    @Published var isLoading = false
+    @Published private(set) var isLoading = false
+    
     var validationResult: AnyPublisher<Void, Error> {
         return _validationResult.eraseToAnyPublisher()
     }
@@ -23,17 +25,25 @@ final class LoginViewModel {
     
     /*
      ViewModel 有一个很麻烦的地方, 就是他要进行信号的合并处理. 将单一的信号, 通过自己的业务逻辑, 变为一个 View 直接可以使用的信号源.
+     
+     好处就是, 之后的修改都是自动响应的了.
+     .assign(to: \.login, on: viewModel)
+     自动触发 isInputValid 相关信号的发射, 导致 UI 的变化.
+     
+     如果是之前命令式的, 就是
+     修改 login, password 两个字符串属性的值.
+     然后进行 isInputValid 判断.
+     然后根据结果, 进行 View 的更新. 所有的逻辑, 都写到了 Controller 类里面.
+     
+     现在, 在 ViewModel 里面, 将所有的 UI 相关的绑定信号进行构建, Controller 里面, 仅仅是作为绑定, 上面的 Controller 逻辑, 利用响应式的框架自动完成. 
      */
-    /*
-     对于 Subject 来说, 如果他里面有值, 如果下游节点 Request Demand 的话, 他就会把当前值输出出去.
-     所以, Published Subject 和 Current Value Subject 一样, 是可以直接和 View 绑定在一起的.
-     因为会有初值.
-     */
-    private(set) lazy var isInputValid: AnyPublisher<Bool, Never> = Publishers.CombineLatest($login, $password)
-        .map {
-            $0.count > 0 && $1.count > 0
-        }
-        .eraseToAnyPublisher()
+    private(set) lazy var isInputValid: AnyPublisher<Bool, Never> = {
+        Publishers.CombineLatest($login, $password)
+            .map {
+                $0.count > 0 && $1.count > 0
+            }
+            .eraseToAnyPublisher()
+    }()
     
     private let credentialsValidator: CredentialsValidatorProtocol
     
@@ -44,10 +54,13 @@ final class LoginViewModel {
     
     /*
      View Model 的 IntentAction, 里面触发对应的信号的发射.
+     对于, 这种不能依靠 @Published 来合成出来的信号, 要专门定义一个 Subject 来发射信号.
+     这其实和 Delegate 没有太大区别.
      */
     func validateCredentials() {
         isLoading = true
         
+        // 触发控制层的逻辑操作, 然后发射出信号出去.
         credentialsValidator.validateCredentials(login: login, password: password) { [weak self] result in
             self?.isLoading = false
             switch result {

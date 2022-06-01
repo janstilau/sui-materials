@@ -111,11 +111,3 @@ extension AppState.Settings.AccountBehavior {
         }
     }
 }
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        let store = Store()
-        store.appState.settings.sorting = .color
-        return SettingView().environmentObject(store)
-    }
-}

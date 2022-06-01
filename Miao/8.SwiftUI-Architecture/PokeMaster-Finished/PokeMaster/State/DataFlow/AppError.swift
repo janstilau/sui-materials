@@ -10,7 +10,6 @@ import Foundation
 
 enum AppError: Error, Identifiable {
     var id: String { localizedDescription }
-
     case passwordWrong
 }
 

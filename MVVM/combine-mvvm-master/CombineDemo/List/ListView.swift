@@ -7,6 +7,9 @@
 
 import UIKit
 
+/*
+ 将 View 的构建, 完全的交给了 View 组件内部. 
+ */
 final class ListView: UIView {
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     lazy var searchTextField = UITextField()

@@ -19,6 +19,9 @@ final class MockAPIService: APIServiceType {
         stubs.append(response)
     }
     
+    /*
+     传入的 Block, 是一个 Publisher 的生成器, 这样, 就能够根据传入的 Block, 生成一个自定义的 Publisher 了.
+     */
     func response<Request>(from request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType {
         
         let response = stubs.compactMap { stub -> AnyPublisher<Request.Response, APIServiceError>? in

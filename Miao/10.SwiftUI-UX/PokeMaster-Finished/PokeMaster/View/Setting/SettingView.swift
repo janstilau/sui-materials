@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SettingView: View {
-
+    
     @EnvironmentObject var store: Store
     var settingsBinding: Binding<AppState.Settings> {
         $store.appState.settings
@@ -17,7 +17,7 @@ struct SettingView: View {
     var settings: AppState.Settings {
         store.appState.settings
     }
-
+    
     var body: some View {
         Form {
             accountSection
@@ -28,7 +28,7 @@ struct SettingView: View {
             Alert(title: Text(error.localizedDescription))
         }
     }
-
+    
     var accountSection: some View {
         Section(header: Text("账户")) {
             if settings.loginUser == nil {
@@ -64,7 +64,7 @@ struct SettingView: View {
             }
         }
     }
-
+    
     var optionSection: some View {
         Section(header: Text("选项")) {
             Toggle(isOn: settingsBinding.showEnglishName) {
@@ -80,7 +80,7 @@ struct SettingView: View {
             }
         }
     }
-
+    
     var actionSection: some View {
         Section {
             Button(action: {
@@ -109,13 +109,5 @@ extension AppState.Settings.AccountBehavior {
         case .register: return "注册"
         case .login: return "登录"
         }
-    }
-}
-
-struct SettingView_Previews: PreviewProvider {
-    static var previews: some View {
-        let store = Store()
-        store.appState.settings.sorting = .color
-        return SettingView().environmentObject(store)
     }
 }

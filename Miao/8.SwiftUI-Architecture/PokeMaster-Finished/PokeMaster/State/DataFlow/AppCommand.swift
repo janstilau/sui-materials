@@ -18,6 +18,8 @@ struct LoginAppCommand: AppCommand {
     let password: String
 
     func execute(in store: Store) {
+        // Token 的生命周期, 会在 CompleteEvent 中结束.
+        // 使用这种办法, 保证了响应链条不会提前结束. 
         let token = SubscriptionToken()
         LoginRequest(
             email: email,

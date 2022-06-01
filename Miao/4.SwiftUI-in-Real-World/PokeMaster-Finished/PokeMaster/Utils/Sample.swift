@@ -10,6 +10,8 @@ import Foundation
 
 #if DEBUG
 
+// 一个快速进行测试数据读取的方法集合.
+// 在对应的 Model 层进行了定义. 
 extension Pokemon {
     static func sample(id: Int) -> Pokemon {
         return FileHelper.loadBundledJSON(file: "pokemon-\(id)")
@@ -26,7 +28,7 @@ extension Ability {
     static func sample(url: URL) -> Ability {
         sample(id: url.extractedID!)
     }
-
+    
     static func sample(id: Int) -> Ability {
         return FileHelper.loadBundledJSON(file: "ability-\(id)")
     }
@@ -40,13 +42,13 @@ extension PokemonViewModel {
             return PokemonViewModel(pokemon: pokemon, species: species)
         }
     }()
-
+    
     static let samples: [PokemonViewModel] = [
         sample(id: 1),
         sample(id: 2),
         sample(id: 3),
     ]
-
+    
     static func sample(id: Int) -> PokemonViewModel {
         let pokemon = Pokemon.sample(id: id)
         let species = PokemonSpecies.sample(url: pokemon.species.url)

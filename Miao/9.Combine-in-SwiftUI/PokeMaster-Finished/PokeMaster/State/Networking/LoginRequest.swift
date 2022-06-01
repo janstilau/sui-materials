@@ -9,10 +9,14 @@
 import Foundation
 import Combine
 
+/*
+ 使用更加面向对象的方式, 来进行 Combine 的使用.
+ 使用 Combine 的 Future 解决了 Share 的问题.
+ */
 struct LoginRequest {
     let email: String
     let password: String
-
+    
     var publisher: AnyPublisher<User, AppError> {
         Future { promise in
             DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) {

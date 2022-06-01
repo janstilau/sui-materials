@@ -19,6 +19,9 @@ struct AbilityViewModel: Identifiable, Codable {
         self.ability = ability
     }
     
+    /*
+     将, View 的展示逻辑, 放到了 ViewModel 里面, 这是 ViewModel 的责任. 
+     */
     var id: Int { ability.id }
     var name: String { ability.names.CN }
     var nameEN: String { ability.names.EN }

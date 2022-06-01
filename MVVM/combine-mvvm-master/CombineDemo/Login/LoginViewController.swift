@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     override func loadView() {
+        // 将, View 的构建, 全部的放到了 LoginView 中. 
         view = contentView
     }
     
@@ -35,10 +36,21 @@ class LoginViewController: UIViewController {
         setUpBindings()
     }
     
+    /*
+     ViewAction 中, 触发 Model Action 机制的搭建.
+     */
     private func setUpTargets() {
         contentView.loginButton.addTarget(self, action: #selector(loginBtnDidClicked), for: .touchUpInside)
     }
     
+    @objc private func loginBtnDidClicked() {
+        viewModel.validateCredentials()
+    }
+    
+    
+    /*
+     双向绑定的机制, 其实, loginBtnDidClicked 也应该算作是 bindViewToViewModel 的机制. 
+     */
     private func setUpBindings() {
         /*
          View Acrtion 触发 IntentAction.
@@ -46,13 +58,15 @@ class LoginViewController: UIViewController {
          因为是 @Published, 数据的改变, 会触发内部的信号处理, 就是 validationResult.
          下面的 validationResult 和 Btn 的绑定, 使得 View 可以自动的进行更新.
          */
-        
-        /*
-         所有的绑定, 都要添加到 bindings 里面去.
-         信号, 只有在 Complete 事件, 和 主动 cancel 的时候, 才会引起整个响应链条的消亡.
-         为了能够让响应链随着 VC 的生命周期消失, 使用了 Bag 的机制.
-         */
         func bindViewToViewModel() {
+            /*
+             Combine 中, Pubished 的引入, 使得逻辑复杂了.
+             类似于 Variable 的存在. 使得数据变化, 和信号发送联系到了一起.
+             不如有个特定的 IntentAction 更加的清晰. 
+             */
+            /*
+             不过, 就算是在 Rx 里面, View 直接绑定到 ViewModel 上, 也是非常常用的.
+             */
             contentView.loginTextField.textPublisher
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.login, on: viewModel)
@@ -97,10 +111,6 @@ class LoginViewController: UIViewController {
         
         bindViewToViewModel()
         bindViewModelToView()
-    }
-    
-    @objc private func loginBtnDidClicked() {
-        viewModel.validateCredentials()
     }
     
     private func navigateToList() {

@@ -8,37 +8,8 @@
 import Foundation
 import SwiftUI
 
-@resultBuilder
-struct TestBuilder {
-    static func buildBlock(_ items: String...) -> [String] {
-        items
-    }
-}
-
-struct MyContentView: View {
-    @State private var text = "ccc"
-
-    var body: some View {
-        VStack {
-            Button("test") {
-                self.test {
-                    "a"
-                    "b"
-                    "c"
-                    "d"
-                }
-            }
-        }
-    }
-
-    func test(@TestBuilder _ content: () -> [String]) -> Void {
-        print("@TestBuilder Begin")
-        print(content())
-    }
- }
-
-
 struct MemoryGame<CardContent> where CardContent: Equatable {
+    // 真正的存储数据的地方 .
     private(set) var cards: Array<Card>
     private(set) var counterOfMatches: Int
     

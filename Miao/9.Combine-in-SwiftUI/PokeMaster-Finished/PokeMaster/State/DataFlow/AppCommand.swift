@@ -24,6 +24,7 @@ struct LoginAppCommand: AppCommand {
             password: password
         ).publisher
         .sink(
+            // 使用 Sink, 来触发最终的异步操作, 会引起的 ViewModel 的 ModelAction.
             receiveCompletion: { complete in
                 if case .failure(let error) = complete {
                     store.dispatch(
@@ -44,9 +45,11 @@ struct LoginAppCommand: AppCommand {
 
 struct LoadPokemonsCommand: AppCommand {
     func execute(in store: Store) {
+        // 还是原来的套路, 在 Sink 中, 也就是异步操作的最后, 调用 store 来触发 ModelAction
         let token = SubscriptionToken()
         LoadPokemonRequest.all
             .sink(
+                // 使用 Sink, 来触发最终的异步操作, 会引起的 ViewModel 的 ModelAction.
                 receiveCompletion: { complete in
                     if case .failure(let error) = complete {
                         store.dispatch(.loadPokemonsDone(result: .failure(error)))

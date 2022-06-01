@@ -112,6 +112,8 @@ extension AppState {
 
         var searchText = ""
 
+        // 在里面有了过滤操作.
+        // 这个过滤的流程, 是在 ViewModel 中的.
         func displayPokemons(with settings: Settings) -> [PokemonViewModel] {
 
             func isFavorite(_ pokemon: PokemonViewModel) -> Bool {

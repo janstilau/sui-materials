@@ -9,27 +9,27 @@
 import SwiftUI
 
 struct PokemonInfoPanel: View {
-
+    
     @EnvironmentObject var store: Store
-
+    
     let model: PokemonViewModel
     var abilities: [AbilityViewModel]? {
         store.appState.pokemonList.abilityViewModels(for: model.pokemon)
     }
-
+    
     var topIndicator: some View {
         RoundedRectangle(cornerRadius: 3)
             .frame(width: 40, height: 6)
             .opacity(0.2)
     }
-
+    
     var pokemonDescription: some View {
         Text(model.descriptionText)
             .font(.callout)
             .foregroundColor(Color(hex: 0x666666))
             .fixedSize(horizontal: false, vertical: true)
     }
-
+    
     var body: some View {
         VStack(spacing: 20) {
             topIndicator
@@ -55,11 +55,5 @@ struct PokemonInfoPanel: View {
         .blurBackground(style: .systemMaterial)
         .cornerRadius(20)
         .fixedSize(horizontal: false, vertical: true)
-    }
-}
-
-struct PokemonInfoPanel_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonInfoPanel(model: .sample(id: 1))
     }
 }

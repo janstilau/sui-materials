@@ -19,6 +19,7 @@ struct LoadPokemonRequest {
     let id: Int
 
     var publisher: AnyPublisher<PokemonViewModel, AppError> {
+        // 一个串行的 Loading 方式. 这样好吗. 
         pokemonPublisher(id)
             .flatMap { self.speciesPublisher($0) }
             .map { PokemonViewModel(pokemon: $0, species: $1) }
@@ -27,6 +28,7 @@ struct LoadPokemonRequest {
             .eraseToAnyPublisher()
     }
 
+    // 进行 Pokemon 的数据加载.
     private func pokemonPublisher(_ id: Int) -> AnyPublisher<Pokemon, Error> {
         URLSession.shared
             .dataTaskPublisher(for: URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")!)
@@ -35,6 +37,7 @@ struct LoadPokemonRequest {
             .eraseToAnyPublisher()
     }
 
+    // 进行 PokemonSpecies 的数据加载, 然后和传入的 Pokemon 进行组合. 
     private func speciesPublisher(_ pokemon: Pokemon) -> AnyPublisher<(Pokemon, PokemonSpecies), Error> {
         URLSession.shared
             .dataTaskPublisher(for: pokemon.species.url)

@@ -11,6 +11,7 @@ import SwiftUI
 struct OverlaySheet<Content: View>: View {
 
     private let isPresented: Binding<Bool>
+    // makeContent, 把 View 的生成器, 当做了 View 对象来使用.
     private let makeContent: () -> Content
 
     @GestureState private var translation = CGPoint.zero
@@ -23,6 +24,7 @@ struct OverlaySheet<Content: View>: View {
     var body: some View {
         VStack {
             Spacer()
+            // 直到, 真正使用 View 的时候, 才使用了 View 的生成器.
             makeContent()
         }
         .offset(y: (isPresented.wrappedValue ? 0 : UIScreen.main.bounds.height) + max(0, translation.y))

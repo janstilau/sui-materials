@@ -29,9 +29,9 @@ extension CalculatorButtonItem {
     }
     
     enum Command: String {
-        case clear = "AC"
-        case flip = "+/-"
-        case percent = "%"
+        case clear = "AC" // 清空
+        case flip = "+/-" // 正负翻转
+        case percent = "%" // 百分比计算
     }
 }
 

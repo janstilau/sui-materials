@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// 感觉是一个毫无意义的封装. 
 final class ActivityIndicatorView: UIActivityIndicatorView {
     override init(style: UIActivityIndicatorView.Style) {
         super.init(style: style)

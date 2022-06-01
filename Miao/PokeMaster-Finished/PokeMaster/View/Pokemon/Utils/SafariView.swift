@@ -24,7 +24,7 @@ struct SafariView: UIViewControllerRepresentable {
         _ uiViewController: SFSafariViewController,
         context: UIViewControllerRepresentableContext<SafariView>)
     {
-
+        print(context.coordinator.parent.url)
     }
 
     func makeCoordinator() -> Coordinator {

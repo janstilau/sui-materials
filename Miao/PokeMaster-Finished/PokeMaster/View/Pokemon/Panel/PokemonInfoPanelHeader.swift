@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
+
 
 extension PokemonInfoPanel {
     struct Header: View {
@@ -27,7 +27,7 @@ extension PokemonInfoPanel {
         }
 
         var pokemonIcon: some View {
-            KFImage(model.iconImageURL)
+            Image(model.iconImageURL.absoluteString)
                 .resizable()
                 .frame(width: 68, height: 68)
         }
@@ -94,11 +94,3 @@ extension PokemonInfoPanel {
         }
     }
 }
-
-#if DEBUG
-struct PokemonInfoPanelHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonInfoPanel.Header(model: .sample(id: 1))
-    }
-}
-#endif

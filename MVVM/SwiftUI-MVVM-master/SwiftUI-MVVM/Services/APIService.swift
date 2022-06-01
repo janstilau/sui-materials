@@ -33,7 +33,6 @@ final class APIService: APIServiceType {
     }
 
     func response<Request>(from request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: APIRequestType {
-    
         let pathURL = URL(string: request.path, relativeTo: baseURL)!
         
         var urlComponents = URLComponents(url: pathURL, resolvingAgainstBaseURL: true)!

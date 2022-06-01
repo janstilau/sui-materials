@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 将, View 的构建工作完全的交给了 View 层. VC 里面, 不在进行 View 的整体搭建. 
 final class LoginView: UIView {
     
     lazy var loginTextField = UITextField()
@@ -29,13 +30,13 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startLoading() {
+    private func startLoading() {
         isUserInteractionEnabled = false
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
     
-    func finishLoading() {
+    private func finishLoading() {
         isUserInteractionEnabled = true
         activityIndicator.stopAnimating()
     }
